@@ -3,31 +3,23 @@ import React, { useRef, useState } from "react";
 
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
-import CBName from "./DefCBDCType/CBName";
-import NotarySel from "./DefCBDCType/NotarySel";
-import MAC from "./DefCBDCType/MAC";
-import TranscationControl from "./DefCBDCType/TranscationControl";
-import AssetControl from "./DefCBDCType/AssetControl";
-import ConfirmDefinition from "./DefCBDCType/ConfirmDefinition";
-import InformationSubmitted from "./DefCBDCType/InformationSubmitted";
-import { Toast } from "primereact/toast";
 
-const DefCBDCType = () => {
+import InformationSubmitted from "../../../CBtabmenu/CBHome/CBDCManager/DefCBDCType/InformationSubmitted";
+import { Toast } from "primereact/toast";
+import BondsOverview from "./RequestCBDCWBO/BondsOverview";
+import SelecAssettoRequest from "./RequestCBDCWBO/SelecAssettoRequest";
+import EnterAmountWBO from "./RequestCBDCWBO/EnterAmountWBO";
+import RequestReviewWBO from "./RequestCBDCWBO/RequestReviewWBO";
+
+const RequestCBDCWBO = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const toast = useRef(null);
   const [data, setData] = useState({
-    cbname: "",
-    decimal: {},
-    option: "",
-    access: true,
-    select: "",
-    accesconrol: "",
-    confirm: "",
-    transvalue: "",
-    maxvalue: "",
-    minvalue: "",
-    displayvalue: "",
-    notary: "",
+    asset: "",
+    amount: 0,
+    decimal: 2,
+    bonds: 1000000000.0,
+    issue: "O=CB, L=Dublin, C=IE",
   });
 
   // const history = useHistory();
@@ -35,48 +27,34 @@ const DefCBDCType = () => {
 
   const wizardItems = [
     {
-      label: "CBDC Name & Decimal",
+      label: "Bonds Overview",
       // command: () => history.push("/central-bank/cbdc-manager/cbdc-type/name"),
     },
     {
-      label: "Notary Selection",
+      label: "select Asset to request",
       // command: () =>
       // history.push("/central-bank/cbdc-manager/cbdc-type/notary-select"),
     },
     {
-      label: "Member Access cotrol",
+      label: "Enter Amount",
       // command: () => history.push("/central-bank/cbdc-manager/cbdc-type/mac"),
     },
     {
-      label: "Tansaction contracts",
+      label: "Request Review",
       // command: () =>
       //   history.push("/central-bank/cbdc-manager/cbdc-type/trans-contract"),
-    },
-    {
-      label: "Asset Controls",
-      // command: () =>
-      // history.push("/central-bank/cbdc-manager/cbdc-type/acess-controls"),
-    },
-    {
-      label: "Confirm Definition",
-      // command: () =>
-      // history.push("/central-bank/cbdc-manager/cbdc-type/confirm"),
     },
   ];
 
   const pageDisplay = () => {
     if (activeIndex === 0) {
-      return <CBName data={data} setData={setData} />;
+      return <BondsOverview data={data} setData={setData} />;
     } else if (activeIndex === 1) {
-      return <NotarySel data={data} setData={setData} />;
+      return <SelecAssettoRequest data={data} setData={setData} />;
     } else if (activeIndex === 2) {
-      return <MAC data={data} setData={setData} />;
+      return <EnterAmountWBO data={data} setData={setData} />;
     } else if (activeIndex === 3) {
-      return <TranscationControl data={data} setData={setData} />;
-    } else if (activeIndex === 4) {
-      return <AssetControl data={data} setData={setData} />;
-    } else if (activeIndex === 5) {
-      return <ConfirmDefinition data={data} setData={setData} />;
+      return <RequestReviewWBO data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
       return <InformationSubmitted />;
     }
@@ -92,15 +70,6 @@ const DefCBDCType = () => {
     // InformationSubmitted();
   };
 
-  // const confirm = (event) => {
-  //   confirmPopup({
-  //     target: event.currentTarget,
-  //     message: "Are you sure you want to proceed?",
-  //     icon: "pi pi-exclamation-triangle",
-  //     accept,
-  //   });
-  // };
-
   return (
     <div className="col-12 ">
       <div className="card card-w-title">
@@ -112,34 +81,7 @@ const DefCBDCType = () => {
           readOnly={false}
         />
       </div>
-      <div className="card">
-        {pageDisplay()}
-
-        {/* <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/name"}
-        component={CBName}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/notary-select/"}
-        component={NotarySel}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/mac"}
-        component={MAC}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/trans-contract"}
-        component={TranscationControl}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/acess-controls"}
-        component={AssetControl}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/confirm"}
-        component={ConfirmDefinition}
-        /> */}
-      </div>
+      <div className="card">{pageDisplay()}</div>
       <div className="card">
         <div className="flex align-items-center justify-content-between">
           <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
@@ -166,7 +108,9 @@ const DefCBDCType = () => {
                   setActiveIndex((curPage) => curPage + 1);
                 }
               }}
-              label={activeIndex === wizardItems.length - 1 ? "SUBMIT" : "NEXT"}
+              label={
+                activeIndex === wizardItems.length - 1 ? "REQUEST" : "NEXT"
+              }
               style={{
                 display: activeIndex === wizardItems.length ? "none" : "block",
               }}
@@ -178,4 +122,4 @@ const DefCBDCType = () => {
   );
 };
 
-export default DefCBDCType;
+export default RequestCBDCWBO;

@@ -31,12 +31,14 @@ const Hero = () => {
             <div icon="pi pi pencil"> </div>
           </div>
           <div class="border-round bg-blue-100 w-12rem h-6rem p-3 m-3">
-            <div
-              class="transition-colors transition-duration-500 bg-blue-500 hover:bg-yellow-500 text-white hover:text-gray-900
+            <NavLink to="/wholesale-bank-one">
+              <div
+                class="transition-colors transition-duration-500 bg-blue-500 hover:bg-yellow-500 text-white hover:text-gray-900
      cursor-pointer text-center h-full w-auto border-round bg-blue-500 text-white font-bold p-3 flex align-items-center justify-content-center"
-            >
-              Wholesale Bank One
-            </div>
+              >
+                Wholesale Bank One
+              </div>
+            </NavLink>
           </div>
           <div class="border-round bg-blue-100 w-12rem h-6rem p-3 m-3">
             <div

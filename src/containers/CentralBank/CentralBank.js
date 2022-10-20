@@ -15,7 +15,7 @@ import CBRefernceModal from "../../components/CBtabmenu/CBRefernceModal";
 import CBVisiblity from "../../components/CBtabmenu/CBVisiblity";
 
 const CentralBank = () => {
-  // const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // const menu = useRef(null);
   // const contextMenu = useRef(null);
@@ -80,7 +80,7 @@ const CentralBank = () => {
       />
       <TabMenu
         model={wizardItems}
-        activeIndex={0}
+        activeIndex={activeIndex}
         setActiveIndex={(e) => e.index}
         end={<Button label="noifications" icon="pi pi-bell" />}
       />
