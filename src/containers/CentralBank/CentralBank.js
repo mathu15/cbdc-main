@@ -91,7 +91,7 @@ const CentralBank = () => {
         component={CbMenbercontrols}
       />
       <Route
-        path={"central-bank/incoming-requests"}
+        path={"/central-bank/incoming-requests"}
         component={CBIncomingRequest}
       />
       <Route

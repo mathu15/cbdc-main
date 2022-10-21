@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
 
 import IssueCBDCs from "../CBtabmenu/CBHome/CBDCManager/IssueCBDCs";
-import AvailableCBDCWBO from "./HomeWBO/WBOCbdcManager/AvailableCBDCWBO";
-import RequestCBDCWBO from "./HomeWBO/WBOCbdcManager/RequestCBDCWBO";
+import AvailableCBDCWBO from "./WBOCbdcManager/AvailableCBDCWBO";
+import RequestCBDCWBO from "./WBOCbdcManager/RequestCBDCWBO";
+import TransferCBDCWBO from "./WBOCbdcManager/TransferCBDCWBO";
 
 const WBOCbdcManager = () => {
   const [activeIndex, setActiveIndex] = useState();
@@ -24,7 +25,7 @@ const WBOCbdcManager = () => {
       label: "Transfer CBDC",
       icon: "pi pi-fw pi-edit",
       command: () =>
-        history.push("/wholesale-bank-one/cbdc-manager/issue-cbdc"),
+        history.push("/wholesale-bank-one/cbdc-manager/transfer-cbdc"),
     },
     {
       label: "Redeem CBDC",
@@ -65,8 +66,8 @@ const WBOCbdcManager = () => {
         component={RequestCBDCWBO}
       />
       <Route
-        path={"/wholesale-bank-one/cbdc-manager/issue-cbdc"}
-        component={IssueCBDCs}
+        path={"/wholesale-bank-one/cbdc-manager/transfer-cbdc"}
+        component={TransferCBDCWBO}
       />
       {/* <Route
         path={"/wholesale-bank-one/cbdc-manager/issue-cbdc"}

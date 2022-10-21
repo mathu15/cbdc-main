@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
 
-import InformationSubmitted from "../../../CBtabmenu/CBHome/CBDCManager/DefCBDCType/InformationSubmitted";
+import InformationSubmitted from "../../CBtabmenu/CBHome/CBDCManager/DefCBDCType/InformationSubmitted";
 import { Toast } from "primereact/toast";
 import BondsOverview from "./RequestCBDCWBO/BondsOverview";
 import SelecAssettoRequest from "./RequestCBDCWBO/SelecAssettoRequest";
