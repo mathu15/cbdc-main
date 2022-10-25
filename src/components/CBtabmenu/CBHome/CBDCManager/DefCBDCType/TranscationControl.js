@@ -7,43 +7,28 @@ import { RadioButton } from "primereact/radiobutton";
 import { InputNumber } from "primereact/inputnumber";
 const TransactionControl = ({ data, setData }) => {
   const [displayBasic, setDisplayBasic] = useState(false);
+  const [skip, setSkip] = useState(data.skip);
 
-  // const basicDialogFooter = (
-  //   <Button
-  //     type="button"
-  //     label="close"
-  //     onClick={() => setDisplayBasic(false)}
-  //     icon="pi pi-minus"
-  //     // className="p-button-secondary"
-  //   />
-  // );
+  const skipper = (
+    <span className="p-float-label">
+      <InputNumber
+        id="amount"
+        value={data.maxvalue}
+        onChange={(e) =>
+          setData((data) => {
+            return { ...data, maxvalue: e.value };
+          })
+        }
+        showButtons
+        mode="decimal"
+      ></InputNumber>
+      <label htmlFor="amount">Maximum value</label>
+    </span>
+  );
+  const clickHandler = () => {
+    setSkip(skipper);
+  };
 
-  // const displayMax = () => {
-  //   <span className="p-float-label">
-  //     <InputText
-  //       id="valuemax"
-  //       type="text"
-  //       value={data.maxvalue}
-  //       onChange={(e) => setData({ ...data, maxvalue: e.target.value })}
-  //     />
-  //     <label htmlFor="valuemax">CBDC Name</label>
-  //   </span>;
-
-  //   setDisplayBasic(false);
-  // };
-
-  // const displayMin = () => {
-  //   <span className="p-float-label">
-  //     <InputText
-  //       id="valuemin"
-  //       type="text"
-  //       value={data.minvalue}
-  //       onChange={(e) => setData({ ...data, minvalue: e.target.value })}
-  //     />
-  //     <label htmlFor="valuemin">CBDC Name</label>
-  //   </span>;
-  //   setDisplayBasic(false);
-  // };
   console.log("data", data);
   return (
     <div className="card flex-column align-items-center">
@@ -65,25 +50,19 @@ const TransactionControl = ({ data, setData }) => {
             onHide={() => setDisplayBasic(false)}
           >
             <Card style={{ cursor: "pointer" }}>
-              <RadioButton
-                inputId="option1"
-                name="option"
-                value="maxvalue"
-                checked={data.displayvalue === "maxvalue"}
-                onChange={(e) => setData({ ...data, displayvalue: e.value })}
+              <Button
+                type="button"
+                label="Maxvalue"
+                onClick={clickHandler}
+                icon="pi pi-minus"
+                // className="p-button-secondary"
+                style={{
+                  marginTop: "2rem",
+                  marginLeft: "2rem",
+                  width: "20rem",
+                }}
               />
-              <label htmlFor="option1">
-                Maximum Value
-                {/* <InputNumber
-                  id="inputnumber"
-                  // type="number"
-                  value={data.maxvalue}
-                  onChange={(e) =>
-                    setData({ ...data, maxvalue: e.target.value })
-                  }
-                />
-                <label htmlFor="inputnumber">Enter Max Value</label> */}
-              </label>
+              <label htmlFor="option1">Maximum Value</label>
 
               <p>
                 The Max value sent to any participant cannot exceed the value
@@ -102,19 +81,14 @@ const TransactionControl = ({ data, setData }) => {
                 name="option"
                 value="minvalue"
                 checked={data.displayvalue === "minvalue"}
-                onChange={(e) => setData({ ...data, displayvalue: e.value })}
+                onChange={(e) =>
+                  setData((data) => {
+                    return { ...data, displayvalue: e.value };
+                  })
+                }
               />
               <label htmlFor="option2">
                 Maximum Value without Issuer signing
-                {/* <InputNumber
-                  id="inputnumber"
-                  // type="number"
-                  value={data.maxvalue}
-                  onChange={(e) =>
-                    setData({ ...data, maxvalue: e.target.value })
-                  }
-                />
-                <label htmlFor="inputnumber">Enter Max Value</label> */}
               </label>
               <p>
                 The issuer of a currency must sign any transaction where the
@@ -130,8 +104,6 @@ const TransactionControl = ({ data, setData }) => {
               style={{ marginTop: "2rem", marginLeft: "2rem", width: "20rem" }}
             />
           </Dialog>
-          {/* <div className="grid"> */}
-          {/* <div className="flex w-3 align-items-center text-center p-fluid"> */}
 
           <Button
             type="button"
@@ -140,11 +112,7 @@ const TransactionControl = ({ data, setData }) => {
             onClick={() => setDisplayBasic(true)}
             style={{ width: "20rem" }}
           />
-          <p className="text-xl text-center">
-            (skip this step if no controls are required)
-          </p>
-          {/* </div> */}
-          {/* </div> */}
+          <p className="text-xl text-center">{skip}</p>
         </div>
       </div>
     </div>

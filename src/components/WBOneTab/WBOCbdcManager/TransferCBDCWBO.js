@@ -16,8 +16,9 @@ import InformationSubmitted from "../../CBtabmenu/CBHome/CBDCManager/DefCBDCType
 
 const TransferCBDCWBO = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeOne, setActiveOne] = useState(0);
   const toast = useRef(null);
-  const id = 1;
+  const key = 1;
   const [data, setData] = useState({
     asset: "",
     decimal: 2,
@@ -38,13 +39,26 @@ const TransferCBDCWBO = () => {
   const pageDisplay = () => {
     if (activeIndex === 0) {
       return <SelectWBOTransCBDC data={data} setData={setData} />;
-    } else if (activeIndex === 1 && id === 1) {
+    } else if (activeIndex === 1 && key === 1) {
       return <ParticipantWBOTrans data={data} setData={setData} />;
-    } else if (activeIndex === 2 && id === 1) {
+    } else if (activeIndex === 2 && key === 1) {
       return <EnterAmountWBOTrans data={data} setData={setData} />;
-    } else if (activeIndex === 3 && id === 1) {
+    } else if (activeIndex === 3 && key === 1) {
       return <ConfirmWBOTrans data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
+      return <InformationSubmitted />;
+    }
+  };
+  const pageDisplayOne = () => {
+    if (activeOne === 0) {
+      return <SelectWBOTransCBDC data={data} setData={setData} />;
+    } else if (activeOne === 1 && key === 1) {
+      return <ParticipantWBOTrans data={data} setData={setData} />;
+    } else if (activeOne === 2 && key === 1) {
+      return <EnterAmountWBOTrans data={data} setData={setData} />;
+    } else if (activeOne === 3 && key === 1) {
+      return <ConfirmWBOTrans data={data} setData={setData} />;
+    } else if (activeOne === wizardItems.length) {
       return <InformationSubmitted />;
     }
   };
@@ -103,7 +117,7 @@ const TransferCBDCWBO = () => {
               // activeIndex={activeIndex}
               onSelect={(e) => setActiveIndex(e.index)}
               readOnly={false}
-              id={id}
+              key={1}
             />
           </div>
           <div className="mt-5">
@@ -160,26 +174,24 @@ const TransferCBDCWBO = () => {
             <Steps
               model={items}
               // activeIndex={activeIndex}
-              onSelect={(e) => setActiveIndex(e.index)}
+              onSelect={(e) => setActiveOne(e.index)}
               readOnly={false}
-              // id="item"
             />
           </div>
 
-          <div className="mt-5">{pageDisplay()}</div>
+          <div className="mt-5">{pageDisplayOne()}</div>
 
           <div>
             <div class="flex align-items-center justify-content-between mt-5">
               <div class="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
                 <Button
-                  disabled={activeIndex === 0}
+                  disabled={activeOne === 0}
                   onClick={() => {
-                    setActiveIndex((curPage) => curPage - 1);
+                    setActiveOne((curPage) => curPage - 1);
                   }}
                   label="BACK"
                   style={{
-                    display:
-                      activeIndex === wizardItems.length ? "none" : "block",
+                    display: activeOne === items.length ? "none" : "block",
                   }}
                 />
               </div>
@@ -187,20 +199,17 @@ const TransferCBDCWBO = () => {
                 <Toast ref={toast} />
                 <Button
                   onClick={() => {
-                    if (activeIndex === wizardItems.length) {
+                    if (activeOne === items.length) {
                       {
                         accept();
                       }
                     } else {
-                      setActiveIndex((curPage) => curPage + 1);
+                      setActiveOne((curPage) => curPage + 1);
                     }
                   }}
-                  label={
-                    activeIndex === wizardItems.length - 1 ? "SUBMIT" : "NEXT"
-                  }
+                  label={activeOne === items.length - 1 ? "SUBMIT" : "NEXT"}
                   style={{
-                    display:
-                      activeIndex === wizardItems.length ? "none" : "block",
+                    display: activeOne === items.length ? "none" : "block",
                   }}
                 />
               </div>

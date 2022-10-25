@@ -26,7 +26,11 @@ const NotarySel = ({ data, setData }) => {
                 name="option"
                 value="O-NotaryONEService, L-London, C-GB"
                 checked={data.notary === "O-NotaryONEService, L-London, C-GB"}
-                onChange={(e) => setData({ ...data, notary: e.target.value })}
+                onChange={(e) =>
+                  setData((data) => {
+                    return { ...data, notary: e.target.value };
+                  })
+                }
               />
               <label htmlFor="option1">
                 O-NotaryONEService, L-London, C-GB
@@ -40,7 +44,11 @@ const NotarySel = ({ data, setData }) => {
                 name="option"
                 value="O-NotaryTWOService, L-London, C-GB"
                 checked={data.notary === "O-NotaryTWOService, L-London, C-GB"}
-                onChange={(e) => setData({ ...data, notary: e.target.value })}
+                onChange={(e) =>
+                  setData((data) => {
+                    return { ...data, notary: e.target.value };
+                  })
+                }
               />
               <label htmlFor="option2">
                 O-NotaryTWOService, L-London, C-GB

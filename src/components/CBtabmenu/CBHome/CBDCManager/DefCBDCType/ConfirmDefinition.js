@@ -31,7 +31,7 @@ const ConfirmDefinition = ({ data, setData }) => {
               ? " Member Access state is requied to hold this CBDC"
               : " Member Access state is not requied"}
           </p>
-          <p class="text-center text-2xl">Maximum Value:{data.displayvalue}</p>
+          <p class="text-center text-2xl">Maximum Value:{data.maxvalue}</p>
         </div>
       </div>
     </div>

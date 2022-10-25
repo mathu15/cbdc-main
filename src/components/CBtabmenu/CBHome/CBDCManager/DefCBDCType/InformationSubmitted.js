@@ -2,7 +2,7 @@ import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 import React from "react";
 
-const InformationSubmitted = () => {
+const InformationSubmitted = ({ activeIndex, setActiveIndex }) => {
   return (
     <Card
       style={{ textAlign: "center" }}
@@ -11,7 +11,13 @@ const InformationSubmitted = () => {
       {/* <div className="card">you information has been submitted</div> */}
 
       <p>what happened on CORDA?</p>
-      <Button label="proceed" />
+      <Button
+        label="proceed"
+        activeIndex={0}
+        onClick={() => {
+          setActiveIndex(0);
+        }}
+      />
       {/* </div> */}
     </Card>
   );

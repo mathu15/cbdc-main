@@ -20,7 +20,11 @@ const MAC = ({ data, setData }) => {
       <div className="text-center pt-3">
         <InputSwitch
           checked={data.access}
-          onChange={(e) => setData({ ...data, access: e.value })}
+          onChange={(e) =>
+            setData((data) => {
+              return { ...data, access: e.value };
+            })
+          }
         />
       </div>
     </div>

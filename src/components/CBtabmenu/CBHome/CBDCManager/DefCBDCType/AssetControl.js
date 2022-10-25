@@ -45,7 +45,11 @@ const AssetControl = ({ data, setData }) => {
                 name="option"
                 value="expiry"
                 checked={data.transvalue === "expiry"}
-                onChange={(e) => setData({ ...data, transvalue: e.value })}
+                onChange={(e) =>
+                  setData((data) => {
+                    return { ...data, transvalue: e.value };
+                  })
+                }
               />
               <label htmlFor="option1">Expiry Date</label>
 
@@ -68,7 +72,11 @@ const AssetControl = ({ data, setData }) => {
                 name="option"
                 value="usage"
                 checked={data.transvalue === "usage"}
-                onChange={(e) => setData({ ...data, transvalue: e.value })}
+                onChange={(e) =>
+                  setData((data) => {
+                    return { ...data, transvalue: e.value };
+                  })
+                }
               />
               <label htmlFor="option2">Maximum usage count</label>
               <p>

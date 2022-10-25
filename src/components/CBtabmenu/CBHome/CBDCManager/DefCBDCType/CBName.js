@@ -16,7 +16,11 @@ export const CBName = ({ data, setData }) => {
               id="username"
               type="text"
               value={data.cbname}
-              onChange={(e) => setData({ ...data, cbname: e.target.value })}
+              onChange={(e) =>
+                setData((data) => {
+                  return { ...data, cbname: e.target.value };
+                })
+              }
             />
             <label htmlFor="username">CBDC Name</label>
           </span>
@@ -30,7 +34,11 @@ export const CBName = ({ data, setData }) => {
                 name="option"
                 value={0}
                 checked={data.decimal === 0}
-                onChange={(e) => setData({ ...data, decimal: e.value })}
+                onChange={(e) =>
+                  setData((data) => {
+                    return { ...data, decimal: e.value };
+                  })
+                }
               />
               <label htmlFor="option1">0</label>
             </div>
@@ -42,7 +50,11 @@ export const CBName = ({ data, setData }) => {
                 name="option"
                 value={1}
                 checked={data.decimal === 1}
-                onChange={(e) => setData({ ...data, decimal: e.value })}
+                onChange={(e) =>
+                  setData((data) => {
+                    return { ...data, decimal: e.value };
+                  })
+                }
               />
               <label htmlFor="option2">1</label>
             </div>
@@ -54,7 +66,11 @@ export const CBName = ({ data, setData }) => {
                 name="option"
                 value={2}
                 checked={data.decimal === 2}
-                onChange={(e) => setData({ ...data, decimal: e.value })}
+                onChange={(e) =>
+                  setData((data) => {
+                    return { ...data, decimal: e.value };
+                  })
+                }
               />
               <label htmlFor="option3">2</label>
             </div>
@@ -66,7 +82,11 @@ export const CBName = ({ data, setData }) => {
                 name="option"
                 value={3}
                 checked={data.decimal === 3}
-                onChange={(e) => setData({ ...data, decimal: e.value })}
+                onChange={(e) =>
+                  setData((data) => {
+                    return { ...data, decimal: e.value };
+                  })
+                }
               />
               <label htmlFor="option4">3</label>
             </div>

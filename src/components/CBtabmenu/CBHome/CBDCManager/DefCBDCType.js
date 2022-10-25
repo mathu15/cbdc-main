@@ -28,6 +28,7 @@ const DefCBDCType = () => {
     minvalue: "",
     displayvalue: "",
     notary: "",
+    skip: "(skip this step if no controls are required)",
   });
 
   // const history = useHistory();
@@ -78,7 +79,12 @@ const DefCBDCType = () => {
     } else if (activeIndex === 5) {
       return <ConfirmDefinition data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
-      return <InformationSubmitted />;
+      return (
+        <InformationSubmitted
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
+      );
     }
   };
 
@@ -100,7 +106,10 @@ const DefCBDCType = () => {
   //     accept,
   //   });
   // };
-
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   setData({});
+  // };
   return (
     <div className="col-12 ">
       <div className="card card-w-title">
@@ -112,34 +121,7 @@ const DefCBDCType = () => {
           readOnly={false}
         />
       </div>
-      <div className="card">
-        {pageDisplay()}
-
-        {/* <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/name"}
-        component={CBName}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/notary-select/"}
-        component={NotarySel}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/mac"}
-        component={MAC}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/trans-contract"}
-        component={TranscationControl}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/acess-controls"}
-        component={AssetControl}
-        />
-        <Route
-        path={"/central-bank/cbdc-manager/cbdc-type/confirm"}
-        component={ConfirmDefinition}
-        /> */}
-      </div>
+      <div className="card">{pageDisplay()}</div>
       <div className="card">
         <div className="flex align-items-center justify-content-between">
           <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
