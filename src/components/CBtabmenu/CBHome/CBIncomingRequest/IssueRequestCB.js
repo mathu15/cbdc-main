@@ -21,63 +21,6 @@ const IssueRequestCB = () => {
     bonds: 25000000,
   });
 
-  const skipper = (
-    <div className="card p-fluid">
-      <Dialog
-        header="Select rules to Add"
-        visible={displayBasic}
-        // style={{ width: "30vw" }}
-        modal
-        // footer={basicDialogFooter}
-        onHide={() => setDisplayBasic(false)}
-      >
-        <Card style={{ cursor: "pointer" }}>
-          <Button
-            type="button"
-            label="Maxvalue"
-            onClick={() => setDisplayBasic(false)}
-            icon="pi pi-minus"
-            // className="p-button-secondary"
-            style={{
-              marginTop: "2rem",
-              marginLeft: "2rem",
-              width: "20rem",
-            }}
-          />
-          <label htmlFor="option1">Maximum Value</label>
-
-          <p>
-            The Max value sent to any participant cannot exceed the value
-            configured.
-          </p>
-        </Card>
-        <Card
-          style={{
-            cursor: "pointer",
-            height: "10rem",
-            marginTop: "3rem",
-          }}
-        >
-          <p>
-            The issuer of a currency must sign any transaction where the value
-            is greater than configured.
-          </p>
-        </Card>
-        <Button
-          type="button"
-          label="close"
-          onClick={() => setDisplayBasic(false)}
-          icon="pi pi-minus"
-          // className="p-button-secondary"
-          style={{ marginTop: "2rem", marginLeft: "2rem", width: "20rem" }}
-        />
-      </Dialog>
-    </div>
-  );
-  const clickHandler = () => {
-    setDisplayBasic(skipper);
-  };
-
   console.log("data", data);
   return (
     <>
@@ -118,7 +61,7 @@ const IssueRequestCB = () => {
         <div className="text-center pt-3">
           <div className="card p-fluid">
             <Dialog
-              header="Select rules to Add"
+              // header="Select rules to Add"
               visible={displayBasic}
               // style={{ width: "30vw" }}
               modal
