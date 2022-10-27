@@ -1,13 +1,9 @@
 import React, { useRef, useState } from "react";
-import { Route, useHistory, useLocation } from "react-router-dom";
 
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
-import SelectAsset from "../../CBtabmenu/CBHome/CBHomeIsuue/SelectAsset";
-import SelectPaticipant from "../../CBtabmenu/CBHome/CBHomeIsuue/SelectPaticipant";
-import EnterAmount from "../../CBtabmenu/CBHome/CBHomeIsuue/EnterAmount";
-import ConfirmIssuance from "../../CBtabmenu/CBHome/CBHomeIsuue/ConfirmIssuance";
+
 import SelectWBOTransCBDC from "./WBOTransferCBDC/SelectWBOTransCBDC";
 import ParticipantWBOTrans from "./WBOTransferCBDC/ParticipantWBOTrans";
 import EnterAmountWBOTrans from "./WBOTransferCBDC/EnterAmountWBOTrans";
@@ -46,7 +42,12 @@ const TransferCBDCWBO = () => {
     } else if (activeIndex === 3 && key === 1) {
       return <ConfirmWBOTrans data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
-      return <InformationSubmitted />;
+      return (
+        <InformationSubmitted
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
+      );
     }
   };
   const pageDisplayOne = () => {
@@ -59,7 +60,12 @@ const TransferCBDCWBO = () => {
     } else if (activeOne === 3 && key === 1) {
       return <ConfirmWBOTrans data={data} setData={setData} />;
     } else if (activeOne === wizardItems.length) {
-      return <InformationSubmitted />;
+      return (
+        <InformationSubmitted
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
+      );
     }
   };
 
@@ -120,16 +126,7 @@ const TransferCBDCWBO = () => {
               key={1}
             />
           </div>
-          <div className="mt-5">
-            {pageDisplay()}
-            {/* <Route path={"/"} component={SelectWBOTransCBDC} />
-            <Route
-              path={"/select-participant"}
-              component={ParticipantWBOTrans}
-            />
-            <Route path={"/enter-amount"} component={EnterAmountWBOTrans} />
-            <Route path={"/confirm"} component={ConfirmWBOTrans} /> */}
-          </div>
+          <div className="mt-5">{pageDisplay()}</div>
           <div className="mt-5">
             <div class="flex align-items-center justify-content-between">
               <div class="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">

@@ -1,34 +1,75 @@
 import React, { useRef, useState } from "react";
-import { Route, useHistory, useLocation } from "react-router-dom";
 
-import { Steps } from "primereact/steps";
-import { Button } from "primereact/button";
-import SelectAsset from "../../CBtabmenu/CBHome/CBHomeIsuue/SelectAsset";
 import SelectPaticipant from "../../CBtabmenu/CBHome/CBHomeIsuue/SelectPaticipant";
+import SelectAsset from "../../CBtabmenu/CBHome/CBHomeIsuue/SelectAsset";
 import EnterAmount from "../../CBtabmenu/CBHome/CBHomeIsuue/EnterAmount";
 import ConfirmIssuance from "../../CBtabmenu/CBHome/CBHomeIsuue/ConfirmIssuance";
+import { Steps } from "primereact/steps";
+import { Button } from "primereact/button";
+import { Toast } from "primereact/toast";
 
-const WBTransferCBDC = () => {
+import InformationSubmitted from "../../CBtabmenu/CBHome/CBDCManager/DefCBDCType/InformationSubmitted";
+
+const WBOTransferCBDC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const toast = useRef(null);
+  const [data, setData] = useState({
+    asset: "",
+    decimal: 2,
+    notary: "",
+    amount: 0,
+    total: 25000000,
+    remaining: 25000000,
+    option: "",
+    access: true,
+    select: "",
+    accesconrol: "",
+    confirm: "",
+    transvalue: "",
+    maxvalue: 10000000,
+    minvalue: "",
+    displayvalue: "",
+  });
 
-  // const menu = useRef(null);
-  // const contextMenu = useRef(null);
-  // const history = useHistory();
-  // const location = useLocation();
+  const pageDisplay = () => {
+    if (activeIndex === 0) {
+      return <SelectAsset data={data} setData={setData} />;
+    } else if (activeIndex === 1) {
+      return <SelectPaticipant data={data} setData={setData} />;
+    } else if (activeIndex === 2) {
+      return <EnterAmount data={data} setData={setData} />;
+    } else if (activeIndex === 3) {
+      return <ConfirmIssuance data={data} setData={setData} />;
+    } else if (activeIndex === wizardItems.length) {
+      return (
+        <InformationSubmitted
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
+      );
+    }
+  };
+
+  const accept = () => {
+    toast.current.show({
+      severity: "info",
+      summary: "Confirmed",
+      detail: "You have accepted",
+      life: 3000,
+    });
+    // InformationSubmitted();
+  };
 
   const wizardItems = [
-    { label: "Select Asset", to: "/" },
+    { label: "Select Asset" },
     {
       label: "Select Participant",
-      to: "/cbhomeissue/select-participant",
     },
     {
       label: "Enter Amount",
-      to: "/cbhomeissue/enter-amount",
     },
     {
       label: "Confirm Transfer",
-      to: "/cbhomeissue/confirm",
     },
   ];
   return (
@@ -42,19 +83,38 @@ const WBTransferCBDC = () => {
           readOnly={false}
         />
       </div>
-      <div className="card">
-        <Route path={"/"} component={SelectAsset} />
-        <Route path={"/select-participant"} component={SelectPaticipant} />
-        <Route path={"/enter-amount"} component={EnterAmount} />
-        <Route path={"/confirm"} component={ConfirmIssuance} />
-      </div>
+      <div className="card">{pageDisplay()}</div>
       <div className="card">
         <div class="flex align-items-center justify-content-between">
           <div class="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
-            <Button label="BACK" />
+            <Button
+              disabled={activeIndex === 0}
+              onClick={() => {
+                setActiveIndex((curPage) => curPage - 1);
+              }}
+              label="BACK"
+              style={{
+                display: activeIndex === wizardItems.length ? "none" : "block",
+              }}
+            />
           </div>
           <div class="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
-            <Button label="NEXT" />
+            <Toast ref={toast} />
+            <Button
+              onClick={() => {
+                if (activeIndex === wizardItems.length) {
+                  {
+                    accept();
+                  }
+                } else {
+                  setActiveIndex((curPage) => curPage + 1);
+                }
+              }}
+              label={activeIndex === wizardItems.length - 1 ? "ISSUE" : "NEXT"}
+              style={{
+                display: activeIndex === wizardItems.length ? "none" : "block",
+              }}
+            />
           </div>
         </div>
       </div>
@@ -62,4 +122,4 @@ const WBTransferCBDC = () => {
   );
 };
 
-export default WBTransferCBDC;
+export default WBOTransferCBDC;

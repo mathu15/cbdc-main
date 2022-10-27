@@ -2,7 +2,6 @@ import { TabMenu } from "primereact/tabmenu";
 import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
 
-import IssueCBDCs from "../CBtabmenu/CBHome/CBDCManager/IssueCBDCs";
 import AvailableCBDCWBO from "./WBOCbdcManager/AvailableCBDCWBO";
 import RequestCBDCWBO from "./WBOCbdcManager/RequestCBDCWBO";
 import TransferCBDCWBO from "./WBOCbdcManager/TransferCBDCWBO";

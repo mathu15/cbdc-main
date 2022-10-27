@@ -56,7 +56,12 @@ const RequestCBDCWBO = () => {
     } else if (activeIndex === 3) {
       return <RequestReviewWBO data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
-      return <InformationSubmitted />;
+      return (
+        <InformationSubmitted
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
+      );
     }
   };
 

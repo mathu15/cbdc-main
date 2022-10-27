@@ -36,7 +36,12 @@ const CBMCIssue = () => {
     } else if (activeIndex === 2) {
       return <MAConfirm data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
-      return <InformationSubmitted />;
+      return (
+        <InformationSubmitted
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
+      );
     }
   };
 
