@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { RadioButton } from "primereact/radiobutton";
 
 const NotarySel = ({ data, setData }) => {
-  // const [radioValue, setRadioValue] = useState(null);
   return (
     <div className="card flex-column align-items-center">
-      <p class=" text-xl text-left  ">
+      <p className=" text-xl text-left  ">
         Select the permitted notary for the CBDC.
       </p>
       <p className="text-xl text-left">

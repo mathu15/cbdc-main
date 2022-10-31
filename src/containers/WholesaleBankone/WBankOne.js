@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Route, useHistory, useLocation } from "react-router-dom";
+import React from "react";
+import { Route, useHistory } from "react-router-dom";
 import { Menubar } from "primereact/menubar";
 import { Button } from "primereact/button";
 import items from "../../components/Header/Items";
@@ -13,12 +13,7 @@ import WBOTreasury from "../../components/WBOneTab/WBOTreasury";
 import WBOCordaTrans from "../../components/WBOneTab/WBOCordaTrans";
 
 const WBankOne = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // const menu = useRef(null);
-  // const contextMenu = useRef(null);
   const history = useHistory();
-  // const location = useLocation();
 
   const wizardItems = [
     {

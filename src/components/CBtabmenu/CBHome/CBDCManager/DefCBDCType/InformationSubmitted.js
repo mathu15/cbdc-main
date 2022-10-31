@@ -6,11 +6,11 @@ const InformationSubmitted = ({ activeIndex, setActiveIndex }) => {
   return (
     <Card
       style={{ textAlign: "center" }}
-      title="you information has been submitted"
+      title="your information has been submitted"
     >
       {/* <div className="card">you information has been submitted</div> */}
 
-      <p>what happened on CORDA?</p>
+      <p>what happened on MoneySwipe?</p>
       <Button
         label="proceed"
         activeIndex={0}

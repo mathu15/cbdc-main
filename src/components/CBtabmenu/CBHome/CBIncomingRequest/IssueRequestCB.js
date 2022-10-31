@@ -1,12 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { InputSwitch } from "primereact/inputswitch";
 import { Button } from "primereact/button";
 
-import { Toast } from "primereact/toast";
 import { Dialog } from "primereact/dialog";
 import { Card } from "primereact/card";
-
-import { confirmPopup, ConfirmPopup } from "primereact/confirmpopup";
 
 const IssueRequestCB = () => {
   const [displayBasic, setDisplayBasic] = useState();
@@ -68,32 +65,32 @@ const IssueRequestCB = () => {
               onHide={() => setDisplayBasic(false)}
             >
               <Card style={{ cursor: "pointer" }}>
-                <div class="flex-column align-items-center justify-content-center">
-                  <div class=" align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-                    <p class="text-center text-2xl ">
+                <div className="flex-column align-items-center justify-content-center">
+                  <div className=" align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
+                    <p className="text-center text-2xl ">
                       Resolve Issuance :Requested
                     </p>
                   </div>
-                  <div class="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-                    <p class=" text-center text-2xl font-bold text-blue-500 mr-3">
+                  <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
+                    <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
                       Request ID:{data.request_id}
                     </p>
-                    <p class=" text-center text-2xl font-bold text-blue-500 mr-3">
+                    <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
                       Requesting Party:{data.party}
                     </p>
-                    <p class=" text-center text-2xl font-bold text-blue-500 mr-3">
+                    <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
                       CBDC Name:{data.cbdc_name}
                     </p>
-                    <p class=" text-center text-2xl font-bold text-blue-500 mr-3">
+                    <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
                       Amount:{data.amount}
                     </p>
 
-                    <p class="text-center text-2xl">
+                    <p className="text-center text-2xl">
                       value in bonds:{data.bonds}
                     </p>
                   </div>
                 </div>
-                <div class="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
+                <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
                   <Button
                     type="button"
                     label="Approve"

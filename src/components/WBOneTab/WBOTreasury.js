@@ -2,10 +2,10 @@ import { TabMenu } from "primereact/tabmenu";
 import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
 
-import IssueCBDCs from "../CBtabmenu/CBHome/CBDCManager/IssueCBDCs";
-import AvailableCBDCWBO from "./WBOCbdcManager/AvailableCBDCWBO";
-import RequestCBDCWBO from "./WBOCbdcManager/RequestCBDCWBO";
-import TransferCBDCWBO from "./WBOCbdcManager/TransferCBDCWBO";
+// import IssueCBDCs from "../CBtabmenu/CBHome/CBDCManager/IssueCBDCs";
+// import AvailableCBDCWBO from "./WBOCbdcManager/AvailableCBDCWBO";
+// import RequestCBDCWBO from "./WBOCbdcManager/RequestCBDCWBO";
+// import TransferCBDCWBO from "./WBOCbdcManager/TransferCBDCWBO";
 import WBOTreaCBDCAssets from "./WBOTreasury/WBOTreaCBDCAssets";
 import WBOTreasureBonds from "./WBOTreasury/WBOTreasureBonds";
 import WTreauryBOT from "./WBOTreasury/WTreauryBOT";

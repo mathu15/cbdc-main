@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
 
-import ConfirmIssuance from "./CBHomeIsuue/ConfirmIssuance";
-import EnterAmount from "./CBHomeIsuue/EnterAmount";
-import SelectAsset from "./CBHomeIsuue/SelectAsset";
-import SelectPaticipant from "./CBHomeIsuue/SelectPaticipant";
+import SelectPaticipant from "./CBIssue/SelectPaticipant";
+import SelectAsset from "./CBIssue/SelectAsset";
+import EnterAmount from "./CBIssue/EnterAmount";
+import ConfirmIssuance from "./CBIssue/ConfirmIssuance";
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
-import InformationSubmitted from "./CBDCManager/DefCBDCType/InformationSubmitted";
+import InformationSubmitted from "../CBDCManager/DefCBDCType/InformationSubmitted";
 
 const CBIssue = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -84,8 +84,8 @@ const CBIssue = () => {
       </div>
       <div className="card">{pageDisplay()}</div>
       <div className="card">
-        <div class="flex align-items-center justify-content-between">
-          <div class="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
+        <div className="flex align-items-center justify-content-between">
+          <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
             <Button
               disabled={activeIndex === 0}
               onClick={() => {
@@ -97,14 +97,12 @@ const CBIssue = () => {
               }}
             />
           </div>
-          <div class="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
+          <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
             <Toast ref={toast} />
             <Button
               onClick={() => {
                 if (activeIndex === wizardItems.length) {
-                  {
-                    accept();
-                  }
+                  accept();
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }

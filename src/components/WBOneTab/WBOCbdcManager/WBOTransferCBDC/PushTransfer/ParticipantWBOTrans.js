@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
-const SelectPaticipant = ({ data, setData }) => {
+const ParticipantWBOTrans = ({ data, setData }) => {
   const dropdownValues = [
     { label: "O=WHOLESALETWO, L=LONDON, CGB" },
     { label: "O=WHOLESALETHREE, L=LONDON, CGB" },
   ];
-  // const [options] = useState(dropdownValues);
+
   return (
     <div className="grid p-fluid">
       <div className="col-12 ">
@@ -25,4 +25,4 @@ const SelectPaticipant = ({ data, setData }) => {
   );
 };
 
-export default SelectPaticipant;
+export default ParticipantWBOTrans;

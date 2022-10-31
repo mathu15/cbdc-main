@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { InputSwitch } from "primereact/inputswitch";
 
 const MAC = ({ data, setData }) => {
-  // const [switchValue, setSwitchValue] = useState(false);
-  console.log("data", data);
   return (
     <div className="card flex-column align-items-center">
       <h5 className="text-center">Configure Member Access Control</h5>
-      <p class=" text-xl text-center  border-bottom-1 surface-border surface-overlay ">
+      <p className=" text-xl text-center  border-bottom-1 surface-border surface-overlay ">
         This rule ensures that a party must have been granted member access in
         order to transact in this asset type. By default, this rule is enabled,
         but may be turned off.

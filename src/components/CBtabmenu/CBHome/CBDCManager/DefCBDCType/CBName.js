@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { InputText } from "primereact/inputtext";
 import { RadioButton } from "primereact/radiobutton";
 
 export const CBName = ({ data, setData }) => {
-  // const [floatValue, setFloatValue] = useState("");
-  // const [radioValue, setRadioValue] = useState(null);
-
   return (
     <div className="grid p-fluid">
       <div className="col-12 md:col-12">
@@ -25,7 +22,7 @@ export const CBName = ({ data, setData }) => {
             <label htmlFor="username">CBDC Name</label>
           </span>
         </div>
-        <h5>RadioButton</h5>
+        <h5>Select the decimal place:0.00</h5>
         <div className="grid">
           <div className="col-12 md:col-3">
             <div className="field-radiobutton">

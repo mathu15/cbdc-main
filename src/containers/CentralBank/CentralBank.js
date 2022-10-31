@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
-import { Route, useHistory, useLocation } from "react-router-dom";
+import React from "react";
+import { Route, useHistory } from "react-router-dom";
 import { Menubar } from "primereact/menubar";
-import { Button } from "primereact/button";
+
 import items from "../../components/Header/Items";
 
 import { TabMenu } from "primereact/tabmenu";
@@ -10,18 +10,12 @@ import CbdcManager from "../../components/CBtabmenu/CbdcManager";
 import CbMenbercontrols from "../../components/CBtabmenu/CbMenbercontrols";
 import CBIncomingRequest from "../../components/CBtabmenu/CBIncomingRequest";
 import CBTreasuryDashboard from "../../components/CBtabmenu/CBTreasuryDashboard";
-import CBCordaDash from "../../components/CBtabmenu/CBCordaDash";
+import CBMoneySwipeDash from "../../components/CBtabmenu/CBMoneySwipeDash";
 import CBRefernceModal from "../../components/CBtabmenu/CBRefernceModal";
 import CBVisiblity from "../../components/CBtabmenu/CBVisiblity";
 
 const CentralBank = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // const menu = useRef(null);
-  // const contextMenu = useRef(null);
   const history = useHistory();
-  // const location = useLocation();
-
   const wizardItems = [
     {
       label: "Home",
@@ -30,28 +24,28 @@ const CentralBank = () => {
     },
     {
       label: "CBDC Manager",
-      icon: "pi pi-fw pi-edit",
+      icon: "pi pi-fw pi-book",
       command: () => history.push("/central-bank/cbdc-manager"),
     },
     {
       label: "Member  controls",
-      icon: "pi pi-fw pi-edit",
+      icon: "pi pi-fw pi-file-edit",
       command: () => history.push("/central-bank/member-controls"),
     },
     {
       label: "Incoming Requests",
-      icon: "pi pi-fw pi-file",
+      icon: "pi pi-fw pi-download",
       command: () => history.push("/central-bank/incoming-requests"),
     },
     {
       label: "treasury dashboard",
-      icon: "pi pi-fw pi-cog",
+      icon: "pi pi-fw pi-inbox",
       command: () => history.push("/central-bank/treasury-dashboard"),
     },
     {
-      label: "corda transaction dashboard",
-      icon: "pi pi-fw pi-cog",
-      command: () => history.push("/central-bank/corda-dashboard"),
+      label: "MoneySwipe transaction dashboard",
+      icon: "pi pi-fw pi-folder",
+      command: () => history.push("/central-bank/moneyswipe-dashboard"),
     },
     {
       label: "reference modals",
@@ -61,7 +55,7 @@ const CentralBank = () => {
     {
       label: "visibility & reissuance",
       icon: "pi pi-fw pi-cog",
-      command: () => history.push("central-bank/visibility-reissuance"),
+      command: () => history.push("/central-bank/visibility-reissuance"),
     },
   ];
 
@@ -69,7 +63,6 @@ const CentralBank = () => {
     <div>
       <Menubar
         model={items.cbank}
-        // start={<InputText placeholder="Search" type="text" />}
         end={
           <>
             <i className="pi pi-share-alt" style={{ fontSize: "1.2em" }}>
@@ -78,12 +71,7 @@ const CentralBank = () => {
           </>
         }
       />
-      <TabMenu
-        model={wizardItems}
-        activeIndex={activeIndex}
-        setActiveIndex={(e) => e.index}
-        end={<Button label="noifications" icon="pi pi-bell" />}
-      />
+      <TabMenu model={wizardItems} />
       <Route exact path={"/central-bank"} component={CBHome} />
       <Route path={"/central-bank/cbdc-manager"} component={CbdcManager} />
       <Route
@@ -98,7 +86,10 @@ const CentralBank = () => {
         path={"/central-bank/treasury-dashboard"}
         component={CBTreasuryDashboard}
       />
-      <Route path={"/central-bank/corda-dashboard"} component={CBCordaDash} />
+      <Route
+        path={"/central-bank/moneyswipe-dashboard"}
+        component={CBMoneySwipeDash}
+      />
       <Route
         path={"/central-bank/reference-modals"}
         component={CBRefernceModal}
@@ -107,22 +98,6 @@ const CentralBank = () => {
         path={"/central-bank/visibility-reissuance"}
         component={CBVisiblity}
       />
-
-      {/* <Buttons
-        onTabChange={(e) => {
-          setActiveIndex(e.index);
-        }}
-      />
-      <Header
-        onTabChange={(e) => {
-          setActiveIndex(e.index);
-        }}
-      />
-      <Hero
-        onTabChange={(e) => {
-          setActiveIndex(e.index);
-        }}
-      /> */}
     </div>
   );
 };

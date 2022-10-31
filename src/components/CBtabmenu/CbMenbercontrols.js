@@ -1,10 +1,7 @@
 import { TabMenu } from "primereact/tabmenu";
 import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
-// import CBDCAssets from "./CBHome/CBDCAssets";
-import AvailableCBDC from "./CBHome/CBDCManager/AvailableCBDC";
-import DefCBDCType from "./CBHome/CBDCManager/DefCBDCType";
-import IssueCBDCs from "./CBHome/CBDCManager/IssueCBDCs";
+
 import CBListRevoke from "./CBHome/CBMemberControls/CBListRevoke";
 import CBMCIssue from "./CBHome/CBMemberControls/CBMCIssue";
 

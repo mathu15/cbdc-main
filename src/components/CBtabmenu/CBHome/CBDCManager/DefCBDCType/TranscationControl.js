@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import { InputText } from "primereact/inputtext";
+
 import { RadioButton } from "primereact/radiobutton";
 import { InputNumber } from "primereact/inputnumber";
 const TransactionControl = ({ data, setData }) => {
@@ -33,7 +33,7 @@ const TransactionControl = ({ data, setData }) => {
   return (
     <div className="card flex-column align-items-center">
       <h5 className="text-center">Configure Transaction Control</h5>
-      <p class=" text-xl text-center  border-bottom-1 surface-border surface-overlay ">
+      <p className=" text-xl text-center  border-bottom-1 surface-border surface-overlay ">
         Transaction rules evaluate the entire transaction contracts. for ex, to
         check whether the sum total amounts of all states moved in a transaction
         exceeds a certain value.

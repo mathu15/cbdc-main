@@ -1,14 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { TabMenu } from "primereact/tabmenu";
-import { Route, useHistory, useLocation } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import Hero from "../hero/Hero";
 // import Buttons from "../buttons/Buttons";
 
 const TabMenubar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const menu = useRef(null);
-  const contextMenu = useRef(null);
   const history = useHistory();
   // const location = useLocation();
 

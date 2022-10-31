@@ -3,26 +3,26 @@ const items = {
 
   cbank: [
     {
-      label: "Central Bank powered by c-rda",
+      label: "Central Bank powered by MoneySwipe",
       icon: "pi pi-fw pi-home",
     },
   ],
 
   wbone: [
     {
-      label: "Wholesale Bank One powered by c-rda",
+      label: "Wholesale Bank One powered by MoneySwipe",
       icon: "pi pi-fw pi-home",
     },
   ],
   wbtwo: [
     {
-      label: "Wholesale Bank Two powered by c-rda",
+      label: "Wholesale Bank Two powered by MoneySwipe",
       icon: "pi pi-fw pi-home",
     },
   ],
   wbthree: [
     {
-      label: "Wholesale Bank Three powered by c-rda",
+      label: "Wholesale Bank Three powered by MoneySwipe",
       icon: "pi pi-fw pi-home",
     },
   ],

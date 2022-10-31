@@ -4,17 +4,22 @@ import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 
-import SelectWBOTransCBDC from "./WBOTransferCBDC/SelectWBOTransCBDC";
-import ParticipantWBOTrans from "./WBOTransferCBDC/ParticipantWBOTrans";
-import EnterAmountWBOTrans from "./WBOTransferCBDC/EnterAmountWBOTrans";
-import ConfirmWBOTrans from "./WBOTransferCBDC/ConfirmWBOTrans";
+import SelectWBOTransCBDC from "./WBOTransferCBDC/PushTransfer/SelectWBOTransCBDC";
+import ParticipantWBOTrans from "./WBOTransferCBDC/PushTransfer/ParticipantWBOTrans";
+import EnterAmountWBOTrans from "./WBOTransferCBDC/PushTransfer/EnterAmountWBOTrans";
+import ConfirmWBOTrans from "./WBOTransferCBDC/PushTransfer/ConfirmWBOTrans";
 import InformationSubmitted from "../../CBtabmenu/CBHome/CBDCManager/DefCBDCType/InformationSubmitted";
+
+import WBOPullSelAsset from "./WBOTransferCBDC/PullTransfer/WBOPullSelAsset";
+import WBOPullSelParticipant from "./WBOTransferCBDC/PullTransfer/WBOPullSelParticipant";
+import WBOPullEnterAmount from "./WBOTransferCBDC/PullTransfer/WBOPullEnterAmount";
+import WBOPullConfirmReq from "./WBOTransferCBDC/PullTransfer/WBOPullConfirmReq";
 
 const TransferCBDCWBO = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeOne, setActiveOne] = useState(0);
   const toast = useRef(null);
-  const key = 1;
+
   const [data, setData] = useState({
     asset: "",
     decimal: 2,
@@ -35,11 +40,11 @@ const TransferCBDCWBO = () => {
   const pageDisplay = () => {
     if (activeIndex === 0) {
       return <SelectWBOTransCBDC data={data} setData={setData} />;
-    } else if (activeIndex === 1 && key === 1) {
+    } else if (activeIndex === 1) {
       return <ParticipantWBOTrans data={data} setData={setData} />;
-    } else if (activeIndex === 2 && key === 1) {
+    } else if (activeIndex === 2) {
       return <EnterAmountWBOTrans data={data} setData={setData} />;
-    } else if (activeIndex === 3 && key === 1) {
+    } else if (activeIndex === 3) {
       return <ConfirmWBOTrans data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
       return (
@@ -52,18 +57,18 @@ const TransferCBDCWBO = () => {
   };
   const pageDisplayOne = () => {
     if (activeOne === 0) {
-      return <SelectWBOTransCBDC data={data} setData={setData} />;
-    } else if (activeOne === 1 && key === 1) {
-      return <ParticipantWBOTrans data={data} setData={setData} />;
-    } else if (activeOne === 2 && key === 1) {
-      return <EnterAmountWBOTrans data={data} setData={setData} />;
-    } else if (activeOne === 3 && key === 1) {
-      return <ConfirmWBOTrans data={data} setData={setData} />;
+      return <WBOPullSelAsset data={data} setData={setData} />;
+    } else if (activeOne === 1) {
+      return <WBOPullSelParticipant data={data} setData={setData} />;
+    } else if (activeOne === 2) {
+      return <WBOPullEnterAmount data={data} setData={setData} />;
+    } else if (activeOne === 3) {
+      return <WBOPullConfirmReq data={data} setData={setData} />;
     } else if (activeOne === wizardItems.length) {
       return (
         <InformationSubmitted
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
+          activeIndex={activeOne}
+          setActiveIndex={setActiveOne}
         />
       );
     }
@@ -128,8 +133,8 @@ const TransferCBDCWBO = () => {
           </div>
           <div className="mt-5">{pageDisplay()}</div>
           <div className="mt-5">
-            <div class="flex align-items-center justify-content-between">
-              <div class="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
+            <div className="flex align-items-center justify-content-between">
+              <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
                 <Button
                   disabled={activeIndex === 0}
                   onClick={() => {
@@ -142,14 +147,12 @@ const TransferCBDCWBO = () => {
                   }}
                 />
               </div>
-              <div class="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
+              <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
                 <Toast ref={toast} />
                 <Button
                   onClick={() => {
                     if (activeIndex === wizardItems.length) {
-                      {
-                        accept();
-                      }
+                      accept();
                     } else {
                       setActiveIndex((curPage) => curPage + 1);
                     }
@@ -179,8 +182,8 @@ const TransferCBDCWBO = () => {
           <div className="mt-5">{pageDisplayOne()}</div>
 
           <div>
-            <div class="flex align-items-center justify-content-between mt-5">
-              <div class="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
+            <div className="flex align-items-center justify-content-between mt-5">
+              <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
                 <Button
                   disabled={activeOne === 0}
                   onClick={() => {
@@ -192,14 +195,12 @@ const TransferCBDCWBO = () => {
                   }}
                 />
               </div>
-              <div class="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
+              <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
                 <Toast ref={toast} />
                 <Button
                   onClick={() => {
                     if (activeOne === items.length) {
-                      {
-                        accept();
-                      }
+                      accept();
                     } else {
                       setActiveOne((curPage) => curPage + 1);
                     }

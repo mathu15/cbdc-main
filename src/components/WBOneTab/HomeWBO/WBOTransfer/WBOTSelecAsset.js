@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
-const SelectWBOTransCBDC = ({ data, setData }) => {
+const WBOTSelectAsset = ({ data, setData }) => {
   const dropdownValues = [
     { label: "Digital_Dollar" },
     { label: "Digital_Peso" },
@@ -10,7 +10,7 @@ const SelectWBOTransCBDC = ({ data, setData }) => {
     { label: "Digital_Euro" },
     { label: "Digital_$_Frank" },
   ];
-  // const [options] = useState(dropdownValues);
+
   return (
     <div className="grid p-fluid">
       <div className="col-12 ">
@@ -29,4 +29,4 @@ const SelectWBOTransCBDC = ({ data, setData }) => {
   );
 };
 
-export default SelectWBOTransCBDC;
+export default WBOTSelectAsset;

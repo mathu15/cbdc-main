@@ -22,27 +22,18 @@ const RequestCBDCWBO = () => {
     issue: "O=CB, L=Dublin, C=IE",
   });
 
-  // const history = useHistory();
-  // const location = useLocation();
-
   const wizardItems = [
     {
       label: "Bonds Overview",
-      // command: () => history.push("/central-bank/cbdc-manager/cbdc-type/name"),
     },
     {
       label: "select Asset to request",
-      // command: () =>
-      // history.push("/central-bank/cbdc-manager/cbdc-type/notary-select"),
     },
     {
       label: "Enter Amount",
-      // command: () => history.push("/central-bank/cbdc-manager/cbdc-type/mac"),
     },
     {
       label: "Request Review",
-      // command: () =>
-      //   history.push("/central-bank/cbdc-manager/cbdc-type/trans-contract"),
     },
   ];
 
@@ -72,7 +63,6 @@ const RequestCBDCWBO = () => {
       detail: "You have accepted",
       life: 3000,
     });
-    // InformationSubmitted();
   };
 
   return (
@@ -101,14 +91,12 @@ const RequestCBDCWBO = () => {
               }}
             />
           </div>
-          <div class="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
+          <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
             <Toast ref={toast} />
             <Button
               onClick={() => {
                 if (activeIndex === wizardItems.length) {
-                  {
-                    accept();
-                  }
+                  accept();
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }

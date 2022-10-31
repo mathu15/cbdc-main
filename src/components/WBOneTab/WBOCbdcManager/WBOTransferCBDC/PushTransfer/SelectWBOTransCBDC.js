@@ -1,7 +1,7 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
-const SelectAssetRequest = ({ data, setData }) => {
+const SelectWBOTransCBDC = ({ data, setData }) => {
   const dropdownValues = [
     { label: "Digital_Dollar" },
     { label: "Digital_Peso" },
@@ -10,12 +10,12 @@ const SelectAssetRequest = ({ data, setData }) => {
     { label: "Digital_Euro" },
     { label: "Digital_$_Frank" },
   ];
-  // const [options] = useState(dropdownValues);
+
   return (
     <div className="grid p-fluid">
       <div className="col-12 ">
         <div className="card">
-          <h5>select an asset to issue member access state for.</h5>
+          <h5>select available asset from the vault to transfer.</h5>
           <Dropdown
             value={data.asset}
             onChange={(e) => setData({ ...data, asset: e.target.value })}
@@ -29,4 +29,4 @@ const SelectAssetRequest = ({ data, setData }) => {
   );
 };
 
-export default SelectAssetRequest;
+export default SelectWBOTransCBDC;

@@ -8,17 +8,14 @@ import RedemptionRequest from "./CBHome/CBIncomingRequest/RedemptionRequest";
 
 const CBIncomingRequest = () => {
   const [activeIndex, setActiveIndex] = useState();
-  const [data, setData] = useState({
-    // approved: true,
-    // requested: true,
-    // denied: true,
-    RequestingParty: "O=WholesaleBanOne, L=London, C=GB",
-    cbname: "Digital_Pound",
-    amount: 25500000,
-    status: "Requested",
-    requestid: 100,
-    access: true,
-  });
+  // const [data, setData] = useState({
+  //   RequestingParty: "O=WholesaleBanOne, L=London, C=GB",
+  //   cbname: "Digital_Pound",
+  //   amount: 25500000,
+  //   status: "Requested",
+  //   requestid: 100,
+  //   access: true,
+  // });
   const history = useHistory();
   const wizardItems = [
     {

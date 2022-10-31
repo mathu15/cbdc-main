@@ -8,15 +8,18 @@ import Home from "./containers/Home/Home";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CentralBank from "./containers/CentralBank/CentralBank";
-import PrimeReact from "primereact/api";
+import { Toast } from "primereact/toast";
 import WBankOne from "./containers/WholesaleBankone/WBankOne";
 
 function App() {
   return (
     <Router>
-      <Route path="/" exact component={Home} />
-      <Route path="/central-bank" component={CentralBank} />
-      <Route path="/wholesale-bank-one" component={WBankOne} />
+      <Toast />
+      <>
+        <Route path="/" exact component={Home} />
+        <Route path="/central-bank" component={CentralBank} />
+        <Route path="/wholesale-bank-one" component={WBankOne} />
+      </>
     </Router>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
@@ -20,7 +20,7 @@ const AssetControl = ({ data, setData }) => {
   return (
     <div className="card flex-column align-items-center">
       <h5 className="text-center">Configure Asset Control</h5>
-      <p class=" text-xl text-center  border-bottom-1 surface-border surface-overlay ">
+      <p className=" text-xl text-center  border-bottom-1 surface-border surface-overlay ">
         Asset rules look at each individual state in a transaction seperately.
         For ex, to check whether any individual state breached its maximum usage
         controls.

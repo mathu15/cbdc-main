@@ -84,13 +84,11 @@ const CBMCIssue = () => {
             <Toast ref={toast} />
             <Button
               onClick={() => {
-                // if (activeIndex === wizardItems.length - 1) {
-                //   {
-                //     accept();
-                //   }
-                // } else {
-                setActiveIndex((curPage) => curPage + 1);
-                // }
+                if (activeIndex === wizardItems.length) {
+                  accept();
+                } else {
+                  setActiveIndex((curPage) => curPage + 1);
+                }
               }}
               label={activeIndex === wizardItems.length - 1 ? "ISSUE" : "NEXT"}
               style={{

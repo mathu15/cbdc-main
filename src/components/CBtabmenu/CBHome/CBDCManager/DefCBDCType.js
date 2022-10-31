@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-// import { Route, useHistory, useLocation } from "react-router-dom";
 
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
@@ -11,6 +10,7 @@ import AssetControl from "./DefCBDCType/AssetControl";
 import ConfirmDefinition from "./DefCBDCType/ConfirmDefinition";
 import InformationSubmitted from "./DefCBDCType/InformationSubmitted";
 import { Toast } from "primereact/toast";
+import axios from "axios";
 
 const DefCBDCType = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,37 +31,24 @@ const DefCBDCType = () => {
     skip: "(skip this step if no controls are required)",
   });
 
-  // const history = useHistory();
-  // const location = useLocation();
-
   const wizardItems = [
     {
       label: "CBDC Name & Decimal",
-      // command: () => history.push("/central-bank/cbdc-manager/cbdc-type/name"),
     },
     {
       label: "Notary Selection",
-      // command: () =>
-      // history.push("/central-bank/cbdc-manager/cbdc-type/notary-select"),
     },
     {
-      label: "Member Access cotrol",
-      // command: () => history.push("/central-bank/cbdc-manager/cbdc-type/mac"),
+      label: "Member Access control",
     },
     {
-      label: "Tansaction contracts",
-      // command: () =>
-      //   history.push("/central-bank/cbdc-manager/cbdc-type/trans-contract"),
+      label: "Tansaction Contracts",
     },
     {
       label: "Asset Controls",
-      // command: () =>
-      // history.push("/central-bank/cbdc-manager/cbdc-type/acess-controls"),
     },
     {
       label: "Confirm Definition",
-      // command: () =>
-      // history.push("/central-bank/cbdc-manager/cbdc-type/confirm"),
     },
   ];
 
@@ -92,10 +79,18 @@ const DefCBDCType = () => {
     toast.current.show({
       severity: "info",
       summary: "Confirmed",
-      detail: "You have accepted",
+      detail: "You have submitted",
       life: 3000,
     });
     // InformationSubmitted();
+  };
+  const reject = () => {
+    toast.current.show({
+      severity: "error",
+      summary: "Rejected",
+      detail: "something went wrong",
+      life: 3000,
+    });
   };
 
   // const confirm = (event) => {
@@ -106,10 +101,19 @@ const DefCBDCType = () => {
   //     accept,
   //   });
   // };
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   setData({});
-  // };
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const updatedAssetsData = { ...data };
+    const response = await axios.post(
+      "http://localhost:5000/assets",
+      updatedAssetsData
+    );
+    if (response.status === 201) {
+      accept();
+    } else {
+      reject();
+    }
+  };
   return (
     <div className="col-12 ">
       <div className="card card-w-title">
@@ -141,9 +145,7 @@ const DefCBDCType = () => {
             <Button
               onClick={() => {
                 if (activeIndex === wizardItems.length) {
-                  {
-                    accept();
-                  }
+                  submitHandler();
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }

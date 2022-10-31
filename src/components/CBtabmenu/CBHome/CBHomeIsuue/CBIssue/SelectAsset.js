@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
 const SelectAsset = ({ data, setData }) => {
@@ -10,7 +10,7 @@ const SelectAsset = ({ data, setData }) => {
     { label: "Digital_Euro" },
     { label: "Digital_$_Frank" },
   ];
-  // const [options] = useState(dropdownValues);
+
   return (
     <div className="grid p-fluid">
       <div className="col-12 ">

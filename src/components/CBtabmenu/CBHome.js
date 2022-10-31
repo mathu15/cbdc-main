@@ -1,33 +1,33 @@
 import React, { useState } from "react";
 
 import { TabMenu } from "primereact/tabmenu";
-import CBIssue from "./CBHome/CBIssue";
-import CBBonds from "./CBHome/CBBonds";
-import CBDCStatus from "./CBHome/CBDCStatus";
-import CBMemberAS from "./CBHome/CBMemberAS";
-import CBDCAssets from "./CBHome/CBDCAssets";
+import CBIssue from "./CBHome/CBHomeIsuue/CBIssue";
+import CBBonds from "./CBHome/CBHomeIsuue/CBBonds";
+import CBDCStatus from "./CBHome/CBHomeIsuue/CBDCStatus";
+import CBMemberAS from "./CBHome/CBHomeIsuue/CBMemberAS";
+import CBDCAssets from "./CBHome/CBHomeIsuue/CBDCAssets";
 
 const CBHome = ({ data, setData }) => {
-  const [activeOne, setActiveOne] = useState(0);
-  const [activeTwo, setActiveTwo] = useState(0);
-  const [activeThree, setActiveThree] = useState(0);
+  const [activeone, setActiveone] = useState(0);
+  const [activetwo, setActivetwo] = useState(0);
+  const [activethree, setActivethree] = useState(0);
 
   const DisplayOne = () => {
-    if (activeOne === 0) {
+    if (activeone === 0) {
       return <CBIssue data={data} setData={setData} />;
     }
   };
   const DisplayTwo = () => {
-    if (activeTwo === 0) {
+    if (activetwo === 0) {
       return <CBBonds data={data} setData={setData} />;
-    } else if (activeTwo === 1) {
+    } else if (activetwo === 1) {
       return <CBDCAssets data={data} setData={setData} />;
     }
   };
   const DisplayThree = () => {
-    if (activeThree === 0) {
+    if (activethree === 0) {
       return <CBDCStatus data={data} setData={setData} />;
-    } else if (activeThree === 1) {
+    } else if (activethree === 1) {
       return <CBMemberAS data={data} setData={setData} />;
     }
   };
@@ -50,13 +50,13 @@ const CBHome = ({ data, setData }) => {
     },
   ];
 
-  const dataStatus = [
+  const dataStates = [
     {
-      label: "CBDC Status",
+      label: "CBDC States",
       icon: "pi pi-fw pi-user",
     },
     {
-      label: "Member Access Status",
+      label: "Member Access States",
       icon: "pi pi-fw pi-user",
     },
   ];
@@ -68,8 +68,8 @@ const CBHome = ({ data, setData }) => {
           <div className="card card-w-title">
             <TabMenu
               model={wizardItems}
-              activeOne={activeOne}
-              onTabChange={(e) => setActiveOne(e.index)}
+              activeOne={activeone}
+              onTabChange={(e) => setActiveone(e.index)}
               id={wizardItems.id}
             />
             {DisplayOne()}
@@ -80,8 +80,8 @@ const CBHome = ({ data, setData }) => {
             <TabMenu
               model={dataItems}
               id={dataItems.id}
-              activeTwo={activeTwo}
-              onTabChange={(e) => setActiveTwo(e.index)}
+              activeTwo={activetwo}
+              onTabChange={(e) => setActivetwo(e.index)}
             />
 
             {DisplayTwo()}
@@ -89,10 +89,10 @@ const CBHome = ({ data, setData }) => {
         </div>
       </div>
       <TabMenu
-        model={dataStatus}
-        id={dataStatus.id}
-        activeThree={activeThree}
-        onTabChange={(e) => setActiveThree(e.index)}
+        model={dataStates}
+        id={dataStates.id}
+        activeThree={activethree}
+        onTabChange={(e) => setActivethree(e.index)}
       />
 
       {DisplayThree()}

@@ -1,24 +1,20 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
-const MASelectAsset = ({ data, setData }) => {
+const WBOPullSelParticipant = ({ data, setData }) => {
   const dropdownValues = [
-    { label: "Digital_Dollar" },
-    { label: "Digital_Peso" },
-    { label: "Digital_Yen" },
-    { label: "Digital_Pound" },
-    { label: "Digital_Euro" },
-    { label: "Digital_$_Frank" },
+    { label: "O=WHOLESALETWO, L=LONDON, CGB" },
+    { label: "O=WHOLESALETHREE, L=LONDON, CGB" },
   ];
   // const [options] = useState(dropdownValues);
   return (
     <div className="grid p-fluid">
       <div className="col-12 ">
         <div className="card">
-          <h5>select an asset to issue member access state for.</h5>
+          <h5>select available asset from the vault to transfer.</h5>
           <Dropdown
-            value={data.assetvalue}
-            onChange={(e) => setData({ ...data, assetvalue: e.value })}
+            value={data.notary}
+            onChange={(e) => setData({ ...data, notary: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
@@ -29,4 +25,4 @@ const MASelectAsset = ({ data, setData }) => {
   );
 };
 
-export default MASelectAsset;
+export default WBOPullSelParticipant;
