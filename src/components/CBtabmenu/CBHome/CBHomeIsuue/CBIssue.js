@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 import SelectPaticipant from "./CBIssue/SelectPaticipant";
 import SelectAsset from "./CBIssue/SelectAsset";
@@ -6,12 +6,14 @@ import EnterAmount from "./CBIssue/EnterAmount";
 import ConfirmIssuance from "./CBIssue/ConfirmIssuance";
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
-import { Toast } from "primereact/toast";
+
 import InformationSubmitted from "../CBDCManager/DefCBDCType/InformationSubmitted";
 
 const CBIssue = () => {
+  //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
-  const toast = useRef(null);
+
+  //initial state fo user input
   const [data, setData] = useState({
     asset: "",
     decimal: 2,
@@ -30,6 +32,7 @@ const CBIssue = () => {
     displayvalue: "",
   });
 
+  //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
       return <SelectAsset data={data} setData={setData} />;
@@ -49,16 +52,6 @@ const CBIssue = () => {
     }
   };
 
-  const accept = () => {
-    toast.current.show({
-      severity: "info",
-      summary: "Confirmed",
-      detail: "You have accepted",
-      life: 3000,
-    });
-    // InformationSubmitted();
-  };
-
   const wizardItems = [
     { label: "Select Asset" },
     {
@@ -74,6 +67,7 @@ const CBIssue = () => {
   return (
     <div className="col-12 ">
       <div className="card card-w-title">
+        {/* implementing steps */}
         <h5>Steps</h5>
         <Steps
           model={wizardItems}
@@ -82,7 +76,12 @@ const CBIssue = () => {
           readOnly={false}
         />
       </div>
-      <div className="card">{pageDisplay()}</div>
+      <div className="card">
+        {
+          //display the steps pages SelectAsset, SelectPaticipant, EnterAmount, ConfirmIssuance
+          pageDisplay()
+        }
+      </div>
       <div className="card">
         <div className="flex align-items-center justify-content-between">
           <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
@@ -98,11 +97,9 @@ const CBIssue = () => {
             />
           </div>
           <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
-            <Toast ref={toast} />
             <Button
               onClick={() => {
                 if (activeIndex === wizardItems.length) {
-                  accept();
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }

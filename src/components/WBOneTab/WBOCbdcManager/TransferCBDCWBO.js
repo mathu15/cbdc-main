@@ -16,10 +16,12 @@ import WBOPullEnterAmount from "./WBOTransferCBDC/PullTransfer/WBOPullEnterAmoun
 import WBOPullConfirmReq from "./WBOTransferCBDC/PullTransfer/WBOPullConfirmReq";
 
 const TransferCBDCWBO = () => {
+  //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeOne, setActiveOne] = useState(0);
   const toast = useRef(null);
 
+  //initial state fo user input
   const [data, setData] = useState({
     asset: "",
     decimal: 2,
@@ -37,6 +39,8 @@ const TransferCBDCWBO = () => {
     minvalue: "",
     displayvalue: "",
   });
+
+  //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
       return <SelectWBOTransCBDC data={data} setData={setData} />;
@@ -112,7 +116,7 @@ const TransferCBDCWBO = () => {
 
   return (
     <>
-      <div class="flex align-items-center justify-content-around mb-5 mt-5">
+      <div className="flex align-items-center justify-content-around mb-5 mt-5">
         <Button label="Push Transfer" className="p-button-outlined  mb-3" />
 
         <Button
@@ -123,6 +127,7 @@ const TransferCBDCWBO = () => {
       <div className="grid p-fluid">
         <div className="col-12 lg:col-6 card">
           <div className="card mb-5">
+            {/* implementing steps to push transfer*/}
             <Steps
               model={wizardItems}
               // activeIndex={activeIndex}
@@ -131,7 +136,12 @@ const TransferCBDCWBO = () => {
               key={1}
             />
           </div>
-          <div className="mt-5">{pageDisplay()}</div>
+          <div className="mt-5">
+            {
+              //display the steps pages Select Asset, Select Participant, Enter Amount, Confirm Transfer
+              pageDisplay()
+            }
+          </div>
           <div className="mt-5">
             <div className="flex align-items-center justify-content-between">
               <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
@@ -171,6 +181,7 @@ const TransferCBDCWBO = () => {
         </div>
         <div className="col-12 lg:col-6 cad">
           <div className="card mb-5">
+            {/* implementing steps pull transfer*/}
             <Steps
               model={items}
               // activeIndex={activeIndex}
@@ -179,7 +190,12 @@ const TransferCBDCWBO = () => {
             />
           </div>
 
-          <div className="mt-5">{pageDisplayOne()}</div>
+          <div className="mt-5">
+            {
+              //display the steps pages Select Asset, Select Participant, Enter Amount, Confirm Request
+              pageDisplayOne()
+            }
+          </div>
 
           <div>
             <div className="flex align-items-center justify-content-between mt-5">

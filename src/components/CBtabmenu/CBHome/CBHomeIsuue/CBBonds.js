@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Chart } from "primereact/chart";
 
+// page for displaying chaertdata
 const CBBonds = () => {
+  // initail value for chart data
   const [chartData] = useState({
     labels: ["Digital_Pound", "Digital_Dollar", "Digital_Euro"],
     datasets: [

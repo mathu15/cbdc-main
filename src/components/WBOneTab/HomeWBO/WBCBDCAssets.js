@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Chart } from "primereact/chart";
 
 const WBCBDCAssets = () => {
+  //inital chart data
   const [chartData] = useState({
     labels: ["Digital_$_Frank", "Digital_Euro"],
     datasets: [

@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
+// select the particiapnt which has requested for the asset
 const MASelectParticipant = ({ data, setData }) => {
   const dropdownValues = [
     { name: "WholesaleBankONE, L=London, C=GB" },

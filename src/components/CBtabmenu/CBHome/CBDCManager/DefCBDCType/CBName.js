@@ -9,6 +9,7 @@ export const CBName = ({ data, setData }) => {
         <div className="card">
           <h5 className="align-self-center pb-3">Enter the CBDC Name</h5>
           <span className="p-float-label">
+            {/* getting the user input for asset name */}
             <InputText
               id="username"
               type="text"
@@ -22,6 +23,8 @@ export const CBName = ({ data, setData }) => {
             <label htmlFor="username">CBDC Name</label>
           </span>
         </div>
+
+        {/* getting user input for decimal point */}
         <h5>Select the decimal place:0.00</h5>
         <div className="grid">
           <div className="col-12 md:col-3">
@@ -93,9 +96,5 @@ export const CBName = ({ data, setData }) => {
     </div>
   );
 };
-
-// const comparisonFn = function (prevProps, nextProps) {
-//   return prevProps.location.pathname === nextProps.location.pathname;
-// };
 
 export default CBName;

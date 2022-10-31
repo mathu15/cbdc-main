@@ -1,6 +1,7 @@
 import { Card } from "primereact/card";
 import React from "react";
 
+// to display the available assets
 const info = [
   {
     name: "Digital_DOllar",
@@ -29,7 +30,7 @@ const AvailableCBDCWBO = () => {
   return (
     <div className="flex-column">
       {info.map((cdata) => (
-        <Card title="Available Assets on the Network">
+        <Card title="Available Assets on the Network" key={cdata.id}>
           <Card>
             <div className="flex">
               <p className="w-2 text-center font-bold text-blue-500 mr-3">

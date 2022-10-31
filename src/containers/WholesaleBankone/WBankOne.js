@@ -10,7 +10,8 @@ import WBOCbdcManager from "../../components/WBOneTab/WBOCbdcManager";
 import WBOAccessControls from "../../components/WBOneTab/WBOAccessControls";
 import WBORequests from "../../components/WBOneTab/WBORequests";
 import WBOTreasury from "../../components/WBOneTab/WBOTreasury";
-import WBOCordaTrans from "../../components/WBOneTab/WBOCordaTrans";
+
+import WBOMoneySwipeTrans from "../../components/WBOneTab/WBOMoneySwipetrans";
 
 const WBankOne = () => {
   const history = useHistory();
@@ -63,7 +64,7 @@ const WBankOne = () => {
       <TabMenu
         model={wizardItems}
         activeIndex={0}
-        setActiveIndex={(e) => e.index}
+        // setActiveIndex={(e) => e.index}
         end={<Button label="noifications" icon="pi pi-bell" />}
       />
       <Route exact path={"/wholesale-bank-one"} component={WBOHome} />
@@ -83,7 +84,7 @@ const WBankOne = () => {
 
       <Route
         path={"/wholesale-bank-one/corda-dashboard"}
-        component={WBOCordaTrans}
+        component={WBOMoneySwipeTrans}
       />
     </div>
   );

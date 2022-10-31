@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
+// select asset to transfer to another wholesale bank
 const WBOTSelectAsset = ({ data, setData }) => {
   const dropdownValues = [
     { label: "Digital_Dollar" },

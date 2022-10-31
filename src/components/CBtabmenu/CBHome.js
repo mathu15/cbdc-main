@@ -68,7 +68,7 @@ const CBHome = ({ data, setData }) => {
           <div className="card card-w-title">
             <TabMenu
               model={wizardItems}
-              activeOne={activeone}
+              activeIndex={activeone}
               onTabChange={(e) => setActiveone(e.index)}
               id={wizardItems.id}
             />
@@ -80,7 +80,7 @@ const CBHome = ({ data, setData }) => {
             <TabMenu
               model={dataItems}
               id={dataItems.id}
-              activeTwo={activetwo}
+              activeIndex={activetwo}
               onTabChange={(e) => setActivetwo(e.index)}
             />
 
@@ -91,7 +91,7 @@ const CBHome = ({ data, setData }) => {
       <TabMenu
         model={dataStates}
         id={dataStates.id}
-        activeThree={activethree}
+        activeIndex={activethree}
         onTabChange={(e) => setActivethree(e.index)}
       />
 

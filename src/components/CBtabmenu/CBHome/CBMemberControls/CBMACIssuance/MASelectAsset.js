@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
+//select the requested asset to be issued
 const MASelectAsset = ({ data, setData }) => {
   const dropdownValues = [
     { label: "Digital_Dollar" },

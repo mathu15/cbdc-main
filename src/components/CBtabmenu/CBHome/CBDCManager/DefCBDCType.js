@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
@@ -9,15 +9,15 @@ import TranscationControl from "./DefCBDCType/TranscationControl";
 import AssetControl from "./DefCBDCType/AssetControl";
 import ConfirmDefinition from "./DefCBDCType/ConfirmDefinition";
 import InformationSubmitted from "./DefCBDCType/InformationSubmitted";
-import { Toast } from "primereact/toast";
-import axios from "axios";
 
 const DefCBDCType = () => {
+  //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
-  const toast = useRef(null);
+
+  //initial state fo user input
   const [data, setData] = useState({
-    cbname: "",
-    decimal: {},
+    issuetype: "",
+    count: {},
     option: "",
     access: true,
     select: "",
@@ -26,8 +26,8 @@ const DefCBDCType = () => {
     transvalue: "",
     maxvalue: "",
     minvalue: "",
-    displayvalue: "",
-    notary: "",
+    amount: "",
+    issuer: "",
     skip: "(skip this step if no controls are required)",
   });
 
@@ -52,6 +52,7 @@ const DefCBDCType = () => {
     },
   ];
 
+  //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
       return <CBName data={data} setData={setData} />;
@@ -75,49 +76,11 @@ const DefCBDCType = () => {
     }
   };
 
-  const accept = () => {
-    toast.current.show({
-      severity: "info",
-      summary: "Confirmed",
-      detail: "You have submitted",
-      life: 3000,
-    });
-    // InformationSubmitted();
-  };
-  const reject = () => {
-    toast.current.show({
-      severity: "error",
-      summary: "Rejected",
-      detail: "something went wrong",
-      life: 3000,
-    });
-  };
-
-  // const confirm = (event) => {
-  //   confirmPopup({
-  //     target: event.currentTarget,
-  //     message: "Are you sure you want to proceed?",
-  //     icon: "pi pi-exclamation-triangle",
-  //     accept,
-  //   });
-  // };
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const updatedAssetsData = { ...data };
-    const response = await axios.post(
-      "http://localhost:5000/assets",
-      updatedAssetsData
-    );
-    if (response.status === 201) {
-      accept();
-    } else {
-      reject();
-    }
-  };
   return (
     <div className="col-12 ">
       <div className="card card-w-title">
         <h5>Steps</h5>
+        {/* implementing steps */}
         <Steps
           model={wizardItems}
           activeIndex={activeIndex}
@@ -125,7 +88,14 @@ const DefCBDCType = () => {
           readOnly={false}
         />
       </div>
-      <div className="card">{pageDisplay()}</div>
+
+      <div className="card">
+        {
+          //display the steps pages CBName,NotaySelect, MAC, TranscationControl,AssetControl,ConfirmDefinition
+
+          pageDisplay()
+        }
+      </div>
       <div className="card">
         <div className="flex align-items-center justify-content-between">
           <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
@@ -140,12 +110,14 @@ const DefCBDCType = () => {
               }}
             />
           </div>
-          <div class="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
-            <Toast ref={toast} />
+          <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
             <Button
               onClick={() => {
                 if (activeIndex === wizardItems.length) {
-                  submitHandler();
+                  <InformationSubmitted
+                    activeIndex={activeIndex}
+                    setActiveIndex={setActiveIndex}
+                  />;
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }

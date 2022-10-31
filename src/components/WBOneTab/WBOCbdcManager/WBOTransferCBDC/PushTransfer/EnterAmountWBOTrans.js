@@ -1,6 +1,7 @@
 import React from "react";
 import { InputNumber } from "primereact/inputnumber";
 
+// page for enter to push transfer
 const EnterAmountWBOTrans = ({ data, setData }) => {
   console.log("data", data);
   return (

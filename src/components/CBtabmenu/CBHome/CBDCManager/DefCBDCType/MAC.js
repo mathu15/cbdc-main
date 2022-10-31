@@ -14,6 +14,7 @@ const MAC = ({ data, setData }) => {
         Toggle the switch below to enable/disable this control.
       </p>
 
+      {/* asking user input if the member access is required for the asset */}
       <h5 className="text-center">Member Access Required</h5>
       <div className="text-center pt-3">
         <InputSwitch

@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
+// page for select asset step to pushtransfer
 const SelectWBOTransCBDC = ({ data, setData }) => {
   const dropdownValues = [
     { label: "Digital_Dollar" },

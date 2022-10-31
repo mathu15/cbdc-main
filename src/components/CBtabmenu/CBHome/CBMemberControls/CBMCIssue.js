@@ -57,6 +57,7 @@ const CBMCIssue = () => {
   return (
     <div className="col-12 ">
       <div className="card card-w-title">
+        {/* steps to issue the requested asset from he wholesale bank */}
         <h5>Steps</h5>
         <Steps
           model={wizardItems}
@@ -65,7 +66,12 @@ const CBMCIssue = () => {
           readOnly={false}
         />
       </div>
-      <div className="card">{pageDisplay()}</div>
+      <div className="card">
+        {
+          //display the steps pages CBName,NotaySelect, MAC, TranscationControl,AssetControl,ConfirmDefinition
+          pageDisplay()
+        }
+      </div>
       <div className="card">
         <div className="flex align-items-center justify-content-between">
           <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
@@ -80,7 +86,7 @@ const CBMCIssue = () => {
               }}
             />
           </div>
-          <div class="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
+          <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
             <Toast ref={toast} />
             <Button
               onClick={() => {

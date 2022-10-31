@@ -11,8 +11,10 @@ import WBOTEnterAmount from "./WBOTransfer/WBOTEnterAmount";
 import WBOTConfirmTransfer from "./WBOTransfer/WBOTConfirmTransfer";
 
 const WBOTransferCBDC = () => {
+  //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
   const toast = useRef(null);
+  //initial state fo user input
   const [data, setData] = useState({
     asset: "",
     decimal: 2,
@@ -31,6 +33,7 @@ const WBOTransferCBDC = () => {
     displayvalue: "",
   });
 
+  //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
       return <WBOTSelectAsset data={data} setData={setData} />;
@@ -75,6 +78,7 @@ const WBOTransferCBDC = () => {
   return (
     <div className="col-12 ">
       <div className="card card-w-title">
+        {/* implementing steps */}
         <h5>Steps</h5>
         <Steps
           model={wizardItems}
@@ -83,7 +87,12 @@ const WBOTransferCBDC = () => {
           readOnly={false}
         />
       </div>
-      <div className="card">{pageDisplay()}</div>
+      <div className="card">
+        {
+          //display the steps pages Select Asset, Select Participant, Enter Amount, Confirm Transfer
+          pageDisplay()
+        }
+      </div>
       <div className="card">
         <div className="flex align-items-center justify-content-between">
           <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
@@ -98,7 +107,7 @@ const WBOTransferCBDC = () => {
               }}
             />
           </div>
-          <div class="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
+          <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
             <Toast ref={toast} />
             <Button
               onClick={() => {

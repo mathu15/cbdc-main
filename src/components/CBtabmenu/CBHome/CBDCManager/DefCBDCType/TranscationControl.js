@@ -9,6 +9,8 @@ const TransactionControl = ({ data, setData }) => {
   const [displayBasic, setDisplayBasic] = useState(false);
   const [skip, setSkip] = useState(data.skip);
 
+  // getting user input for maximum value if the user selects
+  // the max value from dialog overlay otherwise skip the step
   const skipper = (
     <span className="p-float-label">
       <InputNumber
@@ -41,21 +43,20 @@ const TransactionControl = ({ data, setData }) => {
 
       <div className="text-center pt-3">
         <div className="card p-fluid">
+          {/* dialog overlay if add control selected */}
           <Dialog
             header="Select rules to Add"
             visible={displayBasic}
-            // style={{ width: "30vw" }}
             modal
-            // footer={basicDialogFooter}
             onHide={() => setDisplayBasic(false)}
           >
             <Card style={{ cursor: "pointer" }}>
+              {/* select the maxvalue button to add maximum value otherwise skip the step */}
               <Button
                 type="button"
                 label="Maxvalue"
                 onClick={clickHandler}
                 icon="pi pi-minus"
-                // className="p-button-secondary"
                 style={{
                   marginTop: "2rem",
                   marginLeft: "2rem",
@@ -63,7 +64,6 @@ const TransactionControl = ({ data, setData }) => {
                 }}
               />
               <label htmlFor="option1">Maximum Value</label>
-
               <p>
                 The Max value sent to any participant cannot exceed the value
                 configured.
@@ -76,6 +76,7 @@ const TransactionControl = ({ data, setData }) => {
                 marginTop: "3rem",
               }}
             >
+              {/* Maximum Value without Issuer signing otherwise skip*/}
               <RadioButton
                 inputId="option2"
                 name="option"
@@ -100,11 +101,11 @@ const TransactionControl = ({ data, setData }) => {
               label="close"
               onClick={() => setDisplayBasic(false)}
               icon="pi pi-minus"
-              // className="p-button-secondary"
               style={{ marginTop: "2rem", marginLeft: "2rem", width: "20rem" }}
             />
           </Dialog>
 
+          {/* select it to add control */}
           <Button
             type="button"
             label="ADD CONTROL"

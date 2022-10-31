@@ -2,7 +2,6 @@ import React from "react";
 import "/node_modules/primeflex/primeflex.css";
 import { NavLink } from "react-router-dom";
 
-// import { IconName } from "react-icons/ri";
 import Buttons from "../buttons/Buttons";
 
 const Hero = () => {

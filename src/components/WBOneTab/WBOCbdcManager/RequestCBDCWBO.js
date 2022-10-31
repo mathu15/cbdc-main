@@ -12,8 +12,11 @@ import EnterAmountWBO from "./RequestCBDCWBO/EnterAmountWBO";
 import RequestReviewWBO from "./RequestCBDCWBO/RequestReviewWBO";
 
 const RequestCBDCWBO = () => {
+  //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
   const toast = useRef(null);
+
+  //initial state fo user input to request
   const [data, setData] = useState({
     asset: "",
     amount: 0,
@@ -37,6 +40,7 @@ const RequestCBDCWBO = () => {
     },
   ];
 
+  //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
       return <BondsOverview data={data} setData={setData} />;
@@ -68,6 +72,7 @@ const RequestCBDCWBO = () => {
   return (
     <div className="col-12 ">
       <div className="card card-w-title">
+        {/* implementing steps to request*/}
         <h5>Steps</h5>
         <Steps
           model={wizardItems}
@@ -76,7 +81,12 @@ const RequestCBDCWBO = () => {
           readOnly={false}
         />
       </div>
-      <div className="card">{pageDisplay()}</div>
+      <div className="card">
+        {
+          //display the steps pages BondsOverview, SelecAssettoRequest, EnterAmountWBO, RequestReviewWBO
+          pageDisplay()
+        }
+      </div>
       <div className="card">
         <div className="flex align-items-center justify-content-between">
           <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">

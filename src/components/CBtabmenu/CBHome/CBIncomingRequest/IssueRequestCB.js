@@ -7,6 +7,7 @@ import { Card } from "primereact/card";
 
 const IssueRequestCB = () => {
   const [displayBasic, setDisplayBasic] = useState();
+  // assets requested from wholesale bank with details
   const [data, setData] = useState({
     approved: true,
     requested: true,
@@ -58,9 +59,7 @@ const IssueRequestCB = () => {
         <div className="text-center pt-3">
           <div className="card p-fluid">
             <Dialog
-              // header="Select rules to Add"
               visible={displayBasic}
-              // style={{ width: "30vw" }}
               modal
               onHide={() => setDisplayBasic(false)}
             >
@@ -96,7 +95,6 @@ const IssueRequestCB = () => {
                     label="Approve"
                     onClick={() => setDisplayBasic(false)}
                     icon="pi pi-thumbs-up-fill"
-                    // className="p-button-secondary"
                     style={{
                       marginTop: "2rem",
                       marginLeft: "2rem",
@@ -108,7 +106,6 @@ const IssueRequestCB = () => {
                     label="Deny"
                     onClick={() => setDisplayBasic(false)}
                     icon="pi pi-stop-circle"
-                    // className="p-button-secondary"
                     style={{
                       marginTop: "2rem",
                       marginLeft: "2rem",
@@ -120,7 +117,6 @@ const IssueRequestCB = () => {
                     label="Hide"
                     onClick={() => setDisplayBasic(false)}
                     icon="pi pi-minus"
-                    // className="p-button-secondary"
                     style={{
                       marginTop: "2rem",
                       marginLeft: "2rem",

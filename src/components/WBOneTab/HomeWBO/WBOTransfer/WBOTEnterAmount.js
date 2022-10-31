@@ -1,6 +1,7 @@
 import React from "react";
 import { InputNumber } from "primereact/inputnumber";
 
+//enter the maximum transaction value to be transfered
 const WBOTEnterAmount = ({ data, setData }) => {
   console.log("data", data);
   return (

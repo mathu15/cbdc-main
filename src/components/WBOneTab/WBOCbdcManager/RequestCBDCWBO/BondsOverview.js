@@ -1,5 +1,6 @@
 import React from "react";
 
+// To display the Total Bonds in Vault
 const BondsOverview = ({ data, setData }) => {
   console.log("data", data);
   return (

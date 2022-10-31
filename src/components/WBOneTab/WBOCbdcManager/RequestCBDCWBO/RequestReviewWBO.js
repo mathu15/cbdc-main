@@ -1,5 +1,6 @@
 import React from "react";
 
+// Review and confirm the CBDC Issuance Request
 const RequestReviewWBO = ({ data, setData }) => {
   console.log("data", data);
   return (

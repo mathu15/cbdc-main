@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
+// select the wholesale bank to transfer asset
 const WBOTSelectParticipant = ({ data, setData }) => {
   const dropdownValues = [
     { label: "O=WHOLESALETWO, L=LONDON, CGB" },

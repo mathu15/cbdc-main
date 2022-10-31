@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
+// page for select paricipant step
 const SelectPaticipant = ({ data, setData }) => {
   const dropdownValues = [
     { label: "O=WHOLESALETWO, L=LONDON, CGB" },

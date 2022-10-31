@@ -1,5 +1,6 @@
 import React from "react";
 
+// review and confirm (display) the accepted asset for issuance to wholesale bank
 const MACConfirm = ({ data, setData }) => {
   console.log("data", data);
   return (

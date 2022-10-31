@@ -2,6 +2,7 @@ import React from "react";
 
 import { InputNumber } from "primereact/inputnumber";
 
+// enter amount to request-- user input
 const EnterAmountWBO = ({ data, setData }) => {
   return (
     <div className="grid p-fluid">

@@ -16,7 +16,9 @@ const NotarySel = ({ data, setData }) => {
         feature
       </p>
 
-      <div class="flex align-items-center">
+      {/* selecting the notary */}
+
+      <div className="flex align-items-center">
         <div className="grid">
           <div className="col-12 ">
             <div className="field-radiobutton">

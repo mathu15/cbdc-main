@@ -1,5 +1,6 @@
 import React from "react";
 
+// review and confirm (display) the entered user input
 const ConfirmIssuance = ({ data, setData }) => {
   console.log("data", data);
   return (
@@ -22,12 +23,6 @@ const ConfirmIssuance = ({ data, setData }) => {
             Remaining after Transfer: {data.total - data.amount}
           </p>
         </div>
-        {/* <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-          <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
-            Maximum transaction value with this asset {data.maxvalue}
-          </p>
-         
-        </div> */}
       </div>
     </div>
   );

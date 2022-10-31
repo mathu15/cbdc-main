@@ -1,5 +1,6 @@
 import React from "react";
 
+// review and confirm (display) the entered user input
 const ConfirmDefinition = ({ data, setData }) => {
   return (
     <div className="card">
