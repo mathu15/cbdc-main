@@ -34,7 +34,7 @@ const CBHome = ({ data, setData }) => {
 
   const wizardItems = [
     {
-      label: "issue",
+      label: "ISSUE",
       icon: "pi pi-fw pi-dollar",
     },
   ];
@@ -45,18 +45,18 @@ const CBHome = ({ data, setData }) => {
       icon: "pi pi-fw pi-user",
     },
     {
-      label: "CBDC Assets",
+      label: "CBDC ASSETS",
       icon: "pi pi-fw pi-user",
     },
   ];
 
   const dataStates = [
     {
-      label: "CBDC States",
+      label: "CBDC STATES",
       icon: "pi pi-fw pi-user",
     },
     {
-      label: "Member Access States",
+      label: "MEMBER ACCESS STATES",
       icon: "pi pi-fw pi-user",
     },
   ];

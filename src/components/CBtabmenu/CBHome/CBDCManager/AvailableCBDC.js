@@ -1,5 +1,6 @@
 import { Card } from "primereact/card";
 import React, { useEffect, useState } from "react";
+import { Accordion, AccordionTab } from "primereact/accordion";
 
 const AvailableCBDC = () => {
   const [data, setData] = useState([]);
@@ -47,11 +48,22 @@ const AvailableCBDC = () => {
             <p className="w-2 text-center font-bold text-blue-500 mr-3">id:</p>
             <p className="text-xl w-10">{cdata.id}</p>
           </div>
+
           <div className="flex ">
-            <p className="w-2 text-center font-bold text-blue-500 mr-3">
-              compliance control:
+            <p className="w-5 ml-6">
+              <Accordion>
+                <AccordionTab header="compliance control:">
+                  <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
+                    <p className="  text-xl font-bold text-blue-500 mr-3">
+                      Required Member Access:ENABLED
+                    </p>
+                    <p className=" text-xl">
+                      Permitted Notaries:O=NotaryONE Service, LLondon, C=GB
+                    </p>
+                  </div>
+                </AccordionTab>
+              </Accordion>
             </p>
-            <p className="text-xl w-10">compliance</p>
           </div>
         </Card>
       ))}
