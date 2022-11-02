@@ -40,6 +40,23 @@ const TransferCBDCWBO = () => {
     displayvalue: "",
   });
 
+  const [data2, setData2] = useState({
+    asset: "",
+    decimal: 2,
+    notary: "",
+    amount: 0,
+    total: 25000000,
+    remaining: 25000000,
+    option: "",
+    access: true,
+    select: "",
+    accesconrol: "",
+    confirm: "",
+    transvalue: "",
+    maxvalue: 10000000,
+    minvalue: "",
+    displayvalue: "",
+  });
   //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
@@ -61,13 +78,13 @@ const TransferCBDCWBO = () => {
   };
   const pageDisplayOne = () => {
     if (activeOne === 0) {
-      return <WBOPullSelAsset data={data} setData={setData} />;
+      return <WBOPullSelAsset data={data2} setData={setData2} />;
     } else if (activeOne === 1) {
-      return <WBOPullSelParticipant data={data} setData={setData} />;
+      return <WBOPullSelParticipant data={data2} setData={setData2} />;
     } else if (activeOne === 2) {
-      return <WBOPullEnterAmount data={data} setData={setData} />;
+      return <WBOPullEnterAmount data={data2} setData={setData2} />;
     } else if (activeOne === 3) {
-      return <WBOPullConfirmReq data={data} setData={setData} />;
+      return <WBOPullConfirmReq data={data2} setData={setData2} />;
     } else if (activeOne === wizardItems.length) {
       return (
         <InformationSubmitted

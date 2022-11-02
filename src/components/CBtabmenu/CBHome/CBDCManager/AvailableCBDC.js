@@ -50,7 +50,7 @@ const AvailableCBDC = () => {
           </div>
 
           <div className="flex ">
-            <p className="w-5 ml-6">
+            <div className="w-5 ml-6">
               <Accordion>
                 <AccordionTab header="compliance control:">
                   <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
@@ -63,7 +63,7 @@ const AvailableCBDC = () => {
                   </div>
                 </AccordionTab>
               </Accordion>
-            </p>
+            </div>
           </div>
         </Card>
       ))}
