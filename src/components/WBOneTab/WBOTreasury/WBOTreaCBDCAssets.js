@@ -17,8 +17,10 @@ const WBOTreaCBDCAssets = () => {
   const [lightOptions] = useState({
     plugins: {
       legend: {
+        position: "right",
+
         labels: {
-          color: "#495057",
+          color: "#333",
         },
       },
     },
@@ -50,16 +52,15 @@ const WBOTreaCBDCAssets = () => {
           </div>
         </div>
       </div>
-      <div className="col-12 lg:col-6">
+      <div className="col-12 ">
         <div className="card flex flex-column align-items-center">
-          <h5>Pie Chart</h5>
           <Chart
             type="doughnut"
             data={chartData}
             options={lightOptions}
             style={{
               position: "relative",
-              width: "40%",
+              width: "30%",
               justifyContent: "center",
             }}
           />

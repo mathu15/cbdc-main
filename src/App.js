@@ -10,6 +10,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import CentralBank from "./containers/CentralBank/CentralBank";
 import { Toast } from "primereact/toast";
 import WBankOne from "./containers/WholesaleBankone/WBankOne";
+import WBankTwo from "./containers/WholesaleBanktwo/WBankTwo";
+import WBankThree from "./containers/WholesaleBankthree/WBankThree";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/central-bank" component={CentralBank} />
         <Route path="/wholesale-bank-one" component={WBankOne} />
+        <Route path="/wholesale-bank-two" component={WBankTwo} />
+        <Route path="/wholesale-bank-three" component={WBankThree} />
       </>
     </Router>
   );

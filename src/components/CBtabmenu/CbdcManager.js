@@ -11,18 +11,18 @@ const CbdcManager = () => {
   const history = useHistory();
   const wizardItems = [
     {
-      label: "Available CBDC",
-      icon: "pi pi-fw pi-edit",
+      label: "AVAILABLE CBDC",
+      icon: "pi pi-fw pi-th-large",
       command: () => history.push("/central-bank/cbdc-manager"),
     },
     {
-      label: "Define CBDC Type",
-      icon: "pi pi-fw pi-edit",
+      label: "DEFINE CBDC Type",
+      icon: "pi pi-fw pi-ticket",
       command: () => history.push("/central-bank/cbdc-manager/cbdc-type"),
     },
     {
-      label: "Issue CBDC",
-      icon: "pi pi-fw pi-edit",
+      label: "ISSUE CBDC",
+      icon: "pi pi-fw pi-dollar",
       command: () => history.push("/central-bank/cbdc-manager/issue-cbdc"),
     },
   ];

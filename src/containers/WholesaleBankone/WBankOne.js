@@ -18,34 +18,45 @@ const WBankOne = () => {
 
   const wizardItems = [
     {
-      label: "Home",
-      icon: "pi pi-fw pi-home",
+      label: "HOME",
+      icon: "pi pi-fw pi-th-large",
       command: () => history.push("/wholesale-bank-one"),
     },
     {
-      label: "CBDC Manager",
-      icon: "pi pi-fw pi-edit",
+      label: "CBDC MANAGER",
+      icon: "pi pi-fw pi-dollar",
       command: () => history.push("/wholesale-bank-one/cbdc-manager"),
     },
     {
-      label: "Access  controls",
-      icon: "pi pi-fw pi-edit",
+      label: "ACCESS CONTROLS",
+      icon: "pi pi-fw pi-cog",
       command: () => history.push("/wholesale-bank-one/access-controls"),
     },
     {
-      label: " Requests",
-      icon: "pi pi-fw pi-file",
+      label: "REQUESTS",
+      icon: "pi pi-fw pi-sort-alt",
       command: () => history.push("/wholesale-bank-one/requests"),
     },
     {
-      label: "treasury dashboard",
-      icon: "pi pi-fw pi-cog",
+      label: "TREASURY DASHBOARD",
+      icon: "pi pi-fw pi-chart-pie",
       command: () => history.push("/wholesale-bank-one/treasury-dashboard"),
     },
     {
-      label: "corda transactions dashboard",
-      icon: "pi pi-fw pi-cog",
+      label: "DECENTRALIZED LIQUIDITY EXCHANGE",
+      icon: "pi pi-fw pi-share-alt",
+      command: () => history.push("/wholesale-bank-one/treasury-dashboard"),
+    },
+    {
+      label: "MONEYSWIPE TRANSACTION DASHBOARD",
+      icon: "pi pi-fw pi-book",
+
       command: () => history.push("/wholesale-bank-one/corda-dashboard"),
+    },
+    {
+      label: "RETAIL CBDC",
+      icon: "pi pi-fw pi-user",
+      command: () => history.push("/wholesale-bank-one/treasury-dashboard"),
     },
   ];
 
@@ -81,10 +92,17 @@ const WBankOne = () => {
         path={"/wholesale-bank-one/treasury-dashboard"}
         component={WBOTreasury}
       />
-
+      <Route
+        path={"/wholesale-bank-one/treasury-dashboard"}
+        component={WBOTreasury}
+      />
       <Route
         path={"/wholesale-bank-one/corda-dashboard"}
         component={WBOMoneySwipeTrans}
+      />
+      <Route
+        path={"/wholesale-bank-one/treasury-dashboard"}
+        component={WBOTreasury}
       />
     </div>
   );

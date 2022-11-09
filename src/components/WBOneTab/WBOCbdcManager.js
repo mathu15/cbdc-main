@@ -4,6 +4,7 @@ import { Route, useHistory } from "react-router-dom";
 
 import AvailableCBDCWBO from "./WBOCbdcManager/AvailableCBDCWBO";
 import RequestCBDCWBO from "./WBOCbdcManager/RequestCBDCWBO";
+import RequestCrossSwapWBO from "./WBOCbdcManager/RequestCrossSwapWBO";
 import TransferCBDCWBO from "./WBOCbdcManager/TransferCBDCWBO";
 
 const WBOCbdcManager = () => {
@@ -11,38 +12,38 @@ const WBOCbdcManager = () => {
   const history = useHistory();
   const wizardItems = [
     {
-      label: "Available CBDC",
-      icon: "pi pi-fw pi-edit",
+      label: "AVAILABLE CBDC",
+      icon: "pi pi-fw pi-th-large",
       command: () => history.push("/wholesale-bank-one/cbdc-manager"),
     },
     {
-      label: "Request CBDC",
-      icon: "pi pi-fw pi-edit",
+      label: "REQUEST CBDC",
+      icon: "pi pi-fw pi-dollar",
       command: () => history.push("/wholesale-bank-one/cbdc-manager/cbdc-type"),
     },
     {
-      label: "Transfer CBDC",
-      icon: "pi pi-fw pi-edit",
+      label: "TRANSFER CBDC",
+      icon: "pi pi-fw pi-arrow-right-arrow-left",
       command: () =>
         history.push("/wholesale-bank-one/cbdc-manager/transfer-cbdc"),
     },
     {
-      label: "Redeem CBDC",
-      icon: "pi pi-fw pi-edit",
+      label: "REDEEM CBDC",
+      icon: "pi pi-fw pi-sync",
       // command: () =>
       // history.push("/wholesale-bank-one/cbdc-manager/issue-cbdc"),
     },
     {
-      label: "Request DVP",
-      icon: "pi pi-fw pi-edit",
+      label: "REQUEST DVP",
+      icon: "pi pi-fw pi-sort-amount-up-alt",
       // command: () =>
       // history.push("/wholesale-bank-one/cbdc-manager/issue-cbdc"),
     },
     {
-      label: "Request Cross Chain swap",
-      icon: "pi pi-fw pi-edit",
-      // command: () =>
-      // history.push("/wholesale-bank-one/cbdc-manager/issue-cbdc"),
+      label: "REQUEST CROSS CHAIN SWAP",
+      icon: "pi pi-fw pi-times",
+      command: () =>
+        history.push("/wholesale-bank-one/cbdc-manager/cross-chain-swap"),
     },
   ];
 
@@ -76,10 +77,10 @@ const WBOCbdcManager = () => {
         path={"/wholesale-bank-one/cbdc-manager/issue-cbdc"}
         component={IssueCBDCs}
       /> */}
-      {/* <Route
-        path={"/wholesale-bank-one/cbdc-manager/issue-cbdc"}
-        component={IssueCBDCs}
-      /> */}
+      <Route
+        path={"/wholesale-bank-one/cbdc-manager/cross-chain-swap"}
+        component={RequestCrossSwapWBO}
+      />
     </div>
   );
 };

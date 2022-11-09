@@ -39,22 +39,22 @@ const WBOHome = ({ data, setData }) => {
   const wizardItems = [
     {
       label: "TRANSFER CBDC",
-      icon: "pi pi-fw pi-dollar",
+      icon: "pi pi-fw pi-arrow-right-arrow-left",
     },
     {
       label: "REQUEST DVP",
-      icon: "pi pi-fw pi-dollar",
+      icon: "pi pi-fw pi-arrows-alt",
     },
   ];
 
   const dataItems = [
     {
       label: "CBDC ASSETS",
-      icon: "pi pi-fw pi-user",
+      icon: "pi pi-fw pi-dollar",
     },
     {
       label: "BONDS",
-      icon: "pi pi-fw pi-user",
+      icon: "pi pi-fw pi-sun",
     },
   ];
 

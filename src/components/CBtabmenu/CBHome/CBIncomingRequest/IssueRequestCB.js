@@ -4,7 +4,7 @@ import { Button } from "primereact/button";
 
 import { Dialog } from "primereact/dialog";
 import { Card } from "primereact/card";
-
+import { Accordion, AccordionTab } from "primereact/accordion";
 const IssueRequestCB = () => {
   const [displayBasic, setDisplayBasic] = useState();
   // assets requested from wholesale bank with details
@@ -18,7 +18,11 @@ const IssueRequestCB = () => {
     amount: 25000000,
     bonds: 25000000,
   });
-
+  const header = (
+    <div className="flex-column">
+      <p>Requesting Party:{data.party}</p>
+    </div>
+  );
   console.log("data", data);
   return (
     <>
@@ -57,7 +61,7 @@ const IssueRequestCB = () => {
       </div>
       <div className="flex text-center justify-content-center pt-3">
         <div className="text-center pt-3">
-          <div className="card p-fluid">
+          <div>
             <Dialog
               visible={displayBasic}
               modal
@@ -127,14 +131,33 @@ const IssueRequestCB = () => {
               </Card>
             </Dialog>
 
-            <Button
+            {/* <div className="flex ">
+              <div className="w-15  ml-6"> */}
+
+            {/* </div>
+            </div> */}
+            {/* <Button
               type="button"
               label={data.party}
               className="p-button-outlined p-button-secondary"
               icon="pi pi-angle-down"
               onClick={() => setDisplayBasic(true)}
-            />
+            /> */}
           </div>
+          <Accordion>
+            <AccordionTab header={header}>
+              <div
+                onClick={() => setDisplayBasic(true)}
+                className="card flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5"
+              >
+                <p className="  text-xl font-bold text-blue-500 mr-3">
+                  CBDC Name:{data.cbdc_name}
+                </p>
+                <p className=" text-xl">Amount:{data.amount}</p>
+                <p className=" text-xl">Status:Approved</p>
+              </div>
+            </AccordionTab>
+          </Accordion>
         </div>
       </div>
     </>

@@ -18,43 +18,43 @@ const CentralBank = () => {
   const history = useHistory();
   const wizardItems = [
     {
-      label: "Home",
-      icon: "pi pi-fw pi-home",
+      label: "HOME",
+      icon: "pi pi-fw pi-th-large",
       command: () => history.push("/central-bank"),
     },
     {
-      label: "CBDC Manager",
-      icon: "pi pi-fw pi-book",
+      label: "CBDC MANAGER",
+      icon: "pi pi-fw pi-dollar",
       command: () => history.push("/central-bank/cbdc-manager"),
     },
     {
-      label: "Member  controls",
-      icon: "pi pi-fw pi-file-edit",
+      label: "MEMBER CONTROLS",
+      icon: "pi pi-fw pi-cog",
       command: () => history.push("/central-bank/member-controls"),
     },
     {
-      label: "Incoming Requests",
+      label: "INCOMING REQUESTS",
       icon: "pi pi-fw pi-download",
       command: () => history.push("/central-bank/incoming-requests"),
     },
     {
-      label: "treasury dashboard",
-      icon: "pi pi-fw pi-inbox",
+      label: "TREASURY DASHBOARD",
+      icon: "pi pi-fw pi-chart-pie",
       command: () => history.push("/central-bank/treasury-dashboard"),
     },
     {
-      label: "MoneySwipe transaction dashboard",
-      icon: "pi pi-fw pi-folder",
+      label: "MONEYSWIPE TRANSACTION DASHBOARD",
+      icon: "pi pi-fw pi-book",
       command: () => history.push("/central-bank/moneyswipe-dashboard"),
     },
     {
-      label: "reference modals",
-      icon: "pi pi-fw pi-cog",
+      label: "REFERENCE MODELS",
+      icon: "pi pi-fw pi-share-alt",
       command: () => history.push("/central-bank/reference-modals"),
     },
     {
-      label: "visibility & reissuance",
-      icon: "pi pi-fw pi-cog",
+      label: "VISIBILITY AND REISSUANCE",
+      icon: "pi pi-fw pi-eye",
       command: () => history.push("/central-bank/visibility-reissuance"),
     },
   ];

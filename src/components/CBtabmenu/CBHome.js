@@ -35,18 +35,18 @@ const CBHome = ({ data, setData }) => {
   const wizardItems = [
     {
       label: "ISSUE",
-      icon: "pi pi-fw pi-dollar",
+      icon: "pi pi-fw pi-sort-amount-up-alt",
     },
   ];
 
   const dataItems = [
     {
       label: "BONDS",
-      icon: "pi pi-fw pi-user",
+      icon: "pi pi-fw pi-sun",
     },
     {
       label: "CBDC ASSETS",
-      icon: "pi pi-fw pi-user",
+      icon: "pi pi-fw pi-dollar",
     },
   ];
 
@@ -64,7 +64,7 @@ const CBHome = ({ data, setData }) => {
   return (
     <>
       <div className="grid p-fluid">
-        <div className="row-12 col-12 md:col-6 ">
+        <div className="row-12  col-12 md:col-6 ">
           <div className="card card-w-title">
             <TabMenu
               model={wizardItems}
@@ -75,7 +75,7 @@ const CBHome = ({ data, setData }) => {
             {DisplayOne()}
           </div>
         </div>
-        <div className="row-12 col-12 md:col-6 ">
+        <div className="row-12  col-12 md:col-6 ">
           <div className="card card-w-title">
             <TabMenu
               model={dataItems}

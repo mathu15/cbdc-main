@@ -84,7 +84,7 @@ const CBBonds = () => {
   // const value = amount.reduce((a, b) => a + b, 0);
   // console.log(value);
   return (
-    <div className="col-12">
+    <div className="col-12 ">
       <div className="grid p-fluid">
         <div className="col-12 md:col-6 ">
           <div className="card card-w-title">
@@ -103,7 +103,7 @@ const CBBonds = () => {
         type="doughnut"
         data={data}
         options={lightOptions}
-        style={{ position: "relative", width: "40%", justifyContent: "center" }}
+        style={{ position: "relative", width: "42%", justifyContent: "center" }}
       />
     </div>
   );
