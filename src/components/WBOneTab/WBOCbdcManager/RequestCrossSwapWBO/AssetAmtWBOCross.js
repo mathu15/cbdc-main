@@ -8,10 +8,10 @@ const AssetAmtWBOCross = ({ data, setData }) => {
     <div className="grid p-fluid">
       <div className="col-12">
         <div className="card">
-          <p className=" text-center text-2xl  text-blue-500 mr-3">
+          <p className=" text-center text-2xl  text-blue-200 mr-3">
             Enter the amount of {data.asset.label} to request.
           </p>
-          <p className=" text-center text-2xl  text-blue-500 mr-3">
+          <p className=" text-center text-2xl  text-blue-200 mr-3">
             Asset decimal: {data.decimal}
           </p>
           <InputNumber
@@ -23,10 +23,10 @@ const AssetAmtWBOCross = ({ data, setData }) => {
           ></InputNumber>
         </div>
         <div className="card">
-          <p className=" text-center text-2xl text-blue-500 mr-3">
+          <p className=" text-center text-2xl text-blue-200 mr-3">
             Enter the amount of {data.asset2.label} to offer.
           </p>
-          <p className=" text-center text-2xl  text-blue-500 mr-3">
+          <p className=" text-center text-2xl  text-blue-200 mr-3">
             Asset decimal: {data.decimal}
           </p>
           <InputNumber
@@ -38,13 +38,13 @@ const AssetAmtWBOCross = ({ data, setData }) => {
           ></InputNumber>
         </div>
         <div className="flex-column  align-items-center border-1 surface-border ">
-          <p className=" text-xl text-center border-botom-1">
+          <p className=" text-2xl text-center border-botom-1 pt-3">
             Total amount in vault:{data.total}
           </p>
-          <p className=" text-xl text-center">
+          <p className=" text-2xl text-center">
             Available to transact:{data.remaining}
           </p>
-          <p className=" text-xl text-center">
+          <p className=" text-2xl text-center pb-3">
             Remaining after transaction:{data.total - data.amount2}
           </p>
         </div>

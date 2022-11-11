@@ -10,25 +10,26 @@ const CbMenbercontrols = () => {
   const history = useHistory();
   const wizardItems = [
     {
-      label: "List/Revoke",
-      icon: "pi pi-fw pi-check",
+      label: "LIST/REVOKE",
+      icon: "pi text-xl pi-fw pi-check",
       command: () => history.push("/central-bank/member-controls"),
     },
     {
-      label: "Issue",
-      icon: "pi pi-fw pi-user",
+      label: "ISSUE",
+      icon: "pi text-xl pi-fw pi-user",
       command: () => history.push("/central-bank/member-controls/issue"),
     },
   ];
 
   return (
     <div className="card ">
-      <h5>Member Controls</h5>
+      <h5 className="text-3xl p-3">Member Controls</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}
         onTabChange={(e) => setActiveIndex(e.index)}
         readOnly={false}
+        style={{ fontSize: "1.2rem" }}
       />
       <Route
         exact

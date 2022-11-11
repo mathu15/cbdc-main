@@ -32,6 +32,8 @@ const WB3PullEnterAmount = ({ data, setData }) => {
             onChange={(e) => setData({ ...data, amount: e.value })}
             showButtons
             mode="decimal"
+            style={{ fontSize: "1.4rem" }}
+            className="p-2"
           ></InputNumber>
           <label htmlFor="amount">Amount</label>
         </div>

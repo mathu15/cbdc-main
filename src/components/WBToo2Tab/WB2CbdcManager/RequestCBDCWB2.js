@@ -71,15 +71,17 @@ const RequestCBDCWB2 = () => {
   };
 
   return (
-    <div className="col-12 ">
+    <div className="col-12 p-5">
       <div className="card card-w-title">
         {/* implementing steps to request*/}
-        <h5>Steps</h5>
+
         <Steps
           model={wizardItems}
           activeIndex={activeIndex}
           onSelect={(e) => setActiveIndex(e.index)}
           readOnly={false}
+          style={{ fontSize: "1.4rem" }}
+          className="p-5 m-3"
         />
       </div>
       <div className="card">
@@ -88,7 +90,7 @@ const RequestCBDCWB2 = () => {
           pageDisplay()
         }
       </div>
-      <div className="card">
+      <div className="p-5">
         <div className="flex align-items-center justify-content-between">
           <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
             <Button

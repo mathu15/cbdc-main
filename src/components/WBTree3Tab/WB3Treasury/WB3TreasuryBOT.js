@@ -8,8 +8,8 @@ const lineData = {
       label: "Balance over time for:INR_CASH",
       data: [100, 98, 85, 70, 100],
       fill: false,
-      backgroundColor: "#2f4860",
-      borderColor: "#2f4860",
+      backgroundColor: "#48C9B0",
+      borderColor: "#48C9B0",
       tension: 0,
     },
   ],
@@ -36,25 +36,25 @@ const WB3TreasuryBOT = (props) => {
     plugins: {
       legend: {
         labels: {
-          color: "#333",
+          color: "#eee",
         },
       },
     },
     scales: {
       x: {
         ticks: {
-          color: "#333",
+          color: "#eee",
         },
         grid: {
-          color: "rgba(160, 167, 181, .8)",
+          color: "rgba(160, 164, 181, .9)",
         },
       },
       y: {
         ticks: {
-          color: "#333",
+          color: "#eee",
         },
         grid: {
-          color: "rgba(160, 167, 181, .8)",
+          color: "rgba(160, 167, 181, .9)",
         },
       },
     },
@@ -79,7 +79,6 @@ const WB3TreasuryBOT = (props) => {
         ))}
       </div>
       <div className="card col-12 lg:col-9 ">
-        <h5>Linear Chart</h5>
         <Chart
           type="line"
           data={lineData}

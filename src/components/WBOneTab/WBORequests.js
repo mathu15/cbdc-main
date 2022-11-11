@@ -21,8 +21,7 @@ const WBORequests = () => {
     {
       label: "DVP REQUESTS",
       icon: "pi pi-fw pi-arrow-right-arrow-left",
-      command: () =>
-        history.push("/wholesale-bank-one/cbdc-manager/transfer-cbdc"),
+      command: () => history.push("/wholesale-bank-one/requests/dvp-requests"),
     },
     {
       label: "PULL TRANSFER REQUESTS",
@@ -46,12 +45,13 @@ const WBORequests = () => {
 
   return (
     <div className="card ">
-      <h5>Requests</h5>
+      <h5 className="text-3xl p-4">Requests</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}
         onTabChange={(e) => setActiveIndex(e.index)}
         readOnly={false}
+        style={{ fontSize: "1.2rem" }}
       />
       {/* <Route
         exact

@@ -12,19 +12,19 @@ const CBIncomingRequest = () => {
   const history = useHistory();
   const wizardItems = [
     {
-      label: "CBDC Issuance",
-      icon: "pi pi-fw pi-edit",
+      label: "CBDC ISSUANCE",
+      icon: "pi text-xl pi-fw pi-dollar",
       command: () => history.push("/central-bank/incoming-requests"),
     },
     {
-      label: "Redemption Requests",
-      icon: "pi pi-fw pi-edit",
+      label: "REDEMPTION REQUESTS",
+      icon: "pi text-xl pi-fw pi-refresh",
       command: () =>
         history.push("/central-bank/incoming-requests/redemption-request"),
     },
     {
-      label: "Member Access Request",
-      icon: "pi pi-fw pi-edit",
+      label: "MEMBER ACCESS REQUEST",
+      icon: "pi text-xl pi-fw pi-user",
       command: () =>
         history.push("/central-bank/incoming-requests/member-access-request"),
     },
@@ -32,12 +32,13 @@ const CBIncomingRequest = () => {
 
   return (
     <div className="card ">
-      <h5>Incoming Requests</h5>
+      <h5 className="text-3xl p-5">Incoming Requests</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}
         onTabChange={(e) => setActiveIndex(e.index)}
         readOnly={false}
+        style={{ fontSize: "1.3rem" }}
       />
       <Route
         exact

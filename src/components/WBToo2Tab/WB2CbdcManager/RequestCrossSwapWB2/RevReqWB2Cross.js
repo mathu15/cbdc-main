@@ -7,7 +7,7 @@ const RevReqWB2Cross = ({ data, setData }) => {
     <div className="card">
       <div className="flex-column align-items-center justify-content-center">
         <div className=" align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-          <p className="text-center text-2xl ">
+          <p className="text-center text-2xl pb-2">
             Review and confirm the Cross Chain Swap Request
           </p>
         </div>
@@ -22,7 +22,7 @@ const RevReqWB2Cross = ({ data, setData }) => {
             {" "}
             Offering amount of {data.asset2.label}:{data.amount2}
           </p>
-          <p className="text-center text-2xl">
+          <p className="text-center text-2xl pb-2">
             {data.asset2.label} remaining after Transfer:{" "}
             {data.total - data.amount2}
           </p>

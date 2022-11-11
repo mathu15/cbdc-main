@@ -8,8 +8,8 @@ const WB2TreaCBDCAssets = () => {
     datasets: [
       {
         data: [300, 50, 100],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+        backgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
+        hoverBackgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
       },
     ],
   });
@@ -20,7 +20,7 @@ const WB2TreaCBDCAssets = () => {
         position: "right",
 
         labels: {
-          color: "#333",
+          color: "#eee",
         },
       },
     },
@@ -31,11 +31,11 @@ const WB2TreaCBDCAssets = () => {
       <div className="grid justify-content-around">
         <div className="col-12 lg:col-6 xl:col-3">
           <div className="card mb-0 text-center">
-            <div className="text-900 text-center font-medium text-xl mb-3">
+            <div className="text-900 text-center font-medium text-2xl mb-3">
               CBDC Types in Vault
             </div>
 
-            <span className="text-green-500 text-center font-medium text-xl">
+            <span className="text-green-500 text-center font-medium text-2xl">
               3{" "}
             </span>
           </div>

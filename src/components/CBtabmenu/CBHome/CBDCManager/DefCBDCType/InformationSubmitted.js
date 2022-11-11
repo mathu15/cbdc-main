@@ -1,15 +1,12 @@
-import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 import React from "react";
 
 // user information submitted message
 const InformationSubmitted = ({ setActiveIndex }) => {
   return (
-    <Card
-      style={{ textAlign: "center" }}
-      title="your information has been submitted"
-    >
-      <p>what happened on MoneySwipe?</p>
+    <div className="text-center">
+      <h5 className="text-2xl">your information has been submitted</h5>
+      <p className="text-xl">what happened on Intrasettle?</p>
       <Button
         label="proceed"
         // activeIndex={activeIndex}
@@ -17,7 +14,7 @@ const InformationSubmitted = ({ setActiveIndex }) => {
           setActiveIndex(0);
         }}
       />
-    </Card>
+    </div>
   );
 };
 

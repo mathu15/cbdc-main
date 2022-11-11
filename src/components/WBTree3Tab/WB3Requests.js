@@ -48,12 +48,13 @@ const WB3Requests = () => {
 
   return (
     <div className="card ">
-      <h5>Requests</h5>
+      <h5 className="text-3xl p-4">Requests</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}
         onTabChange={(e) => setActiveIndex(e.index)}
         readOnly={false}
+        style={{ fontSize: "1.2rem" }}
       />
       {/* <Route
         exact

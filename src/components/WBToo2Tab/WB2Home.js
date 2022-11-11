@@ -71,34 +71,41 @@ const WB2Home = ({ data, setData }) => {
 
   return (
     <>
-      <div className="grid p-fluid">
-        <div className="row-12 col-12 md:col-6 ">
-          <div className="card card-w-title">
+      <div className="grid p-fluid p-5">
+        <div className="row-12  col-6 md:col-6 p-5">
+          <div className="card card-w-title ">
             <TabMenu
               model={wizardItems}
               activeIndex={activeone}
               onTabChange={(e) => setActiveone(e.index)}
+              style={{ fontSize: "1.2rem" }}
             />
             {DisplayOne()}
           </div>
         </div>
-        <div className="row-12 col-12 md:col-6 ">
+        <div className="row-12  col-12 md:col-6 p-5">
           <div className="card card-w-title">
             <TabMenu
               model={dataItems}
               activeIndex={activetwo}
               onTabChange={(e) => setActivetwo(e.index)}
+              style={{ fontSize: "1.2rem" }}
             />
             {DisplayTwo()}
           </div>
         </div>
       </div>
-      <TabMenu
-        model={dataStates}
-        activeIndex={activethree}
-        onTabChange={(e) => setActivethree(e.index)}
-      />
-      {DisplayThree()}
+      <div className="row-12  col-12  p-6">
+        <div className="card card-w-title">
+          <TabMenu
+            model={dataStates}
+            activeIndex={activethree}
+            onTabChange={(e) => setActivethree(e.index)}
+            style={{ fontSize: "1.2rem" }}
+          />
+          {DisplayThree()}
+        </div>
+      </div>
     </>
   );
 };

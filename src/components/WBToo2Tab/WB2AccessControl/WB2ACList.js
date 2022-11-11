@@ -20,36 +20,32 @@ const WB2ACList = () => {
   }, []);
   const header = (
     <div className="flex-column">
-      <p>Issuing Party:O=CB,L=Dublin, C=IE</p>
+      <p className="text-2xl">Issuing Party:O=CB,L=Dublin, C=IE</p>
     </div>
   );
 
   return (
-    <div className="flex-column">
-      <h3 className="mt-3">Issued Member Access States</h3>
+    <div className=" col-12 flex flex-column align-items-center justify-content-center  ">
+      <h3 className="mt-3 text-2xl">Issued Member Access States</h3>
 
-      <Card className="mt-4">
-        <div className="flex ">
-          <div className="w-5 ml-6">
-            <Accordion>
-              <AccordionTab header={header}>
-                {/* mapping the fetched data */}
-                {data.map((cdata) => (
-                  <div
-                    key={cdata.id}
-                    className=" card flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5"
-                  >
-                    <p className="  text-xl font-bold text-blue-500 mr-3">
-                      CBDC Name:{cdata.issuetype}
-                    </p>
-                    <p className=" text-xl">Asset Id:{cdata.assetid}</p>
-                    <p className=" text-xl"> Id:{cdata.id}</p>
-                  </div>
-                ))}
-              </AccordionTab>
-            </Accordion>
-          </div>
-        </div>
+      <Card className="mt-4  col-6  bg-gray-900">
+        <Accordion>
+          <AccordionTab header={header}>
+            {/* mapping the fetched data */}
+            {data.map((cdata) => (
+              <div
+                key={cdata.id}
+                className=" card flex-column  align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5"
+              >
+                <p className="  text-2xl font-bold text-blue-200 mr-3">
+                  CBDC Name:{cdata.issuetype}
+                </p>
+                <p className=" text-2xl">Asset Id:{cdata.assetid}</p>
+                <p className=" text-2xl"> Id:{cdata.id}</p>
+              </div>
+            ))}
+          </AccordionTab>
+        </Accordion>
       </Card>
     </div>
   );

@@ -20,16 +20,20 @@ const IssueRequestCB = () => {
   });
   const header = (
     <div className="flex-column">
-      <p>Requesting Party:{data.party}</p>
+      <p className="text-xl">Requesting Party:{data.party}</p>
     </div>
   );
   console.log("data", data);
   return (
     <>
-      <h5 className="text-center">CBDC Issuance Requests</h5>
+      <h5 className="text-2xl text-center">CBDC Issuance Requests</h5>
       <div className="flex text-center justify-content-center pt-3">
-        <div className="flex-row align-items-center">
-          <label htmlFor="Approved" style={{ display: "inline-block" }}>
+        <div className="flex align-items-center justify-content-center">
+          <label
+            className="text-2xl pr-3"
+            htmlFor="Approved"
+            style={{ display: "inline-block" }}
+          >
             Approved
           </label>
           <InputSwitch
@@ -38,8 +42,12 @@ const IssueRequestCB = () => {
             onChange={(e) => setData({ ...data, approved: e.value })}
           />
         </div>
-        <div className="flex-row align-items-center">
-          <label htmlFor="Requested" style={{ display: "inline-block" }}>
+        <div className="flex align-items-center justify-content-center">
+          <label
+            className="text-2xl pr-3 pl-5"
+            htmlFor="Requested"
+            style={{ display: "inline-block" }}
+          >
             Requested
           </label>
           <InputSwitch
@@ -48,8 +56,12 @@ const IssueRequestCB = () => {
             onChange={(e) => setData({ ...data, requested: e.value })}
           />
         </div>
-        <div className="flex-row align-items-center">
-          <label htmlFor="Denied" style={{ display: "inline-block" }}>
+        <div className="flex align-items-center justify-content-center">
+          <label
+            className="text-2xl pr-3 pl-5"
+            htmlFor="Denied"
+            style={{ display: "inline-block" }}
+          >
             Denied
           </label>
           <InputSwitch
@@ -75,16 +87,16 @@ const IssueRequestCB = () => {
                     </p>
                   </div>
                   <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-                    <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
+                    <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
                       Request ID:{data.request_id}
                     </p>
-                    <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
+                    <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
                       Requesting Party:{data.party}
                     </p>
-                    <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
+                    <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
                       CBDC Name:{data.cbdc_name}
                     </p>
-                    <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
+                    <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
                       Amount:{data.amount}
                     </p>
 
@@ -146,16 +158,17 @@ const IssueRequestCB = () => {
           </div>
           <Accordion>
             <AccordionTab header={header}>
-              <div
-                onClick={() => setDisplayBasic(true)}
-                className="card flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5"
-              >
-                <p className="  text-xl font-bold text-blue-500 mr-3">
+              <div className="card flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
+                <p className="  text-2xl font-bold text-blue-300 mr-3">
                   CBDC Name:{data.cbdc_name}
                 </p>
-                <p className=" text-xl">Amount:{data.amount}</p>
-                <p className=" text-xl">Status:Approved</p>
+                <p className=" text-2xl">Amount:{data.amount}</p>
+                <p className=" text-2xl">Status:Approved</p>
               </div>
+              <i
+                className="pi text-2xl pi-thumbs-up-fill text-blue-500 cursor-pointer"
+                onClick={() => setDisplayBasic(true)}
+              ></i>
             </AccordionTab>
           </Accordion>
         </div>

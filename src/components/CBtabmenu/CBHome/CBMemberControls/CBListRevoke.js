@@ -20,18 +20,20 @@ const CBListRevoke = () => {
   }, []);
   const header = (
     <div className="flex-column">
-      <p>Holder name:0=WHOLESALEONE, L=LONDON, C=GB</p>
-      <p>Holder Id:dly67887</p>
+      <p className="text-2xl text-center">
+        Holder name:0=WHOLESALEONE, L=LONDON, C=GB
+      </p>
+      <p className="text-2xl ">Holder Id:dly67887</p>
     </div>
   );
 
   return (
-    <div className="flex-column">
+    <div className="card col-12 flex flex-column align-items-center justify-content-center">
       <h3 className="mt-3">Issued Member Access States</h3>
 
-      <Card className="mt-4">
+      <Card className="mt-4  col-6 ">
         <div className="flex ">
-          <div className="w-5 ml-6">
+          <div className="w-10 ml-6">
             <Accordion>
               <AccordionTab header={header}>
                 {/* mapping the fetched data */}
@@ -40,11 +42,11 @@ const CBListRevoke = () => {
                     key={cdata.id}
                     className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5"
                   >
-                    <p className="  text-xl font-bold text-blue-500 mr-3">
+                    <p className="  text-2xl font-bold text-blue-300 mr-3">
                       CBDC Name:{cdata.issuetype}
                     </p>
-                    <p className=" text-xl">Asset Id:{cdata.assetid}</p>
-                    <p className=" text-xl"> Id:{cdata.id}</p>
+                    <p className=" text-2xl">Asset Id:{cdata.assetid}</p>
+                    <p className=" text-2xl"> Id:{cdata.id}</p>
                   </div>
                 ))}
               </AccordionTab>

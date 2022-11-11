@@ -16,13 +16,17 @@ const SelectWB2TransCBDC = ({ data, setData }) => {
     <div className="grid p-fluid">
       <div className="col-12 ">
         <div className="card">
-          <h5>select available asset from the vault to transfer.</h5>
+          <h5 className="text-center text-2xl">
+            select available asset from the vault to transfer.
+          </h5>
           <Dropdown
             value={data.asset}
             onChange={(e) => setData({ ...data, asset: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
+            style={{ fontSize: "1.4rem" }}
+            className="p-2"
           />
         </div>
       </div>

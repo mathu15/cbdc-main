@@ -12,7 +12,7 @@ const SelectParWB2Cross = ({ data, setData }) => {
     <div className="grid p-fluid">
       <div className="col-12 ">
         <div className="card">
-          <h5>
+          <h5 className="text-2xl text-center">
             select available participant to request a Cross Chain Swap from.
           </h5>
           <Dropdown
@@ -21,6 +21,8 @@ const SelectParWB2Cross = ({ data, setData }) => {
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
+            style={{ fontSize: "1.4rem" }}
+            className="p-3 m-3"
           />
         </div>
       </div>

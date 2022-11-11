@@ -6,7 +6,6 @@ import { Toast } from "primereact/toast";
 
 import InformationSubmitted from "../../CBtabmenu/CBHome/CBDCManager/DefCBDCType/InformationSubmitted";
 
-
 import SelectParWB2Cross from "./RequestCrossSwapWB2/SelectParWB2Cross";
 import SelectAssWB2Cross from "./RequestCrossSwapWB2/SelectAssWB2Cross";
 import AssetAmtWB2Cross from "./RequestCrossSwapWB2/AssetAmtWB2Cross";
@@ -84,12 +83,14 @@ const RequestCrossSwapWB2 = () => {
     <div className="justify-content-around p-8 ml-8 ">
       <div className="card card-w-title">
         {/* implementing steps */}
-        <h5>Steps</h5>
+
         <Steps
           model={wizardItems}
           activeIndex={activeIndex}
           onSelect={(e) => setActiveIndex(e.index)}
           readOnly={false}
+          style={{ fontSize: "1.4rem" }}
+          className="p-5 m-3"
         />
       </div>
       <div className="card">

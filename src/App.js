@@ -1,9 +1,15 @@
 import "./App.css";
 
-import "primereact/resources/themes/vela-blue/theme.css";
+// import "primereact/resources/themes/vela-blue/theme.css";
+import "primereact/resources/primereact.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "prismjs/themes/prism-coy.css";
+import "primeflex/primeflex.css";
+import "./assets/demo/flags/flags.css";
+import "./assets/demo/Demos.scss";
+import "./assets/layout/layout.scss";
+import classNames from "classnames";
 import Home from "./containers/Home/Home";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";

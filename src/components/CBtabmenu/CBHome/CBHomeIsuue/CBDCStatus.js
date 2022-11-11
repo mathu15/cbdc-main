@@ -105,17 +105,19 @@ const CBDCStatus = () => {
       <div className="flex justify-content-between">
         <Button
           type="button"
-          icon="pi pi-filter-slash"
+          icon="pi text-l pi-filter-slash"
           label="Clear"
           className="p-button-outlined"
           onClick={clearFilter}
+          style={{ fontSize: "1.4rem" }}
         ></Button>
         <span className="p-input-icon-left">
-          <i className="pi pi-search" />
+          <i className="pi text-xl pi-search" />
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}
             placeholder="keyword search"
+            style={{ fontSize: "1.4rem" }}
           />
         </span>
       </div>
@@ -389,13 +391,14 @@ const CBDCStatus = () => {
               "txtype",
             ]}
             header={header}
-            emptyMessage="No customers found."
+            emptyMessage="No transactions found."
+            style={{ fontSize: "1.4rem" }}
           >
             <Column
               header="Transaction Date"
               filterField="startdate"
               dataType="date"
-              style={{ minWidth: "10rem" }}
+              style={{ minWidth: "10rem", fontSize: "1.4rem" }}
               // body={dateBodyTemplate}
               filter
               // filterElement={dateFilterTemplate}
@@ -404,7 +407,7 @@ const CBDCStatus = () => {
               field="txtype"
               header="Tx Type"
               filterMenuStyle={{ width: "14rem" }}
-              style={{ minWidth: "12rem" }}
+              style={{ minWidth: "12rem", fontSize: "1.4rem" }}
               body={statusBodyTemplate}
               filter
               filterElement={statusFilterTemplate}
@@ -414,7 +417,7 @@ const CBDCStatus = () => {
               header="Token Name"
               filter
               filterPlaceholder="Search by name"
-              style={{ minWidth: "12rem" }}
+              style={{ minWidth: "12rem", fontSize: "1.4rem" }}
             />
             {/* <Column
               header="Country"
@@ -450,7 +453,7 @@ const CBDCStatus = () => {
               header="Amount"
               filterField="amount"
               dataType="numeric"
-              style={{ minWidth: "10rem" }}
+              style={{ minWidth: "10rem", fontSize: "1.4rem" }}
               body={balanceBodyTemplate}
               filter
               filterElement={balanceFilterTemplate}
@@ -487,7 +490,7 @@ const CBDCStatus = () => {
               header="Issue Date"
               filterField="enddate"
               dataType="date"
-              style={{ minWidth: "10rem" }}
+              style={{ minWidth: "10rem", fontSize: "1.4rem" }}
               // body={dateBodyTemplate}
               filter
               // filterElement={dateFilterTemplate}

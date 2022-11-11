@@ -5,11 +5,11 @@ import { InputNumber } from "primereact/inputnumber";
 const EnterAmount = ({ data, setData }) => {
   console.log("data", data);
   return (
-    <div className="card">
+    <div className="text-center text-2xl">
       <div className="flex-column align-items-center justify-content-center">
         <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-          <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
-            Maximum transaction value with this asset {data.maxvalue}
+          <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
+            Maximum transaction value with this asset: {data.maxvalue}
           </p>
           <InputNumber
             id="amount"

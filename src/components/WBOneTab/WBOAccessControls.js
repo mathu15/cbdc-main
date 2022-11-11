@@ -23,12 +23,13 @@ const WBOAccessControl = () => {
 
   return (
     <div className="card ">
-      <h5>Member Controls</h5>
+      <h5 className="text-3xl p-4">Member Controls</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}
         onTabChange={(e) => setActiveIndex(e.index)}
         readOnly={false}
+        style={{ fontSize: "1.2rem" }}
       />
       <Route
         exact

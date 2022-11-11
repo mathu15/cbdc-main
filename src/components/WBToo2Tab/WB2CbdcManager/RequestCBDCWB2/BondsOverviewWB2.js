@@ -4,13 +4,13 @@ import React from "react";
 const BondsOverviewWB2 = ({ data, setData }) => {
   console.log("data", data);
   return (
-    <div className="card">
+    <div className="p-5">
       <div className="flex-column align-items-center justify-content-center">
         <div className=" align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-          <p className="text-center text-2xl ">Total Bonds in Vault</p>
+          <p className="text-center text-2xl pb-3">Total Bonds in Vault</p>
         </div>
         <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-          <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
+          <p className=" text-center text-2xl font-bold text-blue-200 mr-3 pb-3">
             Bonds owned:{data.bonds}
           </p>
         </div>

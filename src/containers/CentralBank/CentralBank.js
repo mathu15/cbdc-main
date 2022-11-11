@@ -1,8 +1,6 @@
 import React from "react";
-import { Route, useHistory } from "react-router-dom";
+import { NavLink, Route, useHistory } from "react-router-dom";
 import { Menubar } from "primereact/menubar";
-
-import items from "../../components/Header/Items";
 
 import { TabMenu } from "primereact/tabmenu";
 import CBHome from "../../components/CBtabmenu/CBHome";
@@ -19,42 +17,42 @@ const CentralBank = () => {
   const wizardItems = [
     {
       label: "HOME",
-      icon: "pi pi-fw pi-th-large",
+      icon: "pi text-2xl  pi-fw pi-th-large",
       command: () => history.push("/central-bank"),
     },
     {
       label: "CBDC MANAGER",
-      icon: "pi pi-fw pi-dollar",
+      icon: "pi text-2xl pi-fw pi-dollar",
       command: () => history.push("/central-bank/cbdc-manager"),
     },
     {
       label: "MEMBER CONTROLS",
-      icon: "pi pi-fw pi-cog",
+      icon: "pi text-2xl pi-fw pi-cog",
       command: () => history.push("/central-bank/member-controls"),
     },
     {
       label: "INCOMING REQUESTS",
-      icon: "pi pi-fw pi-download",
+      icon: "pi text-2xl pi-fw pi-download",
       command: () => history.push("/central-bank/incoming-requests"),
     },
     {
       label: "TREASURY DASHBOARD",
-      icon: "pi pi-fw pi-chart-pie",
+      icon: "pi text-2xl pi-fw pi-chart-pie",
       command: () => history.push("/central-bank/treasury-dashboard"),
     },
     {
       label: "MONEYSWIPE TRANSACTION DASHBOARD",
-      icon: "pi pi-fw pi-book",
+      icon: "pi text-2xl pi-fw pi-book",
       command: () => history.push("/central-bank/moneyswipe-dashboard"),
     },
     {
       label: "REFERENCE MODELS",
-      icon: "pi pi-fw pi-share-alt",
+      icon: "pi text-2xl pi-fw pi-share-alt",
       command: () => history.push("/central-bank/reference-modals"),
     },
     {
       label: "VISIBILITY AND REISSUANCE",
-      icon: "pi pi-fw pi-eye",
+      icon: "pi text-2xl pi-fw pi-eye",
       command: () => history.push("/central-bank/visibility-reissuance"),
     },
   ];
@@ -62,16 +60,38 @@ const CentralBank = () => {
   return (
     <div>
       <Menubar
-        model={items.cbank}
+        start={
+          <NavLink to="/">
+            <i
+              className="pi text-2xl text-blue-500 pi-bolt pr-2"
+              // style={{ fontSize: "1.2em" }}
+            ></i>
+            <span className="text-2xl">Intrasettle</span>
+          </NavLink>
+        }
+        // model={items.cbank}
         end={
           <>
-            <i className="pi pi-share-alt" style={{ fontSize: "1.2em" }}>
-              Network
-            </i>
+            <i
+              className="pi text-2xl pi-home pr-2"
+              // style={{ fontSize: "1.2em" }}
+            ></i>
+            <span className="text-2xl">
+              Central Bank Powered by Intrasettle
+            </span>
           </>
         }
+        // style={{ fontSize: "1.4rem" }}
+        className="pt-4 pb-4 layout-topbar"
       />
-      <TabMenu model={wizardItems} />
+      <div className=" col-12  justify-content-around pt-8">
+        <TabMenu
+          model={wizardItems}
+          style={{ fontSize: "1.2rem" }}
+          // className="pt-1 pb-1 "
+          // , position: "fixed", zIndex: "10"
+        />
+      </div>
       <Route exact path={"/central-bank"} component={CBHome} />
       <Route path={"/central-bank/cbdc-manager"} component={CbdcManager} />
       <Route

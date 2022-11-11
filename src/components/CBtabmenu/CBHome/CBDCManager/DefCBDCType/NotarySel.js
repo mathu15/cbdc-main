@@ -3,11 +3,12 @@ import { RadioButton } from "primereact/radiobutton";
 
 const NotarySel = ({ data, setData }) => {
   return (
-    <div className="card flex-column align-items-center">
-      <p className=" text-xl text-left  ">
+    <div className=" flex flex-column align-items-center">
+      <div className=" text-2xl border-bottom-2 surface-border text-center text-left pb-3 ">
         Select the permitted notary for the CBDC.
-      </p>
-      <p className="text-xl text-left">
+      </div>
+
+      <p className="text-xl text-left pt-3">
         The CBDC ASSet will be tied to this notary.
       </p>
 
@@ -18,43 +19,41 @@ const NotarySel = ({ data, setData }) => {
 
       {/* selecting the notary */}
 
-      <div className="flex align-items-center">
-        <div className="grid">
-          <div className="col-12 ">
-            <div className="field-radiobutton">
-              <RadioButton
-                inputId="option1"
-                name="option"
-                value="O-NotaryONEService, L-London, C-GB"
-                checked={data.notary === "O-NotaryONEService, L-London, C-GB"}
-                onChange={(e) =>
-                  setData((data) => {
-                    return { ...data, notary: e.target.value };
-                  })
-                }
-              />
-              <label htmlFor="option1">
-                O-NotaryONEService, L-London, C-GB
-              </label>
-            </div>
+      <div className="flex flex-column align-items-center p-5">
+        <div className="col-12 ">
+          <div className="field-radiobutton ">
+            <RadioButton
+              inputId="option1"
+              name="option"
+              value="O-NotaryONEService, L-London, C-GB"
+              checked={data.notary === "O-NotaryONEService, L-London, C-GB"}
+              onChange={(e) =>
+                setData((data) => {
+                  return { ...data, notary: e.target.value };
+                })
+              }
+            />
+            <label className=" text-xl" htmlFor="option1">
+              O-NotaryONEService, L-London, C-GB
+            </label>
           </div>
-          <div className="col-12">
-            <div className="field-radiobutton">
-              <RadioButton
-                inputId="option2"
-                name="option"
-                value="O-NotaryTWOService, L-London, C-GB"
-                checked={data.notary === "O-NotaryTWOService, L-London, C-GB"}
-                onChange={(e) =>
-                  setData((data) => {
-                    return { ...data, notary: e.target.value };
-                  })
-                }
-              />
-              <label htmlFor="option2">
-                O-NotaryTWOService, L-London, C-GB
-              </label>
-            </div>
+        </div>
+        <div className="col-12">
+          <div className="field-radiobutton">
+            <RadioButton
+              inputId="option2"
+              name="option"
+              value="O-NotaryTWOService, L-London, C-GB"
+              checked={data.notary === "O-NotaryTWOService, L-London, C-GB"}
+              onChange={(e) =>
+                setData((data) => {
+                  return { ...data, notary: e.target.value };
+                })
+              }
+            />
+            <label className=" text-xl" htmlFor="option2">
+              O-NotaryTWOService, L-London, C-GB
+            </label>
           </div>
         </div>
       </div>

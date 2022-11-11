@@ -135,23 +135,28 @@ const TransferCBDCWB2 = () => {
   return (
     <>
       <div className="flex align-items-center justify-content-around mb-5 mt-5">
-        <Button label="Push Transfer" className="p-button-outlined  mb-3" />
+        <Button
+          label="Push Transfer"
+          className="p-button-outlined  mb-3 text-2xl"
+        />
 
         <Button
           label="Pull Transfer(Request CBDC)"
-          className="p-button-outlined mr-2 mb-3"
+          className="p-button-outlined mr-2 mb-3 text-2xl"
         />
       </div>
-      <div className="grid p-fluid">
-        <div className="col-12 lg:col-6 card">
+      <div className="grid p-fluid p-5">
+        <div className="col-12 lg:col-6 card p-8 bg-gray-900">
           <div className="card mb-5">
             {/* implementing steps to push transfer*/}
             <Steps
               model={wizardItems}
-              // activeIndex={activeIndex}
+              activeIndex={activeIndex}
               onSelect={(e) => setActiveIndex(e.index)}
               readOnly={false}
               key={1}
+              style={{ fontSize: "1.4rem" }}
+              className="p-5 m-3"
             />
           </div>
           <div className="mt-5">
@@ -197,14 +202,16 @@ const TransferCBDCWB2 = () => {
             </div>
           </div>
         </div>
-        <div className="col-12 lg:col-6 cad">
+        <div className="col-12 ml-0 lg:col-6 card p-8 bg-gray-900 ">
           <div className="card mb-5">
             {/* implementing steps pull transfer*/}
             <Steps
               model={items}
-              // activeIndex={activeIndex}
+              activeIndex={activeIndex}
               onSelect={(e) => setActiveOne(e.index)}
               readOnly={false}
+              style={{ fontSize: "1.4rem" }}
+              className="p-5 m-3"
             />
           </div>
 

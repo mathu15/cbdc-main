@@ -11,12 +11,12 @@ const WB3AccessControl = () => {
   const wizardItems = [
     {
       label: "LIST",
-      icon: "pi pi-fw pi-check",
+      icon: "pi text-xl pi-fw pi-check",
       command: () => history.push("/wholesale-bank-three/access-controls"),
     },
     {
       label: "REQUEST ACESS",
-      icon: "pi pi-fw pi-user",
+      icon: "pi text-xl pi-fw pi-user",
       command: () =>
         history.push("/wholesale-bank-three/access-controls/request-access"),
     },
@@ -24,12 +24,13 @@ const WB3AccessControl = () => {
 
   return (
     <div className="card ">
-      <h5>Member Controls</h5>
+      <h5 className="text-3xl p-4">Member Controls</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}
         onTabChange={(e) => setActiveIndex(e.index)}
         readOnly={false}
+        style={{ fontSize: "1.2rem" }}
       />
       <Route
         exact

@@ -12,14 +12,18 @@ const MASelectParticipant = ({ data, setData }) => {
   return (
     <div className="grid p-fluid">
       <div className="col-12 ">
-        <div className="card">
-          <h5>select participant on the Corda network to issue to.</h5>
+        <div className="p-5">
+          <h5 className="text-2xl">
+            select participant on the Corda network to issue to.
+          </h5>
           <Dropdown
             value={data.participant}
             onChange={(e) => setData({ ...data, participant: e.value })}
             options={dropdownValues}
             optionLabel="name"
             placeholder="Select"
+            style={{ fontSize: "1.4rem" }}
+            className="p-2"
           />
         </div>
       </div>

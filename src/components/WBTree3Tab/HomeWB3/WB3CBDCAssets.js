@@ -8,8 +8,8 @@ const WB3CBDCAssets = () => {
     datasets: [
       {
         data: [10000.0, 16000.0],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+        backgroundColor: ["#48C9B0", "#36A2EB"],
+        hoverBackgroundColor: ["#48C9B0", "#36A2EB"],
       },
     ],
   });
@@ -18,35 +18,43 @@ const WB3CBDCAssets = () => {
     plugins: {
       legend: {
         labels: {
-          color: "#495057",
+          color: "#eee",
         },
       },
     },
   });
 
   return (
-    <div className="col-12">
-      <div className="grid p-fluid">
-        <div className="col-12 md:col-6 ">
-          <div className="card card-w-title">
-            <p>CBDC Types in Vault</p>
-            <p>2</p>
+    <>
+      <div className="col-12">
+        <div className="grid p-fluid">
+          <div className="col-12 md:col-6 ">
+            <div className="card card-w-title">
+              <p className="text-xl">CBDC Types in Vault</p>
+              <p className="text-xl">2</p>
+            </div>
           </div>
-        </div>
-        <div className="col-12 md:col-6 ">
-          <div className="card card-w-title">
-            <p>Total bonds in Vault</p>
-            <p>25,000,000.000</p>
+          <div className="col-12 md:col-6 ">
+            <div className="card card-w-title">
+              <p className="text-xl">Total bonds in Vault</p>
+              <p className="text-xl">25,000,000.000</p>
+            </div>
           </div>
         </div>
       </div>
-      <Chart
-        type="doughnut"
-        data={chartData}
-        options={lightOptions}
-        style={{ position: "relative", width: "40%", justifyContent: "center" }}
-      />
-    </div>
+      <div className="flex flex-column align-items-center">
+        <Chart
+          type="doughnut"
+          data={chartData}
+          options={lightOptions}
+          style={{
+            position: "relative",
+            width: "40%",
+            justifyContent: "center",
+          }}
+        />
+      </div>
+    </>
   );
 };
 

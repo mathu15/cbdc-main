@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, useHistory } from "react-router-dom";
+import { NavLink, Route, useHistory } from "react-router-dom";
 import { Menubar } from "primereact/menubar";
 import { Button } from "primereact/button";
 import items from "../../components/Header/Items";
@@ -63,21 +63,38 @@ const WBankThree = () => {
   return (
     <div>
       <Menubar
-        model={items.wbthree}
+        start={
+          <NavLink to="/">
+            <i
+              className="pi text-2xl text-blue-500 pi-bolt pr-2"
+              // style={{ fontSize: "1.2em" }}
+            ></i>
+            <span className="text-2xl">Intrasettle</span>
+          </NavLink>
+        }
+        // model={items.wbthree}
         end={
           <>
-            <i className="pi pi-share-alt" style={{ fontSize: "1.2em" }}>
-              Network
-            </i>
+            <i
+              className="pi text-2xl pi-home pr-2"
+              // style={{ fontSize: "1.2em" }}
+            ></i>
+            <span className="text-2xl">
+              Wholesale Bank One powered by Intrasettle
+            </span>
           </>
         }
+        className="pt-4 pb-4 layout-topbar"
       />
-      <TabMenu
-        model={wizardItems}
-        activeIndex={0}
-        // setActiveIndex={(e) => e.index}
-        end={<Button label="noifications" icon="pi pi-bell" />}
-      />
+      <div className=" col-12  justify-content-around pt-8 pl-7">
+        <TabMenu
+          model={wizardItems}
+          activeIndex={0}
+          // setActiveIndex={(e) => e.index}
+          end={<Button label="noifications" icon="pi pi-bell" />}
+          style={{ fontSize: "1.3rem" }}
+        />
+      </div>
       <Route exact path={"/wholesale-bank-three"} component={WB3Home} />
       <Route
         path={"/wholesale-bank-three/cbdc-manager"}
@@ -92,17 +109,10 @@ const WBankThree = () => {
         path={"/wholesale-bank-three/treasury-dashboard"}
         component={WB3Treasury}
       />
-      <Route
-        path={"/wholesale-bank-three/treasury-dashboard"}
-        component={WB3Treasury}
-      />
+
       <Route
         path={"/wholesale-bank-three/corda-dashboard"}
         component={WB3MoneySwipeTrans}
-      />
-      <Route
-        path={"/wholesale-bank-three/treasury-dashboard"}
-        component={WB3Treasury}
       />
     </div>
   );

@@ -82,14 +82,46 @@ const WBCbdcStates = () => {
     <div>
       <div className="card">
         <DataTable value={products} responsiveLayout="scroll">
-          <Column field="date" header="Transaction Date"></Column>
-          <Column field="type" header="Tx Type"></Column>
-          <Column field="token" header="Token name"></Column>
-          <Column field="amount" header="Amount"></Column>
-          <Column field="count" header="Usage count"></Column>
-          <Column field="initiator" header="Initiator"></Column>
-          <Column field="counterparty" header="counter Party"></Column>
-          <Column field="time" header="Tx Time"></Column>
+          <Column
+            field="date"
+            header="Transaction Date"
+            style={{ minWidth: "12rem", fontSize: "1.4rem" }}
+          ></Column>
+          <Column
+            field="type"
+            header="Tx Type"
+            style={{ minWidth: "12rem", fontSize: "1.4rem" }}
+          ></Column>
+          <Column
+            field="token"
+            header="Token name"
+            style={{ minWidth: "12rem", fontSize: "1.4rem" }}
+          ></Column>
+          <Column
+            field="amount"
+            header="Amount"
+            style={{ minWidth: "12rem", fontSize: "1.4rem" }}
+          ></Column>
+          <Column
+            field="count"
+            header="Usage count"
+            style={{ minWidth: "12rem", fontSize: "1.4rem" }}
+          ></Column>
+          <Column
+            field="initiator"
+            header="Initiator"
+            style={{ minWidth: "12rem", fontSize: "1.4rem" }}
+          ></Column>
+          <Column
+            field="counterparty"
+            header="counter Party"
+            style={{ minWidth: "12rem", fontSize: "1.4rem" }}
+          ></Column>
+          <Column
+            field="time"
+            header="Tx Time"
+            style={{ minWidth: "12rem", fontSize: "1.4rem" }}
+          ></Column>
         </DataTable>
       </div>
     </div>

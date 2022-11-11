@@ -6,26 +6,32 @@ export const CBName = ({ data, setData }) => {
   return (
     <div className="grid p-fluid">
       <div className="col-12 md:col-12">
-        <div className="card">
-          <h5 className="align-self-center pb-3">Enter the CBDC Name</h5>
-          <span className="p-float-label">
-            {/* getting the user input for asset name */}
-            <InputText
-              id="username"
-              type="text"
-              value={data.cbname}
-              onChange={(e) =>
-                setData((data) => {
-                  return { ...data, cbname: e.target.value };
-                })
-              }
-            />
-            <label htmlFor="username">CBDC Name</label>
-          </span>
-        </div>
+        <h5 className="align-self-center text-2xl text-center border-bottom-1 surface-border pb-3">
+          Enter the CBDC Name
+        </h5>
+        <span className="p-float-label">
+          {/* getting the user input for asset name */}
+          <InputText
+            id="username"
+            type="text"
+            value={data.cbname}
+            onChange={(e) =>
+              setData((data) => {
+                return { ...data, cbname: e.target.value };
+              })
+            }
+            style={{ fontSize: "1.4rem" }}
+            className="p-3 m-3"
+          />
+          <label className="text-xl pl-3" htmlFor="username">
+            CBDC Name
+          </label>
+        </span>
 
         {/* getting user input for decimal point */}
-        <h5>Select the decimal place:0.00</h5>
+        <h5 className="align-self-center text-2xl text-center border-bottom-1 surface-border pb-3">
+          Select the decimal place:0.00
+        </h5>
         <div className="grid">
           <div className="col-12 md:col-3">
             <div className="field-radiobutton">
@@ -40,7 +46,9 @@ export const CBName = ({ data, setData }) => {
                   })
                 }
               />
-              <label htmlFor="option1">0</label>
+              <label className="text-2xl p-4" htmlFor="option1">
+                0
+              </label>
             </div>
           </div>
           <div className="col-12 md:col-3">
@@ -56,7 +64,9 @@ export const CBName = ({ data, setData }) => {
                   })
                 }
               />
-              <label htmlFor="option2">1</label>
+              <label className="text-2xl p-4" htmlFor="option2">
+                1
+              </label>
             </div>
           </div>
           <div className="col-12 md:col-3">
@@ -72,7 +82,9 @@ export const CBName = ({ data, setData }) => {
                   })
                 }
               />
-              <label htmlFor="option3">2</label>
+              <label className="text-2xl p-4" htmlFor="option3">
+                2
+              </label>
             </div>
           </div>
           <div className="col-12 md:col-3">
@@ -88,7 +100,9 @@ export const CBName = ({ data, setData }) => {
                   })
                 }
               />
-              <label htmlFor="option4">3</label>
+              <label className="text-2xl p-4" htmlFor="option4">
+                3
+              </label>
             </div>
           </div>
         </div>

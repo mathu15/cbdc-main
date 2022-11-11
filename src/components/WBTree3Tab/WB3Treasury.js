@@ -16,21 +16,21 @@ const WB3Treasury = () => {
   const history = useHistory();
   const wizardItems = [
     {
-      label: "CBDC Assets",
-      icon: "pi pi-fw pi-edit",
+      label: "CBDC ASSETS",
+      icon: "pi text-xl pi-fw pi-dollar",
       command: () => history.push("/wholesale-bank-three/treasury-dashboard"),
     },
     {
-      label: "Balance over Time",
-      icon: "pi pi-fw pi-edit",
+      label: "BALANCE OVER TIME",
+      icon: "pi text-xl pi-fw pi-calendar",
       command: () =>
         history.push(
           "/wholesale-bank-three/treasury-dashboard/balance-over-time"
         ),
     },
     {
-      label: "Bonds",
-      icon: "pi pi-fw pi-edit",
+      label: "BONDS",
+      icon: "pi text-xl pi-fw pi-dollar",
       command: () =>
         history.push("/wholesale-bank-three/treasury-dashboard/bonds"),
     },
@@ -38,12 +38,13 @@ const WB3Treasury = () => {
 
   return (
     <div className="card ">
-      <h5>Treasury Board</h5>
+      <h5 className="text-3xl p-4">Treasury Board</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}
         onTabChange={(e) => setActiveIndex(e.index)}
         readOnly={false}
+        style={{ fontSize: "1.2rem" }}
       />
       <Route
         exact

@@ -35,67 +35,74 @@ const CBHome = ({ data, setData }) => {
   const wizardItems = [
     {
       label: "ISSUE",
-      icon: "pi pi-fw pi-sort-amount-up-alt",
+      icon: "pi text-2xl pi-fw pi-sort-amount-up-alt",
     },
   ];
 
   const dataItems = [
     {
       label: "BONDS",
-      icon: "pi pi-fw pi-sun",
+      icon: "pi text-2xl pi-fw pi-sun",
     },
     {
       label: "CBDC ASSETS",
-      icon: "pi pi-fw pi-dollar",
+      icon: "pi text-2xl pi-fw pi-dollar",
     },
   ];
 
   const dataStates = [
     {
       label: "CBDC STATES",
-      icon: "pi pi-fw pi-user",
+      icon: "pi text-2xl pi-fw pi-user",
     },
     {
       label: "MEMBER ACCESS STATES",
-      icon: "pi pi-fw pi-user",
+      icon: "pi text-2xl pi-fw pi-user",
     },
   ];
 
   return (
     <>
-      <div className="grid p-fluid">
-        <div className="row-12  col-12 md:col-6 ">
-          <div className="card card-w-title">
+      <div className="grid p-fluid p-5">
+        <div className="row-12  col-6 md:col-6 p-5">
+          <div className="card card-w-title ">
             <TabMenu
               model={wizardItems}
               activeIndex={activeone}
               onTabChange={(e) => setActiveone(e.index)}
               id={wizardItems.id}
+              style={{ fontSize: "1.2rem" }}
             />
             {DisplayOne()}
           </div>
         </div>
-        <div className="row-12  col-12 md:col-6 ">
+        <div className="row-12  col-12 md:col-6 p-5">
           <div className="card card-w-title">
             <TabMenu
               model={dataItems}
               id={dataItems.id}
               activeIndex={activetwo}
               onTabChange={(e) => setActivetwo(e.index)}
+              style={{ fontSize: "1.2rem" }}
             />
 
             {DisplayTwo()}
           </div>
         </div>
       </div>
-      <TabMenu
-        model={dataStates}
-        id={dataStates.id}
-        activeIndex={activethree}
-        onTabChange={(e) => setActivethree(e.index)}
-      />
+      <div className="row-12  col-12  p-6">
+        <div className="card card-w-title">
+          <TabMenu
+            model={dataStates}
+            id={dataStates.id}
+            activeIndex={activethree}
+            onTabChange={(e) => setActivethree(e.index)}
+            style={{ fontSize: "1.2rem" }}
+          />
 
-      {DisplayThree()}
+          {DisplayThree()}
+        </div>
+      </div>
     </>
   );
 };

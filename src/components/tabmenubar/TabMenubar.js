@@ -12,30 +12,25 @@ const TabMenubar = () => {
   const wizardItems = [
     {
       label: "CURRENT USER",
-      icon: "pi pi-fw pi-user",
+      icon: "pi pi-fw text-2xl pi-user",
       command: () => history.push("/"),
     },
     {
       label: "BUILD",
-      icon: "pi pi-fw pi-pencil",
-      command: () => history.push("/build"),
-    },
-    {
-      label: "THEME",
-      icon: "pi pi-fw pi-palette",
+      icon: "pi pi-fw text-2xl pi-pencil",
+      // command: () => history.push("/build"),
     },
   ];
 
   return (
-    <div className="grid p-fluid">
+    <div className="grid grid-nogutter p-fluid pt-8">
       <div className="col-12 ">
-        <div className="card card-w-title">
-          <h5>TabMenu</h5>
-          <p>tabmenu</p>
+        <div className="card card-w-title ">
           <TabMenu
             model={wizardItems}
             activeIndex={activeIndex}
             onTabChange={(e) => setActiveIndex(e.index)}
+            style={{ fontSize: "1.4rem" }}
           />
           <Route exact path={"/"} component={Hero} />
           <Route path={"/build"} component={Buttons} />

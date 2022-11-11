@@ -12,18 +12,18 @@ const CBTreasuryDashboard = () => {
   const wizardItems = [
     {
       label: "BONDS",
-      icon: "pi pi-fw pi-check",
+      icon: "pi text-xl pi-fw pi-check",
       command: () => history.push("/central-bank/treasury-dashboard"),
     },
     {
       label: "CBDC ASSETS",
-      icon: "pi pi-fw pi-user",
+      icon: "pi text-xl pi-fw pi-user",
       command: () =>
         history.push("/central-bank/treasury-dashboard/cbdc-assets"),
     },
     {
       label: "MONEY SUPPLY",
-      icon: "pi pi-fw pi-user",
+      icon: "pi text-xl pi-fw pi-user",
       command: () =>
         history.push("/central-bank/treasury-dashboard/money-supply"),
     },
@@ -31,12 +31,13 @@ const CBTreasuryDashboard = () => {
 
   return (
     <div className="card ">
-      <h5>Member Controls</h5>
+      <h5 className="text-3xl p-5">Member Controls</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}
         onTabChange={(e) => setActiveIndex(e.index)}
         readOnly={false}
+        style={{ fontSize: "1.3rem" }}
       />
       <Route
         exact

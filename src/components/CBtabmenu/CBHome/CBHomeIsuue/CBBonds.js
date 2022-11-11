@@ -5,16 +5,17 @@ import { Chart } from "primereact/chart";
 const CBBonds = () => {
   // initail value for chart data
 
-  const [data, setData] = useState({
-    labels: ["Digital_$_Frank", "Digital_Euro"],
-    datasets: [
-      {
-        data: [10000.0, 16000.0],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      },
-    ],
-  });
+  const [data, setData] = useState();
+  // {
+  //   labels: ["Digital_$_Frank", "Digital_Euro"],
+  //   datasets: [
+  //     {
+  //       data: [10000.0, 16000.0],
+  //       backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+  //       hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+  //     },
+  //   ],
+  // }
   const [amount, setAmount] = useState(0);
 
   useEffect(() => {
@@ -40,8 +41,8 @@ const CBBonds = () => {
             datasets: [
               {
                 data: dataset1,
-                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-                hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                backgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
+                hoverBackgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
               },
             ],
           });
@@ -65,12 +66,13 @@ const CBBonds = () => {
       legend: {
         position: "right",
         labels: {
-          color: "#495057",
+          color: "#eee",
         },
       },
       title: {
         display: true,
-        text: "Bonds",
+        text: "BONDS",
+        color: "#eee",
       },
     },
   });
@@ -84,28 +86,36 @@ const CBBonds = () => {
   // const value = amount.reduce((a, b) => a + b, 0);
   // console.log(value);
   return (
-    <div className="col-12 ">
-      <div className="grid p-fluid">
-        <div className="col-12 md:col-6 ">
-          <div className="card card-w-title">
-            <p>Bond value</p>
-            <p>1:1 to CBDC</p>
+    <>
+      <div className="col-12 ">
+        <div className="grid p-fluid">
+          <div className="col-12 md:col-6 ">
+            <div className="card card-w-title">
+              <p className="text-xl">Bond value</p>
+              <p className="text-xl">1:1 to CBDC</p>
+            </div>
           </div>
-        </div>
-        <div className="col-12 md:col-6 ">
-          <div className="card card-w-title">
-            <p>Total bonds in Vaults</p>
-            <p>10000</p>
+          <div className="col-12 md:col-6 ">
+            <div className="card card-w-title">
+              <p className="text-xl">Total bonds in Vaults</p>
+              <p className="text-xl">10000</p>
+            </div>
           </div>
         </div>
       </div>
-      <Chart
-        type="doughnut"
-        data={data}
-        options={lightOptions}
-        style={{ position: "relative", width: "42%", justifyContent: "center" }}
-      />
-    </div>
+      <div className="  flex flex-column align-items-center ">
+        <Chart
+          type="doughnut"
+          data={data}
+          options={lightOptions}
+          style={{
+            position: "relative",
+            width: "42%",
+            justifyContent: "center",
+          }}
+        />
+      </div>
+    </>
   );
 };
 
