@@ -70,11 +70,11 @@ const WBankTwo = () => {
       <Menubar
         start={
           <NavLink to="/">
-            <i
-              className="pi text-2xl text-blue-500 pi-bolt pr-2"
-              // style={{ fontSize: "1.2em" }}
-            ></i>
-            <span className="text-2xl">Intrasettle</span>
+            <img
+              src={"images/intrasettle_White.svg"}
+              alt="logo"
+              style={{ width: "12rem" }}
+            />
           </NavLink>
         }
         // model={items.wbtwo}
