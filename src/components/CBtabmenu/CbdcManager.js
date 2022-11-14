@@ -16,7 +16,7 @@ const CbdcManager = () => {
       command: () => history.push("/central-bank/cbdc-manager"),
     },
     {
-      label: "DEFINE CBDC Type",
+      label: "DEFINE CBDC TYPE",
       icon: "pi pi-fw text-2xl pi-ticket",
       command: () => history.push("/central-bank/cbdc-manager/cbdc-type"),
     },

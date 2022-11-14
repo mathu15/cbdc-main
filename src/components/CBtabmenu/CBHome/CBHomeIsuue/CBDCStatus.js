@@ -1,241 +1,63 @@
 import React, { useState, useEffect } from "react";
+
+import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { Button } from "primereact/button";
-import { MultiSelect } from "primereact/multiselect";
-import { Calendar } from "primereact/calendar";
-import { InputNumber } from "primereact/inputnumber";
-import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
-import { ProgressBar } from "primereact/progressbar";
-import { Slider } from "primereact/slider";
-import { TriStateCheckbox } from "primereact/tristatecheckbox";
-import classNames from "classnames";
+import { InputNumber } from "primereact/inputnumber";
+
+import { Calendar } from "primereact/calendar";
 
 const CBDCStatus = () => {
-  const [data, setData] = useState([]);
-  const [filters, setFilters] = useState([]);
-  const [loading, setLoading] = useState([]);
-  const [globalFilterValue, setGlobalFilterValue] = useState([]);
+  const [data, setData] = useState(null);
+
+  const [filters, setFilters] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const statuses = ["coinbase", "issue"];
 
   useEffect(() => {
     //fetch the asset data from api
-    const url = "https://thebsv.tech/centralbank/getassets";
-    fetch(url)
+    // const url = "https://thebsv.tech/centralbank/getassets";
+    const urll =
+      "https://thebsv.tech/centralbank/gettransactions/CAC-ENT901-0001";
+    fetch(urll)
       .then((response) => response.json())
       .then((json) => {
         console.log("json", json);
-        setData(json);
+        setData(getCustomers(json.issuertrans.centralissuetrans));
+        // .issuertrans.centralissuetrans
+        setLoading(false);
       })
       .catch((e) => {
         console.log("e", e);
       });
-  }, []);
-
-  const onGlobalFilterChange = (e) => {
-    const value = e.target.value;
-    let _filters = { ...filters };
-    _filters["global"].value = value;
-
-    setFilters(_filters);
-    setGlobalFilterValue(value);
-  };
-
-  const FilterMatchMode = Object.freeze({
-    STARTS_WITH: "startsWith",
-    CONTAINS: "contains",
-    NOT_CONTAINS: "notContains",
-    ENDS_WITH: "endsWith",
-    EQUALS: "equals",
-    NOT_EQUALS: "notEquals",
-    IN: "in",
-    LESS_THAN: "lt",
-    LESS_THAN_OR_EQUAL_TO: "lte",
-    GREATER_THAN: "gt",
-    GREATER_THAN_OR_EQUAL_TO: "gte",
-    BETWEEN: "between",
-    DATE_IS: "dateIs",
-    DATE_IS_NOT: "dateIsNot",
-    DATE_BEFORE: "dateBefore",
-    DATE_AFTER: "dateAfter",
-    CUSTOM: "custom",
-  });
-
-  const FilterOperator = Object.freeze({
-    AND: "and",
-    OR: "or",
-  });
-
-  const initFilters = () => {
-    setFilters({
-      global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-      name: {
-        operator: FilterOperator.AND,
-        constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
-      },
-      "country.name": {
-        operator: FilterOperator.AND,
-        constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
-      },
-      representative: { value: null, matchMode: FilterMatchMode.IN },
-      date: {
-        operator: FilterOperator.AND,
-        constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }],
-      },
-      balance: {
-        operator: FilterOperator.AND,
-        constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
-      },
-      status: {
-        operator: FilterOperator.OR,
-        constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
-      },
-      activity: { value: null, matchMode: FilterMatchMode.BETWEEN },
-      verified: { value: null, matchMode: FilterMatchMode.EQUALS },
-    });
-    setGlobalFilterValue("");
-  };
-
-  const clearFilter = () => {
     initFilters();
-  };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const renderHeader = () => {
-    return (
-      <div className="flex justify-content-between">
-        <Button
-          type="button"
-          icon="pi text-l pi-filter-slash"
-          label="Clear"
-          className="p-button-outlined"
-          onClick={clearFilter}
-          style={{ fontSize: "1.4rem" }}
-        ></Button>
-        <span className="p-input-icon-left">
-          <i className="pi text-xl pi-search" />
-          <InputText
-            value={globalFilterValue}
-            onChange={onGlobalFilterChange}
-            placeholder="keyword search"
-            style={{ fontSize: "1.4rem" }}
-          />
-        </span>
-      </div>
-    );
-  };
+  //   useEffect(() => {
+  //     //fetch the asset data from api
+  //     const url = "https://thebsv.tech/centralbank/getassets";
+  //     const urll =
+  //       "https://thebsv.tech/centralbank/gettransactions/CAC-ENT901-0001";
+  //     fetch(urll)
+  //       .then((response) => response.json())
+  //       .then((json) => {
+  //         console.log("json", json);
+  //         setData(getCustomers(json.issuertrans.centralissuetrans));
+  // setLoading(false);
+  //       })
+  //       .catch((e) => {
+  //         console.log("e", e);
+  //       });
+  // initFilters();
+  //   }, []);
 
-  const header = renderHeader();
-
-  const countryBodyTemplate = (rowData) => {
-    return (
-      <React.Fragment>
-        <img
-          alt="flag"
-          src="/images/flag/flag_placeholder.png"
-          onError={(e) =>
-            (e.target.src =
-              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-          }
-          className={`flag flag-\${rowData.country.code}`}
-          width={30}
-        />
-        <span className="image-text">{rowData.country.name}</span>
-      </React.Fragment>
-    );
-  };
-
-  const filterClearTemplate = (options) => {
-    return (
-      <Button
-        type="button"
-        icon="pi pi-times"
-        onClick={options.filterClearCallback}
-        className="p-button-secondary"
-      ></Button>
-    );
-  };
-
-  const filterApplyTemplate = (options) => {
-    return (
-      <Button
-        type="button"
-        icon="pi pi-check"
-        onClick={options.filterApplyCallback}
-        className="p-button-success"
-      ></Button>
-    );
-  };
-
-  const filterFooterTemplate = () => {
-    return (
-      <div className="px-3 pt-0 pb-3 text-center font-bold">
-        Customized Buttons
-      </div>
-    );
-  };
-
-  const representativeBodyTemplate = (rowData) => {
-    const representative = rowData.representative;
-    return (
-      <React.Fragment>
-        <img
-          alt={representative.name}
-          src={`images/avatar/\${representative.image}`}
-          onError={(e) =>
-            (e.target.src =
-              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-          }
-          width={32}
-          style={{ verticalAlign: "middle" }}
-        />
-        <span className="image-text">{representative.name}</span>
-      </React.Fragment>
-    );
-  };
-
-  const representativesItemTemplate = (option) => {
-    return (
-      <div className="p-multiselect-representative-option">
-        <img
-          alt={option.name}
-          src={`images/avatar/\${option.image}`}
-          onError={(e) =>
-            (e.target.src =
-              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-          }
-          width={32}
-          style={{ verticalAlign: "middle" }}
-        />
-        <span className="image-text">{option.name}</span>
-      </div>
-    );
-  };
-
-  const representatives = [
-    { name: "Amy Elsner", image: "amyelsner.png" },
-    { name: "Anna Fali", image: "annafali.png" },
-    { name: "Asiya Javayant", image: "asiyajavayant.png" },
-    { name: "Bernardo Dominic", image: "bernardodominic.png" },
-    { name: "Elwin Sharvill", image: "elwinsharvill.png" },
-    { name: "Ioni Bowcher", image: "ionibowcher.png" },
-    { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
-    { name: "Onyama Limba", image: "onyamalimba.png" },
-    { name: "Stephen Shaw", image: "stephenshaw.png" },
-    { name: "XuXue Feng", image: "xuxuefeng.png" },
-  ];
-
-  const representativeFilterTemplate = (options) => {
-    return (
-      <MultiSelect
-        value={options.value}
-        options={representatives}
-        itemTemplate={representativesItemTemplate}
-        onChange={(e) => options.filterCallback(e.value)}
-        optionLabel="name"
-        placeholder="Any"
-        className="p-column-filter"
-      />
-    );
+  const getCustomers = (data) => {
+    return [...(data || [])].map((d) => {
+      d.date = new Date(d.date);
+      return d;
+    });
   };
 
   const formatDate = (value) => {
@@ -246,8 +68,60 @@ const CBDCStatus = () => {
     });
   };
 
+  const formatCurrency = (value) => {
+    return value.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+  };
+
+  const initFilters = () => {
+    setFilters({
+      global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+      issuetype: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+      },
+      toaccountnumber: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+      },
+      issuer: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+      },
+
+      representative: { value: null, matchMode: FilterMatchMode.IN },
+      createdAt: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }],
+      },
+      updatedAt: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }],
+      },
+      amount: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+      },
+      count: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+      },
+      activitytype: {
+        operator: FilterOperator.OR,
+        constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+      },
+      activity: { value: null, matchMode: FilterMatchMode.BETWEEN },
+      verified: { value: null, matchMode: FilterMatchMode.EQUALS },
+    });
+  };
+
   const dateBodyTemplate = (rowData) => {
-    return formatDate(rowData.startdate);
+    return <>{rowData.updatedAt}</>;
+  };
+  const dateBodyTemplate1 = (rowData) => {
+    return <>{rowData.createdAt}</>;
   };
 
   const dateFilterTemplate = (options) => {
@@ -260,13 +134,6 @@ const CBDCStatus = () => {
         mask="99/99/9999"
       />
     );
-  };
-
-  const formatCurrency = (value) => {
-    return value.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
   };
 
   const balanceBodyTemplate = (rowData) => {
@@ -285,221 +152,142 @@ const CBDCStatus = () => {
     );
   };
 
-  const statusBodyTemplate = (rowData) => {
+  const countBodyTemplate = (rowData) => {
+    return rowData.count;
+  };
+
+  const countFilterTemplate = (options) => {
     return (
-      <span className={`customer-badge status-\${rowData.status}`}>
-        {rowData.txtype}
-      </span>
+      <InputNumber
+        value={options.value}
+        onChange={(e) => options.filterCallback(e.value, options.index)}
+        // mode="currency"
+        // currency="USD"
+        // locale="en-US"
+      />
     );
   };
 
-  const statusItemTemplate = (option) => {
-    return <span className={`customer-badge status-\${option}`}>{option}</span>;
+  const statusBodyTemplate = (rowData) => {
+    return (
+      <span className={`customer-badge status-${rowData.type}`}>
+        {rowData.activitytype}
+      </span>
+    );
   };
-
-  const txtype = ["Issue Asset", "Redeem Asset", "Tansfer Asset"];
 
   const statusFilterTemplate = (options) => {
     return (
       <Dropdown
         value={options.value}
-        options={txtype}
+        options={statuses}
         onChange={(e) => options.filterCallback(e.value, options.index)}
         itemTemplate={statusItemTemplate}
         placeholder="Select a Status"
-        className="p-column-filter"
+        className="p-column-filter "
         showClear
       />
     );
   };
 
-  const activityBodyTemplate = (rowData) => {
-    return (
-      <ProgressBar value={rowData.activity} showValue={false}></ProgressBar>
-    );
-  };
-
-  const activityFilterTemplate = (options) => {
-    return (
-      <React.Fragment>
-        <Slider
-          value={options.value}
-          onChange={(e) => options.filterCallback(e.value)}
-          range
-          className="m-3"
-        ></Slider>
-        <div className="flex align-items-center justify-content-between px-2">
-          <span>{options.value ? options.value[0] : 0}</span>
-          <span>{options.value ? options.value[1] : 100}</span>
-        </div>
-      </React.Fragment>
-    );
-  };
-
-  const verifiedBodyTemplate = (rowData) => {
-    return (
-      <i
-        className={classNames("pi", {
-          "true-icon pi-check-circle": rowData.verified,
-          "false-icon pi-times-circle": !rowData.verified,
-        })}
-      ></i>
-    );
-  };
-
-  const verifiedFilterTemplate = (options) => {
-    return (
-      <TriStateCheckbox
-        value={options.value}
-        onChange={(e) => options.filterCallback(e.value)}
-      />
-    );
+  const statusItemTemplate = (option) => {
+    return <span className={`customer-badge status-${option}`}>{option}</span>;
   };
 
   return (
-    <div>
-      {/* <div className="card "> */}
-      {/* <DataTable value={data} responsiveLayout="scroll">
-          <Column field="startdate" header="Transaction Date"></Column>
-          <Column field="category" header="Tx Type"></Column>
-          <Column field="issuetype" header="Token name"></Column>
-          <Column field="amount" header="Amount"></Column>
-          <Column field="count" header="Usage count"></Column>
-          <Column field="issuer" header="Initiator"></Column>
-          <Column field="counterparty" header="counter Party"></Column>
-          <Column field="createdAt" header="Tx Time"></Column>
-          <Column field="enddate" header="Issue Date"></Column>
-        </DataTable> */}
-      <div className="content-section implementation datatable-filter-demo">
+    <div className="grid table-demo">
+      <div className="col-12">
         <div className="card">
           <DataTable
             value={data}
             paginator
-            className="p-datatable-customers"
+            className="p-datatable-gridlines text-2xl"
             showGridlines
             rows={10}
             dataKey="id"
             filters={filters}
             filterDisplay="menu"
-            // loading={loading}
+            loading={loading}
             responsiveLayout="scroll"
-            globalFilterFields={[
-              "issuetype",
-              "country.name",
-              "representative.name",
-              "amount",
-              "txtype",
-            ]}
-            header={header}
-            emptyMessage="No transactions found."
-            style={{ fontSize: "1.4rem" }}
+            emptyMessage="No customers found."
+            // style={{ fontSize: "1.4rem" }}
           >
-            <Column
-              header="Transaction Date"
-              filterField="startdate"
-              dataType="date"
-              style={{ minWidth: "10rem", fontSize: "1.4rem" }}
-              // body={dateBodyTemplate}
-              filter
-              // filterElement={dateFilterTemplate}
-            />
-            <Column
-              field="txtype"
-              header="Tx Type"
-              filterMenuStyle={{ width: "14rem" }}
-              style={{ minWidth: "12rem", fontSize: "1.4rem" }}
-              body={statusBodyTemplate}
-              filter
-              filterElement={statusFilterTemplate}
-            />
             <Column
               field="issuetype"
               header="Token Name"
               filter
               filterPlaceholder="Search by name"
-              style={{ minWidth: "12rem", fontSize: "1.4rem" }}
-            />
-            {/* <Column
-              header="Country"
-              filterField="country.name"
               style={{ minWidth: "12rem" }}
-              body={countryBodyTemplate}
+            />
+            <Column
+              field="issuer"
+              header="Initiator"
               filter
-              filterPlaceholder="Search by country"
-              filterClear={filterClearTemplate}
-              filterApply={filterApplyTemplate}
-              filterFooter={filterFooterTemplate}
-            /> */}
-            {/* <Column
-              header="Agent"
-              filterField="representative"
-              showFilterMatchModes={false}
-              filterMenuStyle={{ width: "14rem" }}
-              style={{ minWidth: "14rem" }}
-              body={representativeBodyTemplate}
+              filterPlaceholder="Search by name"
+              style={{ minWidth: "12rem" }}
+            />
+            <Column
+              field="toaccountnumber"
+              header="Counter Party"
               filter
-              filterElement={representativeFilterTemplate}
-            /> */}
-            {/* <Column
-              header="Date"
-              filterField="date"
+              filterPlaceholder="Search by name"
+              style={{ minWidth: "12rem" }}
+            />
+
+            <Column
+              header="Issue Date"
+              filterField="createdAt"
+              dataType="date"
+              style={{ minWidth: "10rem" }}
+              body={dateBodyTemplate1}
+              filter
+              filterElement={dateFilterTemplate}
+            />
+            <Column
+              header="Transaction Date"
+              filterField="updatedAt"
               dataType="date"
               style={{ minWidth: "10rem" }}
               body={dateBodyTemplate}
               filter
               filterElement={dateFilterTemplate}
-            /> */}
+            />
             <Column
               header="Amount"
               filterField="amount"
               dataType="numeric"
-              style={{ minWidth: "10rem", fontSize: "1.4rem" }}
+              style={{ minWidth: "10rem" }}
               body={balanceBodyTemplate}
               filter
               filterElement={balanceFilterTemplate}
             />
-            {/* <Column
-              field="status"
-              header="Status"
+            <Column
+              field="activitytype"
+              header="Tx Type"
               filterMenuStyle={{ width: "14rem" }}
               style={{ minWidth: "12rem" }}
               body={statusBodyTemplate}
               filter
               filterElement={statusFilterTemplate}
-            /> */}
-            {/* <Column
-              field="activity"
-              header="Activity"
-              showFilterMatchModes={false}
-              style={{ minWidth: "12rem" }}
-              body={activityBodyTemplate}
-              filter
-              filterElement={activityFilterTemplate}
             />
             <Column
-              field="verified"
-              header="Verified"
-              dataType="boolean"
-              bodyClassName="text-center"
-              style={{ minWidth: "8rem" }}
-              body={verifiedBodyTemplate}
+              header="Usage Count"
+              filterField="count"
+              dataType="numeric"
+              style={{ minWidth: "10rem" }}
+              body={countBodyTemplate}
               filter
-              filterElement={verifiedFilterTemplate} 
-            />*/}
-            <Column
-              header="Issue Date"
-              filterField="enddate"
-              dataType="date"
-              style={{ minWidth: "10rem", fontSize: "1.4rem" }}
-              // body={dateBodyTemplate}
-              filter
-              // filterElement={dateFilterTemplate}
+              filterElement={countFilterTemplate}
             />
           </DataTable>
         </div>
-        {/* </div> */}
       </div>
     </div>
   );
 };
+
+const comparisonFn = function (prevProps, nextProps) {
+  return prevProps.location.pathname === nextProps.location.pathname;
+};
+
 export default CBDCStatus;
