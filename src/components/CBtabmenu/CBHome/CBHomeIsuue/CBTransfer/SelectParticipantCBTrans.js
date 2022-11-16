@@ -1,27 +1,24 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
-// page for select asset step
-const SelectAsset = ({ data, setData }) => {
+// page for select paricipant step
+const SelectParticipantCBTrans = ({ data, setData }) => {
   const dropdownValues = [
-    { label: "Digital_INR" },
-    { label: "Digital_GBP" },
-    { label: "Digital_USD" },
-    { label: "Digital_YEN" },
-    { label: "Digital_EURO" },
-    { label: "Digital_$_FRANK" },
+    { label: "WHOLESALEONE" },
+    { label: "WHOLESALETWO" },
+    { label: "WHOLESALETHREE" },
   ];
 
   return (
     <div className="grid p-fluid">
-      <div className="col-12 text-center">
+      <div className="col-12 ">
         <div className="text-center text-xl">
           <p className="text-center text-2xl">
-            select available asset from the vault to transfer.
+            select available participant to transfer.
           </p>
           <Dropdown
-            value={data.asset}
-            onChange={(e) => setData({ ...data, asset: e.target.value })}
+            value={data.notary}
+            onChange={(e) => setData({ ...data, notary: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
@@ -34,4 +31,4 @@ const SelectAsset = ({ data, setData }) => {
   );
 };
 
-export default SelectAsset;
+export default SelectParticipantCBTrans;

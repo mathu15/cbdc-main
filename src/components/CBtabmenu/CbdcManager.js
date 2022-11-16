@@ -4,26 +4,26 @@ import { Route, useHistory } from "react-router-dom";
 
 import AvailableCBDC from "./CBHome/CBDCManager/AvailableCBDC";
 import DefCBDCType from "./CBHome/CBDCManager/DefCBDCType";
-import IssueCBDCs from "./CBHome/CBDCManager/IssueCBDCs";
+import MintedCBDC from "./CBHome/CBDCManager/MintedCBDC";
 
 const CbdcManager = () => {
   const [activeIndex, setActiveIndex] = useState();
   const history = useHistory();
   const wizardItems = [
     {
-      label: "AVAILABLE CBDC",
+      label: "DEFINE CBDC TYPE",
       icon: "pi pi-fw text-2xl pi-th-large",
       command: () => history.push("/central-bank/cbdc-manager"),
     },
     {
-      label: "DEFINE CBDC TYPE",
+      label: "DEFINED CBDC",
       icon: "pi pi-fw text-2xl pi-ticket",
-      command: () => history.push("/central-bank/cbdc-manager/cbdc-type"),
+      command: () => history.push("/central-bank/cbdc-manager/defined-cbdc"),
     },
     {
-      label: "ISSUE CBDC",
+      label: "MINTED CBDC",
       icon: "pi pi-fw text-2xl pi-dollar",
-      command: () => history.push("/central-bank/cbdc-manager/issue-cbdc"),
+      command: () => history.push("/central-bank/cbdc-manager/minted-cbdc"),
     },
   ];
 
@@ -41,15 +41,15 @@ const CbdcManager = () => {
         <Route
           exact
           path={"/central-bank/cbdc-manager"}
-          component={AvailableCBDC}
-        />
-        <Route
-          path={"/central-bank/cbdc-manager/cbdc-type"}
           component={DefCBDCType}
         />
         <Route
-          path={"/central-bank/cbdc-manager/issue-cbdc"}
-          component={IssueCBDCs}
+          path={"/central-bank/cbdc-manager/defined-cbdc"}
+          component={AvailableCBDC}
+        />
+        <Route
+          path={"/central-bank/cbdc-manager/minted-cbdc"}
+          component={MintedCBDC}
         />
       </div>
     </div>

@@ -4,23 +4,11 @@ import { Accordion, AccordionTab } from "primereact/accordion";
 
 const AvailableCBDC = () => {
   const [data, setData] = useState([]);
-  // const [datas, setDatas] = useState({
-  //   asset: {
-  //     assetid: "ASSET-BND-0002",
-  //     issuetype: "Cash_BINR",
-  //   },
-  //   amount: 100,
-  //   operationaccount: {
-  //     accountholder: "central",
-  //     accountnumber: "CAC-CEN901-0002",
-  //   },
-  // });
 
   useEffect(() => {
     //fetch the asset data from api
     const url = "https://thebsv.tech/centralbank/getassets";
-    const urll =
-      "https://thebsv.tech/centralbank/makeassetavailableincentralbank";
+
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
@@ -32,54 +20,6 @@ const AvailableCBDC = () => {
       });
   }, []);
 
-  //  postand put api implement
-  // const postPutEvent = () => {
-  // const datas = {
-  // centralentity: {
-  //   entityid: "ENT-CEN-0901",
-  // },
-  // issue: {
-  //   enityname: "Asset authority",
-  //   assetid: "ASSET-BND-0001",
-  //   issuetype: "Cash_BINR",
-  //   issuer: "RBI",
-  //   contract: "I promise to pay the bearer 1 Rs ",
-  //   amount: "10000000",
-  // },
-  // asset: {
-  //   assetid: "ASSET-BND-0001",
-  //   issuetype: "Cash_BINR",
-  // },
-  // amount: 10,
-  // operationaccount: {
-  //   accountholder: "central",
-  //   accountnumber: "CAC-CEN901-0001",
-  // },
-  // };
-
-  // const url =
-  // datas.id? "https://thebsv.tech/centralbank/getassets/" + datas.id:
-  // "https://thebsv.tech/centralbank/createcentralasset";
-  //     "https://thebsv.tech/centralbank/makeassetavailableincentralbank";
-  //   fetch(url, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json; charset-UTF-8",
-  //     },
-  //     body: JSON.stringify(datas),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       console.log(response);
-  //       alert("success");
-  //       setDatas(response);
-  //     })
-
-  //     .catch((e) => {
-  //       console.log("e", e);
-  //     });
-  // };
-  // console.log(datas);
   const header = <p className="text-xl">Compliance Control:</p>;
   return (
     <div className="card col-12 flex flex-column align-items-center justify-content-center">
@@ -131,7 +71,6 @@ const AvailableCBDC = () => {
           </div>
         </Card>
       ))}
-      {/* <button onClick={postPutEvent}>submit</button> */}
     </div>
   );
 };

@@ -5,17 +5,19 @@ import { Chart } from "primereact/chart";
 const CBDCAssets = () => {
   // initail value for chart data
 
-  const [data, setData] = useState({
-    labels: ["Digital_$_Frank", "Digital_Euro"],
-    datasets: [
-      {
-        data: [10000.0, 16000.0],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      },
-    ],
-  });
-  const [amount, setAmount] = useState(0);
+  const [data, setData] = useState();
+  // {
+  //   labels: ["Digital_$_Frank", "Digital_Euro"],
+  //   datasets: [
+  //     {
+  //       data: [10000.0, 16000.0],
+  //       backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+  //       hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+  //     },
+  //   ],
+  // }
+  const [amount, setAmount] = useState([]);
+  const [issuetype, setIssuetype] = useState([]);
 
   useEffect(() => {
     //fetch data from api
@@ -40,12 +42,13 @@ const CBDCAssets = () => {
             datasets: [
               {
                 data: dataset1,
-                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-                hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                backgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
+                hoverBackgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
               },
             ],
           });
           setAmount(dataset1);
+          setIssuetype(dataset2);
           console.log("arrData", dataset1, dataset2);
         })
         .catch((e) => {
@@ -65,47 +68,65 @@ const CBDCAssets = () => {
       legend: {
         position: "right",
         labels: {
-          color: "#495057",
+          color: "#eee",
         },
       },
       title: {
         display: true,
-        text: "Bonds",
+        text: "BONDS",
+        color: "#eee",
       },
     },
   });
 
-  // const dataset2 = [];
+  // const dataset3 = [];
 
   // for (const val of data) {
-  //   dataset2.push(val.amount);
+  //   dataset3.push(val.amount);
   // }
-  console.log(amount);
+
+  // console.log(dataset3);
   // const value = amount.reduce((a, b) => a + b, 0);
   // console.log(value);
   return (
-    <div className="col-12 ">
-      <div className="grid p-fluid">
-        <div className="col-12 md:col-6 ">
-          <div className="card card-w-title">
-            <p>CBDC Types in Vault</p>
-            <p>1:1 to CBDC</p>
+    <>
+      <div className="col-12 ">
+        <div className="grid p-fluid">
+          <div className="col-12 md:col-6 ">
+            <div className="card card-w-title">
+              <p className="text-xl">CBDC Types in Vault</p>
+              {issuetype.map((cdata, index) => (
+                <p className="text-xl" key={index}>
+                  {cdata}{" "}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="col-12 md:col-6 ">
-          <div className="card card-w-title">
-            <p> Total Assets in Vault</p>
-            <p>10000</p>
+          <div className="col-12 md:col-6 ">
+            <div className="card card-w-title">
+              <p className="text-xl">Total assets in Vaults</p>
+              {amount.map((cdata, index) => (
+                <p className="text-xl" key={index}>
+                  {cdata}{" "}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-      <Chart
-        type="doughnut"
-        data={data}
-        options={lightOptions}
-        style={{ position: "relative", width: "42%", justifyContent: "center" }}
-      />
-    </div>
+      <div className="  flex flex-column align-items-center ">
+        <Chart
+          type="doughnut"
+          data={data}
+          options={lightOptions}
+          style={{
+            position: "relative",
+            width: "42%",
+            justifyContent: "center",
+          }}
+        />
+      </div>
+    </>
   );
 };
 

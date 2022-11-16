@@ -16,7 +16,8 @@ const CBBonds = () => {
   //     },
   //   ],
   // }
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState([]);
+  const [issuetype, setIssuetype] = useState([]);
 
   useEffect(() => {
     //fetch data from api
@@ -47,6 +48,7 @@ const CBBonds = () => {
             ],
           });
           setAmount(dataset1);
+          setIssuetype(dataset2);
           console.log("arrData", dataset1, dataset2);
         })
         .catch((e) => {
@@ -77,12 +79,13 @@ const CBBonds = () => {
     },
   });
 
-  // const dataset2 = [];
+  // const dataset3 = [];
 
   // for (const val of data) {
-  //   dataset2.push(val.amount);
+  //   dataset3.push(val.amount);
   // }
-  console.log(amount);
+
+  // console.log(dataset3);
   // const value = amount.reduce((a, b) => a + b, 0);
   // console.log(value);
   return (
@@ -91,14 +94,22 @@ const CBBonds = () => {
         <div className="grid p-fluid">
           <div className="col-12 md:col-6 ">
             <div className="card card-w-title">
-              <p className="text-xl">Bond value</p>
-              <p className="text-xl">1:1 to CBDC</p>
+              <p className="text-xl">Minted CBDC</p>
+              {issuetype.map((cdata, index) => (
+                <p className="text-xl" key={index}>
+                  {cdata}{" "}
+                </p>
+              ))}
             </div>
           </div>
           <div className="col-12 md:col-6 ">
             <div className="card card-w-title">
-              <p className="text-xl">Total bonds in Vaults</p>
-              <p className="text-xl">10000</p>
+              <p className="text-xl">Total Value with Central Bank</p>
+              {amount.map((cdata, index) => (
+                <p className="text-xl" key={index}>
+                  {cdata}{" "}
+                </p>
+              ))}
             </div>
           </div>
         </div>

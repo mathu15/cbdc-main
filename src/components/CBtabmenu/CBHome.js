@@ -6,6 +6,7 @@ import CBBonds from "./CBHome/CBHomeIsuue/CBBonds";
 import CBDCStatus from "./CBHome/CBHomeIsuue/CBDCStatus";
 import CBMemberAS from "./CBHome/CBHomeIsuue/CBMemberAS";
 import CBDCAssets from "./CBHome/CBHomeIsuue/CBDCAssets";
+import CBTransfer from "./CBHome/CBHomeIsuue/CBTransfer";
 
 const CBHome = ({ data, setData }) => {
   const [activeone, setActiveone] = useState(0);
@@ -15,6 +16,9 @@ const CBHome = ({ data, setData }) => {
   const DisplayOne = () => {
     if (activeone === 0) {
       return <CBIssue data={data} setData={setData} />;
+    }
+    if (activeone === 1) {
+      return <CBTransfer data={data} setData={setData} />;
     }
   };
   const DisplayTwo = () => {
@@ -34,18 +38,22 @@ const CBHome = ({ data, setData }) => {
 
   const wizardItems = [
     {
-      label: "ISSUE",
+      label: "CBDC ISSUE",
+      icon: "pi text-2xl pi-fw pi-sort-amount-up-alt",
+    },
+    {
+      label: "CBDC TRANSFER",
       icon: "pi text-2xl pi-fw pi-sort-amount-up-alt",
     },
   ];
 
   const dataItems = [
     {
-      label: "BONDS",
+      label: "MINTED CBDC ASSETS",
       icon: "pi text-2xl pi-fw pi-sun",
     },
     {
-      label: "CBDC ASSETS",
+      label: "ISSUED CBDC ASSETS",
       icon: "pi text-2xl pi-fw pi-dollar",
     },
   ];

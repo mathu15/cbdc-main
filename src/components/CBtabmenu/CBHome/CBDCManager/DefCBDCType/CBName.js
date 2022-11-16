@@ -1,12 +1,13 @@
 import React from "react";
 import { InputText } from "primereact/inputtext";
+import { InputNumber } from "primereact/inputnumber";
 import { RadioButton } from "primereact/radiobutton";
 
 export const CBName = ({ data, setData }) => {
   return (
     <div className="grid p-fluid">
       <div className="col-12 md:col-12">
-        <h5 className="align-self-center text-2xl text-center border-bottom-1 surface-border pb-3">
+        <h5 className="align-self-center text-2xl text-center border-top-1 surface-border pb-3 pt-5">
           Enter the CBDC Name
         </h5>
         <span className="p-float-label">
@@ -14,10 +15,10 @@ export const CBName = ({ data, setData }) => {
           <InputText
             id="username"
             type="text"
-            value={data.cbname}
+            value={data.issuetype}
             onChange={(e) =>
               setData((data) => {
-                return { ...data, cbname: e.target.value };
+                return { ...data, issuetype: e.target.value };
               })
             }
             style={{ fontSize: "1.4rem" }}
@@ -29,7 +30,7 @@ export const CBName = ({ data, setData }) => {
         </span>
 
         {/* getting user input for decimal point */}
-        <h5 className="align-self-center text-2xl text-center border-bottom-1 surface-border pb-3">
+        <h5 className="align-self-center text-2xl text-center border-top-1 surface-border pb-3 pt-5">
           Select the decimal place:0.00
         </h5>
         <div className="grid">
@@ -39,10 +40,10 @@ export const CBName = ({ data, setData }) => {
                 inputId="option1"
                 name="option"
                 value={0}
-                checked={data.decimal === 0}
+                checked={data.count === 0}
                 onChange={(e) =>
                   setData((data) => {
-                    return { ...data, decimal: e.value };
+                    return { ...data, count: e.value };
                   })
                 }
               />
@@ -57,10 +58,10 @@ export const CBName = ({ data, setData }) => {
                 inputId="option2"
                 name="option"
                 value={1}
-                checked={data.decimal === 1}
+                checked={data.count === 1}
                 onChange={(e) =>
                   setData((data) => {
-                    return { ...data, decimal: e.value };
+                    return { ...data, count: e.value };
                   })
                 }
               />
@@ -75,10 +76,10 @@ export const CBName = ({ data, setData }) => {
                 inputId="option3"
                 name="option"
                 value={2}
-                checked={data.decimal === 2}
+                checked={data.count === 2}
                 onChange={(e) =>
                   setData((data) => {
-                    return { ...data, decimal: e.value };
+                    return { ...data, count: e.value };
                   })
                 }
               />
@@ -93,10 +94,10 @@ export const CBName = ({ data, setData }) => {
                 inputId="option4"
                 name="option"
                 value={3}
-                checked={data.decimal === 3}
+                checked={data.count === 3}
                 onChange={(e) =>
                   setData((data) => {
-                    return { ...data, decimal: e.value };
+                    return { ...data, count: e.value };
                   })
                 }
               />
@@ -106,6 +107,27 @@ export const CBName = ({ data, setData }) => {
             </div>
           </div>
         </div>
+        <h5 className="align-self-center text-2xl text-center border-top-1 surface-border pb-5 pt-5">
+          Enter Maximum value to transfer
+        </h5>
+        <span className="p-float-label">
+          <InputNumber
+            id="amount"
+            value={data.maxvalue}
+            onChange={(e) =>
+              setData((data) => {
+                return { ...data, maxvalue: e.value };
+              })
+            }
+            showButtons
+            mode="decimal"
+            style={{ fontSize: "1.4rem" }}
+            className="p-5 m-3"
+          ></InputNumber>
+          <label className="text-2xl pl-8 pb-3" htmlFor="amount">
+            Maximum value
+          </label>
+        </span>
       </div>
     </div>
   );

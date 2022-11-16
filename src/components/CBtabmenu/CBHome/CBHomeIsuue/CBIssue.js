@@ -32,15 +32,39 @@ const CBIssue = () => {
     displayvalue: "",
   });
 
+  // const url =
+  // datas.id? "https://thebsv.tech/centralbank/getassets/" + datas.id:
+  // "https://thebsv.tech/centralbank/createcentralasset";
+  //     "https://thebsv.tech/centralbank/makeassetavailableincentralbank";
+  //   fetch(url, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json; charset-UTF-8",
+  //     },
+  //     body: JSON.stringify(datas),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       console.log(response);
+  //       alert("success");
+  //       setDatas(response);
+  //     })
+
+  //     .catch((e) => {
+  //       console.log("e", e);
+  //     });
+  // };
+  // console.log(datas);
+
   //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
       return <SelectAsset data={data} setData={setData} />;
+      // } else if (activeIndex === 1) {
+      //   return <SelectPaticipant data={data} setData={setData} />;
     } else if (activeIndex === 1) {
-      return <SelectPaticipant data={data} setData={setData} />;
-    } else if (activeIndex === 2) {
       return <EnterAmount data={data} setData={setData} />;
-    } else if (activeIndex === 3) {
+    } else if (activeIndex === 2) {
       return <ConfirmIssuance data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
       return (
@@ -54,9 +78,9 @@ const CBIssue = () => {
 
   const wizardItems = [
     { label: "Select Asset" },
-    {
-      label: "Select Participant",
-    },
+    // {
+    //   label: "Select Participant",
+    // },
     {
       label: "Enter Amount",
     },

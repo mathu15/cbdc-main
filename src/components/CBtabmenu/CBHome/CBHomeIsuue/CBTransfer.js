@@ -2,73 +2,70 @@ import React, { useState } from "react";
 
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
-import CBName from "./DefCBDCType/CBName";
-import NotarySel from "./DefCBDCType/NotarySel";
-import MAC from "./DefCBDCType/MAC";
-import TranscationControl from "./DefCBDCType/TranscationControl";
-import AssetControl from "./DefCBDCType/AssetControl";
-import ConfirmDefinition from "./DefCBDCType/ConfirmDefinition";
-import InformationSubmitted from "./DefCBDCType/InformationSubmitted";
 
-const DefCBDCType = () => {
+import InformationSubmitted from "../CBDCManager/DefCBDCType/InformationSubmitted";
+import SelectAssetCBTrans from "./CBTransfer/SelectAssetCBTrans";
+import SelectParticipantCBTrans from "./CBTransfer/SelectParticipantCBTrans";
+import EnterAmountCBTrans from "./CBTransfer/EnterAmountCBTrans";
+import ConfirmTransferCBTrans from "./CBTransfer/ConfirmTransferCBTrans";
+
+const CBTransfer = () => {
   //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
 
   //initial state fo user input
   const [data, setData] = useState({
-    issuetype: "",
-    count: {},
+    asset: "",
+    decimal: 2,
+    notary: "",
+    amount: 0,
+    total: 25000000,
+    remaining: 25000000,
     option: "",
     access: true,
     select: "",
     accesconrol: "",
     confirm: "",
     transvalue: "",
-    maxvalue: "",
+    maxvalue: 10000000,
     minvalue: "",
-    amount: "",
-    issuer: "",
-    assetid: "",
-    skip: "(skip this step if no controls are required)",
+    displayvalue: "",
   });
 
-  console.log(data);
+  // const url =
+  // datas.id? "https://thebsv.tech/centralbank/getassets/" + datas.id:
+  // "https://thebsv.tech/centralbank/createcentralasset";
+  //     "https://thebsv.tech/centralbank/makeassetavailableincentralbank";
+  //   fetch(url, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json; charset-UTF-8",
+  //     },
+  //     body: JSON.stringify(datas),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       console.log(response);
+  //       alert("success");
+  //       setDatas(response);
+  //     })
 
-  const wizardItems = [
-    {
-      label: "CBDC Name & Decimal",
-    },
-    {
-      label: "Notary Selection",
-    },
-    {
-      label: "Member Access control",
-    },
-    {
-      label: "Tansaction Contracts",
-    },
-    {
-      label: "Asset Controls",
-    },
-    {
-      label: "Confirm Definition",
-    },
-  ];
+  //     .catch((e) => {
+  //       console.log("e", e);
+  //     });
+  // };
+  // console.log(datas);
 
   //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
-      return <CBName data={data} setData={setData} />;
+      return <SelectAssetCBTrans data={data} setData={setData} />;
     } else if (activeIndex === 1) {
-      return <NotarySel data={data} setData={setData} />;
+      return <SelectParticipantCBTrans data={data} setData={setData} />;
     } else if (activeIndex === 2) {
-      return <MAC data={data} setData={setData} />;
+      return <EnterAmountCBTrans data={data} setData={setData} />;
     } else if (activeIndex === 3) {
-      return <TranscationControl data={data} setData={setData} />;
-    } else if (activeIndex === 4) {
-      return <AssetControl data={data} setData={setData} />;
-    } else if (activeIndex === 5) {
-      return <ConfirmDefinition data={data} setData={setData} />;
+      return <ConfirmTransferCBTrans data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
       return (
         <InformationSubmitted
@@ -79,10 +76,23 @@ const DefCBDCType = () => {
     }
   };
 
+  const wizardItems = [
+    { label: "Select Asset" },
+    {
+      label: "Select Participant",
+    },
+    {
+      label: "Enter Amount",
+    },
+    {
+      label: "Confirm Transfer",
+    },
+  ];
   return (
-    <div className="col-12 p-5">
+    <div className="col-12 ">
       <div className="card card-w-title">
         {/* implementing steps */}
+
         <Steps
           model={wizardItems}
           activeIndex={activeIndex}
@@ -92,15 +102,12 @@ const DefCBDCType = () => {
           className="p-5 m-3"
         />
       </div>
-
       <div className="card justify-content-center align-items-center pb-6">
         {
-          //display the steps pages CBName,NotaySelect, MAC, TranscationControl,AssetControl,ConfirmDefinition
-
+          //display the steps pages SelectAsset, SelectPaticipant, EnterAmount, ConfirmIssuance
           pageDisplay()
         }
       </div>
-
       <div className="p-5">
         <div className="flex align-items-center justify-content-between">
           <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
@@ -119,15 +126,11 @@ const DefCBDCType = () => {
             <Button
               onClick={() => {
                 if (activeIndex === wizardItems.length) {
-                  <InformationSubmitted
-                    activeIndex={activeIndex}
-                    setActiveIndex={setActiveIndex}
-                  />;
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }
               }}
-              label={activeIndex === wizardItems.length - 1 ? "SUBMIT" : "NEXT"}
+              label={activeIndex === wizardItems.length - 1 ? "ISSUE" : "NEXT"}
               style={{
                 display: activeIndex === wizardItems.length ? "none" : "block",
               }}
@@ -139,4 +142,4 @@ const DefCBDCType = () => {
   );
 };
 
-export default DefCBDCType;
+export default CBTransfer;

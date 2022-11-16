@@ -4,6 +4,7 @@ import { Dropdown } from "primereact/dropdown";
 // page for select paricipant step
 const SelectPaticipant = ({ data, setData }) => {
   const dropdownValues = [
+    { label: "O=WHOLESALEONE, L=LONDON, CGB" },
     { label: "O=WHOLESALETWO, L=LONDON, CGB" },
     { label: "O=WHOLESALETHREE, L=LONDON, CGB" },
   ];
@@ -13,7 +14,7 @@ const SelectPaticipant = ({ data, setData }) => {
       <div className="col-12 ">
         <div className="text-center text-xl">
           <p className="text-center text-2xl">
-            select available asset from the vault to transfer.
+            select available participant to transfer.
           </p>
           <Dropdown
             value={data.notary}

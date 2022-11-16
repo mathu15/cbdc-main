@@ -12,10 +12,10 @@ const ConfirmDefinition = ({ data, setData }) => {
         </div>
         <div className="flex-column align-items-center border-bottom-1 pb-3 surface-border surface-overlay w-full mt-5">
           <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
-            CBDC Name:{data.cbname}
+            CBDC Name:{data.issuetype}
           </p>
           <p className="text-center text-2xl">
-            CBDC Asset decimal:{data.decimal}
+            CBDC Asset decimal:{data.count}
           </p>
         </div>
         <div className=" align-items-center border-bottom-1 pb-3 surface-border surface-overlay w-full mt-5">

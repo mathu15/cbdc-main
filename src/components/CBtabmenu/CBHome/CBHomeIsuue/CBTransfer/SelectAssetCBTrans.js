@@ -2,7 +2,7 @@ import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
 // page for select asset step
-const SelectAsset = ({ data, setData }) => {
+const SelectAssetCBTrans = ({ data, setData }) => {
   const dropdownValues = [
     { label: "Digital_INR" },
     { label: "Digital_GBP" },
@@ -34,4 +34,4 @@ const SelectAsset = ({ data, setData }) => {
   );
 };
 
-export default SelectAsset;
+export default SelectAssetCBTrans;

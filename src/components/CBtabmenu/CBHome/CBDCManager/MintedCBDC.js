@@ -8,7 +8,7 @@ import { InputNumber } from "primereact/inputnumber";
 
 import { Calendar } from "primereact/calendar";
 
-const CBDCStatus = () => {
+const MintedCBDC = () => {
   const [data, setData] = useState(null);
 
   const [filters, setFilters] = useState(null);
@@ -297,8 +297,4 @@ const CBDCStatus = () => {
   );
 };
 
-const comparisonFn = function (prevProps, nextProps) {
-  return prevProps.location.pathname === nextProps.location.pathname;
-};
-
-export default CBDCStatus;
+export default MintedCBDC;
