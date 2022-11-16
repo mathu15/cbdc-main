@@ -60,19 +60,16 @@ const CBDCStatus = () => {
     });
   };
 
-  const formatDate = (value) => {
-    return value.toLocaleDateString("en-US", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
-  };
+  // const formatDate = (value) => {
+  //   return value.toLocaleDateString("en-US", {
+  //     day: "2-digit",
+  //     month: "2-digit",
+  //     year: "numeric",
+  //   });
+  // };
 
   const formatCurrency = (value) => {
-    return value.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
+    return value.toFixed(2);
   };
 
   const initFilters = () => {
@@ -295,10 +292,6 @@ const CBDCStatus = () => {
       </div>
     </div>
   );
-};
-
-const comparisonFn = function (prevProps, nextProps) {
-  return prevProps.location.pathname === nextProps.location.pathname;
 };
 
 export default CBDCStatus;

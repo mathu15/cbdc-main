@@ -15,10 +15,10 @@ export const CBName = ({ data, setData }) => {
           <InputText
             id="username"
             type="text"
-            value={data.issuetype}
+            value={data.assetid}
             onChange={(e) =>
               setData((data) => {
-                return { ...data, issuetype: e.target.value };
+                return { ...data, assetid: e.target.value };
               })
             }
             style={{ fontSize: "1.4rem" }}

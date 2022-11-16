@@ -16,7 +16,7 @@ const DefCBDCType = () => {
 
   //initial state fo user input
   const [data, setData] = useState({
-    issuetype: "",
+    // issuetype: "",
     count: {},
     option: "",
     access: true,

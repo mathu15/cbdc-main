@@ -18,7 +18,7 @@ const TabMenubar = () => {
     {
       label: "BUILD",
       icon: "pi pi-fw text-2xl pi-pencil",
-      // command: () => history.push("/build"),
+      command: () => history.push("//build"),
     },
   ];
 
@@ -33,7 +33,7 @@ const TabMenubar = () => {
             style={{ fontSize: "1.4rem" }}
           />
           <Route exact path={"/"} component={Hero} />
-          <Route path={"/build"} component={Buttons} />
+          <Route path={"//build"} component={Buttons} />
         </div>
       </div>
     </div>
