@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import SelectPaticipant from "./CBIssue/SelectPaticipant";
+// import SelectPaticipant from "./CBIssue/SelectPaticipant";
 import SelectAsset from "./CBIssue/SelectAsset";
 import EnterAmount from "./CBIssue/EnterAmount";
 import ConfirmIssuance from "./CBIssue/ConfirmIssuance";
@@ -88,6 +88,7 @@ const CBIssue = () => {
       label: "Confirm Issuance",
     },
   ];
+
   return (
     <div className="col-12 ">
       <div className="card card-w-title">

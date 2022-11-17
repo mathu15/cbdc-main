@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { IssuanceService } from "../IssuanceService";
+
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
 import CBName from "./DefCBDCType/CBName";
@@ -79,6 +81,14 @@ const DefCBDCType = () => {
     }
   };
 
+  const [centralaccount, setCentralaccount] = useState("cash_INR");
+  const issuanceService = new IssuanceService();
+
+  const centralasset = async () => {
+    issuanceService.centralasset(data.assetid, centralaccount, data.maxvalue);
+  };
+  // centralasset();
+
   return (
     <div className="col-12 p-5">
       <div className="card card-w-title">
@@ -123,6 +133,9 @@ const DefCBDCType = () => {
                     activeIndex={activeIndex}
                     setActiveIndex={setActiveIndex}
                   />;
+                }
+                if (activeIndex === wizardItems.length - 1) {
+                  centralasset();
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }

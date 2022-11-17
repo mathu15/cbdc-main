@@ -1,38 +1,51 @@
-import React from "react";
-
+import React, { useState } from "react";
+// import { IssuanceService } from "../../IssuanceService";
 // review and confirm (display) the entered user input
 const ConfirmDefinition = ({ data, setData }) => {
-  const url =
-    // datas.id? "https://thebsv.tech/centralbank/getassets/" + datas.id:
-    // "https://thebsv.tech/centralbank/createcentralasset";
-    "https://thebsv.tech/centralbank/entitymintasset";
+  //using fetch from IssuanceSevice.js
+  // const [centralaccount, setCentralaccount] = useState("cash_INR");
+  // const issuanceService = new IssuanceService();
+  // const centralasset = async () => {
+  //   issuanceService.centralasset(data.assetid, centralaccount, data.maxvalue);
+  // };
+  // centralasset();
+  // -------------------------------
+  //using fetch directly
+  // const url =
+  //   // datas.id? "https://thebsv.tech/centralbank/getassets/" + datas.id:
+  //   "https://thebsv.tech/centralbank/createcentralasset";
+  // // "https://thebsv.tech/centralbank/entitymintasset";
+  // // "https://reqres.in/api/users/2";
+  // // "https://thebsv.tech/centralbank/makeassetavailableincentralbank";
+  // fetch(url, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json; charset-UTF-8",
+  //   },
+  //   body: JSON.stringify({
+  //     centralentity: {
+  //       entityid: "ENT-CEN-0901",
+  //     },
+  //     issue: {
+  //       enityname: "Asset authority",
+  //       assetid: data.assetid,
+  //       issuetype: "Cash_BINR",
+  //       issuer: "BBI",
+  //       contract: "I promise to pay the bearer 1 Rs ",
+  //       amount: data.maxvalue,
+  //     },
+  //   }),
+  // })
+  //   .then((response) => response.json())
+  //   .then((response) => {
+  //     console.log(response);
+  //     alert("success");
+  //     // setDatas(response);
+  //   }).catch((e) => {
+  //   console.log("e", e);
+  // });
 
-  // "https://thebsv.tech/centralbank/makeassetavailableincentralbank";
-  fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json; charset-UTF-8",
-    },
-    body: JSON.stringify({
-      asset: {
-        assetid: data.assetid,
-        issuetype: data.assetid,
-      },
-      amount: data.maxvalue,
-    }),
-  })
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-      alert("success");
-      // setDatas(response);
-    })
-
-    .catch((e) => {
-      console.log("e", e);
-    });
-
-  // console.log(datas);
+  // --------------------------
 
   return (
     <div className="card">

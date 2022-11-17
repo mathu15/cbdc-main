@@ -53,7 +53,7 @@ const WBankTwo = () => {
       command: () => history.push("/wholesale-bank-two/treasury-dashboard"),
     },
     {
-      label: "MONEYSWIPE TRANSACTION DASHBOARD",
+      label: "INTRASETTLE TRANSACTION DASHBOARD",
       icon: "pi pi-fw pi-book",
 
       command: () => history.push("/wholesale-bank-two/corda-dashboard"),

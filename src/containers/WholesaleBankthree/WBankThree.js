@@ -48,7 +48,7 @@ const WBankThree = () => {
       command: () => history.push("/wholesale-bank-three/treasury-dashboard"),
     },
     {
-      label: "MONEYSWIPE TRANSACTION DASHBOARD",
+      label: "INTRASETTLE TRANSACTION DASHBOARD",
       icon: "pi pi-fw pi-book",
 
       command: () => history.push("/wholesale-bank-three/corda-dashboard"),

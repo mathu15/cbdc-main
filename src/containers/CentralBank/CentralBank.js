@@ -41,7 +41,7 @@ const CentralBank = () => {
       command: () => history.push("/central-bank/treasury-dashboard"),
     },
     {
-      label: "MONEYSWIPE TRANSACTION DASHBOARD",
+      label: "INTRASETTLE TRANSACTION DASHBOARD",
       icon: "pi text-2xl pi-fw pi-book",
       command: () => history.push("/central-bank/moneyswipe-dashboard"),
     },
