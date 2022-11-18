@@ -71,7 +71,7 @@ const RequestCBDCWBO = () => {
 
   return (
     <div className="col-12 p-5">
-      <div className="card card-w-title">
+      <div className="card border-1 border-300 bg-gray-800 card-w-title">
         {/* implementing steps to request*/}
 
         <Steps
@@ -80,7 +80,7 @@ const RequestCBDCWBO = () => {
           onSelect={(e) => setActiveIndex(e.index)}
           readOnly={false}
           style={{ fontSize: "1.4rem" }}
-          className="p-5 m-3"
+          className="p-5 m-3 text-3xl"
         />
       </div>
       <div className="card">

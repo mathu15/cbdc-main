@@ -9,7 +9,7 @@ const AssetControl = ({ data, setData }) => {
 
   return (
     <div className="flex-column align-items-center">
-      <h5 className="text-center text-2xl p-5">Configure Asset Control</h5>
+      <h5 className="text-center text-3xl p-5">Configure Asset Control</h5>
       <p className=" text-xl text-center pb-3 border-bottom-1 surface-border surface-overlay ">
         Asset rules look at each individual state in a transaction seperately.
         For ex, to check whether any individual state breached its maximum usage

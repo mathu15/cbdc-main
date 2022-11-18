@@ -60,7 +60,7 @@ const CBHome = ({ data, setData }) => {
 
   const dataStates = [
     {
-      label: "CBDC STATES",
+      label: "CENTRAL BANK TRANSACTIONS",
       icon: "pi text-2xl pi-fw pi-user",
     },
     {
@@ -73,7 +73,7 @@ const CBHome = ({ data, setData }) => {
     <>
       <div className="grid p-fluid p-5">
         <div className="row-12  col-6 md:col-6 p-5">
-          <div className="card card-w-title ">
+          <div className="card card-w-title border-1 border-100 h-full">
             <TabMenu
               model={wizardItems}
               activeIndex={activeone}
@@ -85,7 +85,7 @@ const CBHome = ({ data, setData }) => {
           </div>
         </div>
         <div className="row-12  col-12 md:col-6 p-5">
-          <div className="card card-w-title">
+          <div className="card card-w-title border-1 border-100 ">
             <TabMenu
               model={dataItems}
               id={dataItems.id}
@@ -99,7 +99,7 @@ const CBHome = ({ data, setData }) => {
         </div>
       </div>
       <div className="row-12  col-12  p-6">
-        <div className="card card-w-title">
+        <div className="card card-w-title border-1 border-100 ">
           <TabMenu
             model={dataStates}
             id={dataStates.id}

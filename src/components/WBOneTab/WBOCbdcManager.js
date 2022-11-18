@@ -48,8 +48,8 @@ const WBOCbdcManager = () => {
   ];
 
   return (
-    <div className="card ">
-      <h5 className="text-3xl p-4">CBDC Manager</h5>
+    <div className="card">
+      <h5 className="text-5xl p-4">CBDC Manager</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}

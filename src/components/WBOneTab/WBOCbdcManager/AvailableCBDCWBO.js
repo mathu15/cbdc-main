@@ -25,7 +25,10 @@ const AvailableCBDCWBO = () => {
       <h3 className="mt-3">Available Assets on the Network</h3>
 
       {data.map((cdata) => (
-        <Card className="mt-4  col-6  bg-gray-900" key={cdata.id}>
+        <Card
+          className="mt-4  col-6  border-1 border-100 bg-gray-900"
+          key={cdata.id}
+        >
           <div className="flex">
             <p className="w-2 text-xl text-center font-bold text-blue-200 mr-3">
               CBDC Name:

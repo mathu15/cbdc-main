@@ -48,7 +48,7 @@ const WBankOne = () => {
       command: () => history.push("/wholesale-bank-one/treasury-dashboard"),
     },
     {
-      label: "INTRASETTLE TRANSACTION DASHBOARD",
+      label: "MONEYSWIPE TRANSACTION DASHBOARD",
       icon: "pi pi-fw pi-book",
 
       command: () => history.push("/wholesale-bank-one/corda-dashboard"),
@@ -93,6 +93,7 @@ const WBankOne = () => {
           // setActiveIndex={(e) => e.index}
           end={<Button label="noifications" icon="pi pi-bell" />}
           style={{ fontSize: "1.3rem" }}
+          className="pt-4 pb-1 card text-xl"
         />
       </div>
       <Route exact path={"/wholesale-bank-one"} component={WBOHome} />

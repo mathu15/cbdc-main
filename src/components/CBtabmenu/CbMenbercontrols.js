@@ -23,7 +23,7 @@ const CbMenbercontrols = () => {
 
   return (
     <div className="card ">
-      <h5 className="text-3xl p-3">Member Controls</h5>
+      <h5 className="text-5xl p-3">Member Controls</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}

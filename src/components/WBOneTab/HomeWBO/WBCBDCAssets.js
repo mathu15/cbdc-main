@@ -8,8 +8,8 @@ const WBCBDCAssets = () => {
     datasets: [
       {
         data: [10000.0, 16000.0],
-        backgroundColor: ["#48C9B0", "#36A2EB"],
-        hoverBackgroundColor: ["#48C9B0", "#36A2EB"],
+        backgroundColor: ["#1569BB", "#00C6AE", "#36A2EB", "#6B7280"],
+        hoverBackgroundColor: ["#1a85ed", "#00f7d9", "#4bb3fa", "#7f8694"],
       },
     ],
   });
@@ -30,15 +30,19 @@ const WBCBDCAssets = () => {
       <div className="col-12">
         <div className="grid p-fluid">
           <div className="col-12 md:col-6 ">
-            <div className="card card-w-title">
-              <p className="text-xl">CBDC Types in Vault</p>
-              <p className="text-xl">2</p>
+            <div className="card mt-3 border-1 border-300 bg-gray-800   card-w-title">
+              <p className="border-bottom-1 pb-2 text-3xl">
+                CBDC Types in Vault
+              </p>
+              <li className="text-2xl">2</li>
             </div>
           </div>
           <div className="col-12 md:col-6 ">
-            <div className="card card-w-title">
-              <p className="text-xl">Total bonds in Vault</p>
-              <p className="text-xl">25,000,000.000</p>
+            <div className="card mt-3 border-1 border-300 bg-gray-800   card-w-title">
+              <p className="border-bottom-1 pb-2 text-3xl">
+                Total bonds in Vault
+              </p>
+              <li className="text-2xl">25,000,000.000</li>
             </div>
           </div>
         </div>

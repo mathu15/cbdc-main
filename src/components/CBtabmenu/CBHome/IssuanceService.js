@@ -31,7 +31,7 @@ class IssuanceService {
         amount: mintamount,
       }),
     };
-    return fetch("https://thebsv.tech/centralbank/entitymintasset", payload)
+    return fetch("https://thebsv.tech/centralbank/mintasset", payload)
       .then((res) => res.json())
       .then((response) => {
         console.log(response);
@@ -60,28 +60,34 @@ class IssuanceService {
       .then((res) => res.json())
       .then((response) => {
         console.log(response);
-        // alert("success");
+        alert("success");
       })
       .catch((e) => {
         console.log("e", e);
       });
   }
 
-  // entitymintasset(asset, centralaccount, mintamount) {
-  //   const payload = {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       asset: asset,
-  //       centralaccount: centralaccount,
-  //       mintamount: mintamount,
-  //     }),
-  //   };
-  //   return fetch(
-  //     "https://thebsv.tech/centralbank/entitymintasset",
-  //     payload
-  //   ).then((res) => res.json());
-  //   console.log(res);
-  // }
+  entitymintasset(asset, centralaccount, mintamount) {
+    const payload = {
+      method: "POST",
+      body: JSON.stringify({
+        asset: {
+          assetid: asset,
+          issuetype: centralaccount,
+        },
+        amount: mintamount,
+      }),
+    };
+    return fetch("https://thebsv.tech/centralbank/entitymintasset", payload)
+      .then((res) => res.json())
+      .then((response) => {
+        console.log(response);
+        alert("success");
+      })
+      .catch((e) => {
+        console.log("e", e);
+      });
+  }
 
   getassets() {
     const payload = {

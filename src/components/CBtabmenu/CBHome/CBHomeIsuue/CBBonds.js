@@ -42,8 +42,13 @@ const CBBonds = () => {
             datasets: [
               {
                 data: dataset1,
-                backgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
-                hoverBackgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
+                backgroundColor: ["#1569BB", "#00C6AE", "#36A2EB", "#6B7280"],
+                hoverBackgroundColor: [
+                  "#1a85ed",
+                  "#00f7d9",
+                  "#4bb3fa",
+                  "#7f8694",
+                ],
               },
             ],
           });
@@ -93,18 +98,23 @@ const CBBonds = () => {
       <div className="col-12 ">
         <div className="grid p-fluid">
           <div className="col-12 md:col-6 ">
-            <div className="card card-w-title">
-              <p className="text-xl">Minted CBDC</p>
+            <div className="card border-1 border-300  bg-gray-800  mt-3  card-w-title">
+              <p className=" border-bottom-1 pb-2 text-3xl">Minted CBDC</p>
               {/* {issuetype.map((cdata, index) => ( */}
-              <p className="text-xl">{issuetype.length} </p>
+              <p className="text-2xl pb-2">{issuetype.length} </p>
+              {/* <li className="text-2xl pb-2" key={index}>
+                    {cdata}{' '}
+                  </li> */}
               {/* ))} */}
             </div>
           </div>
           <div className="col-12 md:col-6 ">
-            <div className="card card-w-title">
-              <p className="text-xl">Total Value with Central Bank</p>
+            <div className="card border-1 border-300  bg-gray-800  mt-3  card-w-title">
+              <p className=" border-bottom-1 pb-2 text-3xl">
+                Total Value with Central Bank
+              </p>
               {/* {amount.map((cdata, index) => ( */}
-              <p className="text-xl">{value}</p>
+              <p className="text-2xl pb-2">{value}</p>
               {/* ))} */}
             </div>
           </div>
@@ -117,7 +127,7 @@ const CBBonds = () => {
           options={lightOptions}
           style={{
             position: "relative",
-            width: "42%",
+            width: "60%",
             justifyContent: "center",
           }}
         />

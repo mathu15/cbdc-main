@@ -29,9 +29,9 @@ const CBTDBonds = () => {
   return (
     <div className="grid-column ">
       <div className="grid justify-content-around">
-        <div className="col-12 lg:col-6 xl:col-3">
-          <div className="card mb-0 text-center">
-            <div className="text-900 text-center font-medium text-2xl mb-3">
+        <div className=" col-12 lg:col-6 xl:col-3">
+          <div className=" border-1 border-100 bg-gray-800 card mt-6 text-center">
+            <div className=" text-900 text-center font-medium text-2xl mb-3">
               Bond Value
             </div>
 
@@ -41,7 +41,7 @@ const CBTDBonds = () => {
           </div>
         </div>
         <div className="col-12 lg:col-6 xl:col-3">
-          <div className="card mb-0  text-center">
+          <div className="card mb-0 mt-6 border-1 border-100 bg-gray-800   text-center">
             <div className="text-900 font-medium  text-center text-2xl mb-3">
               Total Bonds in Vault
             </div>

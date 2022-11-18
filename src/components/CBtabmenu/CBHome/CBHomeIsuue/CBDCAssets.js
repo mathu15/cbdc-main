@@ -42,8 +42,13 @@ const CBDCAssets = () => {
             datasets: [
               {
                 data: dataset1,
-                backgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
-                hoverBackgroundColor: ["#21618C", "#48C9B0", "#36A2EB"],
+                backgroundColor: ["#1569BB", "#00C6AE", "#36A2EB", "#6B7280"],
+                hoverBackgroundColor: [
+                  "#1a85ed",
+                  "#00f7d9",
+                  "#4bb3fa",
+                  "#7f8694",
+                ],
               },
             ],
           });
@@ -93,22 +98,30 @@ const CBDCAssets = () => {
       <div className="col-12 ">
         <div className="grid p-fluid">
           <div className="col-12 md:col-6 ">
-            <div className="card card-w-title">
-              <p className="text-xl">CBDC Types in Vault</p>
+            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
+              <p className="border-bottom-1 pb-2 text-3xl">
+                CBDC Types in Vault
+              </p>
               {issuetype.map((cdata, index) => (
-                <p className="text-xl" key={index}>
-                  {cdata}{" "}
-                </p>
+                <div className="list-disc">
+                  <li className="text-2xl pb-2" key={index}>
+                    {cdata}{" "}
+                  </li>
+                </div>
               ))}
             </div>
           </div>
           <div className="col-12 md:col-6 ">
-            <div className="card card-w-title">
-              <p className="text-xl">Total assets in Vaults</p>
+            <div className="card bg-gray-800  mt-3  card-w-title">
+              <p className="border-bottom-1 pb-2 text-3xl">
+                Total assets in Vaults
+              </p>
               {amount.map((cdata, index) => (
-                <p className="text-xl" key={index}>
-                  {cdata}{" "}
-                </p>
+                <div className="list-disc">
+                  <li className="text-2xl pb-2" key={index}>
+                    {cdata}{" "}
+                  </li>
+                </div>
               ))}
             </div>
           </div>
@@ -121,7 +134,7 @@ const CBDCAssets = () => {
           options={lightOptions}
           style={{
             position: "relative",
-            width: "42%",
+            width: "60%",
             justifyContent: "center",
           }}
         />

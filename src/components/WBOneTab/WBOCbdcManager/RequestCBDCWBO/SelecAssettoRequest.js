@@ -16,7 +16,7 @@ const SelectAssetRequest = ({ data, setData }) => {
     <div className="grid p-fluid">
       <div className="col-12 ">
         <div className="p-5">
-          <h5 className="text-2xl">
+          <h5 className="text-3xl">
             select an asset to issue member access state for.
           </h5>
           <Dropdown
@@ -25,8 +25,8 @@ const SelectAssetRequest = ({ data, setData }) => {
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
-            style={{ fontSize: "1.4rem" }}
-            className="p-2"
+            style={{ fontSize: "2rem", height: "4rem" }}
+            className="p-2 text-3xl"
           />
         </div>
       </div>

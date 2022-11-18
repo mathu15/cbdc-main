@@ -99,7 +99,7 @@ const CBTransfer = () => {
           onSelect={(e) => setActiveIndex(e.index)}
           readOnly={false}
           style={{ fontSize: "1.4rem" }}
-          className="p-5 m-3"
+          className="p-5 m-3 text-3xl"
         />
       </div>
       <div className="card justify-content-center align-items-center pb-6">

@@ -16,7 +16,7 @@ const SelectAssetCBTrans = ({ data, setData }) => {
     <div className="grid p-fluid">
       <div className="col-12 text-center">
         <div className="text-center text-xl">
-          <p className="text-center text-2xl">
+          <p className="text-center text-3xl">
             select available asset from the vault to transfer.
           </p>
           <Dropdown
@@ -25,7 +25,7 @@ const SelectAssetCBTrans = ({ data, setData }) => {
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
-            style={{ fontSize: "1.4rem" }}
+            style={{ height: "4rem", fontSize: "2.0rem" }}
             className="p-2"
           />
         </div>

@@ -91,7 +91,7 @@ const DefCBDCType = () => {
 
   return (
     <div className="col-12 p-5">
-      <div className="card card-w-title">
+      <div className="card card-w-title border-1 border-300 bg-gray-800 ">
         {/* implementing steps */}
         <Steps
           model={wizardItems}
@@ -99,7 +99,7 @@ const DefCBDCType = () => {
           onSelect={(e) => setActiveIndex(e.index)}
           readOnly={false}
           style={{ fontSize: "1.4rem" }}
-          className="p-5 m-3"
+          className="p-5 m-3 text-3xl"
         />
       </div>
 
@@ -113,7 +113,7 @@ const DefCBDCType = () => {
 
       <div className="p-5">
         <div className="flex align-items-center justify-content-between">
-          <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
+          <div className="w-6rem h-5rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
             <Button
               disabled={activeIndex === 0}
               onClick={() => {
@@ -133,9 +133,6 @@ const DefCBDCType = () => {
                     activeIndex={activeIndex}
                     setActiveIndex={setActiveIndex}
                   />;
-                }
-                if (activeIndex === wizardItems.length - 1) {
-                  centralasset();
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }

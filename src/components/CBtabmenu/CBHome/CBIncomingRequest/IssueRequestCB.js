@@ -26,11 +26,11 @@ const IssueRequestCB = () => {
   console.log("data", data);
   return (
     <>
-      <h5 className="text-2xl text-center">CBDC Issuance Requests</h5>
+      <h5 className="text-3xl text-center">CBDC Issuance Requests</h5>
       <div className="flex text-center justify-content-center pt-3">
         <div className="flex align-items-center justify-content-center">
           <label
-            className="text-2xl pr-3"
+            className="text-3xl pr-3"
             htmlFor="Approved"
             style={{ display: "inline-block" }}
           >
@@ -44,7 +44,7 @@ const IssueRequestCB = () => {
         </div>
         <div className="flex align-items-center justify-content-center">
           <label
-            className="text-2xl pr-3 pl-5"
+            className="text-3xl pr-3 pl-5"
             htmlFor="Requested"
             style={{ display: "inline-block" }}
           >
@@ -58,7 +58,7 @@ const IssueRequestCB = () => {
         </div>
         <div className="flex align-items-center justify-content-center">
           <label
-            className="text-2xl pr-3 pl-5"
+            className="text-3xl pr-3 pl-5"
             htmlFor="Denied"
             style={{ display: "inline-block" }}
           >
@@ -82,25 +82,25 @@ const IssueRequestCB = () => {
               <Card style={{ cursor: "pointer" }}>
                 <div className="flex-column align-items-center justify-content-center">
                   <div className=" align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-                    <p className="text-center text-2xl ">
+                    <p className="text-center text-3xl ">
                       Resolve Issuance :Requested
                     </p>
                   </div>
                   <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-                    <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
+                    <p className=" text-center text-3xl font-bold text-blue-300 mr-3">
                       Request ID:{data.request_id}
                     </p>
-                    <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
+                    <p className=" text-center text-3xl font-bold text-blue-300 mr-3">
                       Requesting Party:{data.party}
                     </p>
-                    <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
+                    <p className=" text-center text-3xl font-bold text-blue-300 mr-3">
                       CBDC Name:{data.cbdc_name}
                     </p>
-                    <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
+                    <p className=" text-center text-3xl font-bold text-blue-300 mr-3">
                       Amount:{data.amount}
                     </p>
 
-                    <p className="text-center text-2xl">
+                    <p className="text-center text-3xl">
                       value in bonds:{data.bonds}
                     </p>
                   </div>
@@ -159,7 +159,7 @@ const IssueRequestCB = () => {
           <Accordion>
             <AccordionTab header={header}>
               <div className="card flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-                <p className="  text-2xl font-bold text-blue-300 mr-3">
+                <p className="  text-3xl font-bold text-blue-300 mr-3">
                   CBDC Name:{data.cbdc_name}
                 </p>
                 <p className=" text-2xl">Amount:{data.amount}</p>

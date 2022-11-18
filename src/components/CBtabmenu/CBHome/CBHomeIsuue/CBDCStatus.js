@@ -7,6 +7,7 @@ import { Dropdown } from "primereact/dropdown";
 import { InputNumber } from "primereact/inputnumber";
 
 import { Calendar } from "primereact/calendar";
+import { NavLink } from "react-router-dom";
 
 const CBDCStatus = () => {
   const [data, setData] = useState(null);
@@ -119,10 +120,32 @@ const CBDCStatus = () => {
   };
 
   const dateBodyTemplate = (rowData) => {
-    return <>{rowData.updatedAt}</>;
+    return (
+      <>
+        {new Intl.DateTimeFormat("en-US", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        }).format(rowData.updatedAt)}
+      </>
+    );
   };
   const dateBodyTemplate1 = (rowData) => {
-    return <>{rowData.createdAt}</>;
+    return (
+      <>
+        {new Intl.DateTimeFormat("en-US", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        }).format(rowData.createdAt)}
+      </>
+    );
   };
 
   const dateFilterTemplate = (options) => {
@@ -173,6 +196,16 @@ const CBDCStatus = () => {
     return (
       <span className={`customer-badge status-${rowData.type}`}>
         {rowData.activitytype}
+      </span>
+    );
+  };
+
+  const txidBodyTemplate = (rowData) => {
+    return (
+      <span className={`customer-badge status-${rowData.type}`}>
+        <a href="https://taalnet.whatsonchain.com/tx/957afd5a31afda1aa9790e2baad05b762307edc2a8732ce0208bbde4792def40">
+          {rowData.transactionid}
+        </a>
       </span>
     );
   };
@@ -235,8 +268,8 @@ const CBDCStatus = () => {
               style={{ minWidth: "12rem" }}
             />
             <Column
-              field="toaccountnumber"
-              header="Counter Party"
+              field={txidBodyTemplate}
+              header="Transaction id"
               filter
               filterPlaceholder="Search by name"
               style={{ minWidth: "12rem" }}

@@ -84,11 +84,11 @@ const CentralBank = () => {
         // style={{ fontSize: "1.4rem" }}
         className="pt-4 pb-4 layout-topbar"
       />
-      <div className=" col-12  justify-content-around pt-8">
+      <div className=" col-12  justify-content-around pt-8 pl-7">
         <TabMenu
           model={wizardItems}
-          style={{ fontSize: "1.2rem" }}
-          // className="pt-1 pb-1 "
+          style={{ fontSize: "1.3rem" }}
+          className="pt-4 pb-1 card text-xl"
           // , position: "fixed", zIndex: "10"
         />
       </div>

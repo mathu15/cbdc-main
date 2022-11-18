@@ -21,8 +21,8 @@ const ParticipantWBOTrans = ({ data, setData }) => {
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
-            style={{ fontSize: "1.4rem" }}
-            className="p-2"
+            style={{ height: "4rem", fontSize: "2.0rem" }}
+            className="p-2 font-bold text-3xl"
           />
         </div>
       </div>

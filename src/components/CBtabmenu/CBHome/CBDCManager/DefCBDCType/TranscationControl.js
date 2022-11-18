@@ -38,7 +38,7 @@ const TransactionControl = ({ data, setData }) => {
   console.log("data", data);
   return (
     <div className=" flex-column align-items-center">
-      <h5 className="text-center text-2xl p-5">
+      <h5 className="text-center text-3xl p-5">
         Configure Transaction Control
       </h5>
       <p className=" text-xl text-center pb-3  border-bottom-1 surface-border surface-overlay ">
@@ -58,7 +58,7 @@ const TransactionControl = ({ data, setData }) => {
           >
             <Card
               style={{ cursor: "pointer", marginBottom: "2rem" }}
-              className="transition-colors transition-duration-500   hover:bg-gray-900 "
+              className="transition-colors transition-duration-500 hover:bg-gray-900 "
               onClick={clickHandler}
             >
               {/* select the maxvalue button to add maximum value otherwise skip the step */}
@@ -78,7 +78,7 @@ const TransactionControl = ({ data, setData }) => {
                 />
                 {/* <label htmlFor="option1">Maximum Value</label> */}
                 <div>
-                  <p className="text-2xl border-bottom-1 surface-border p-2">
+                  <p className="text-3xl border-bottom-1 surface-border p-2">
                     Maximum Value
                   </p>
                   <p className="text-2xl">
@@ -91,7 +91,7 @@ const TransactionControl = ({ data, setData }) => {
             <Card
               style={{
                 cursor: "pointer",
-                height: "10rem",
+                height: "15rem",
                 marginBottom: "2rem",
               }}
               className="transition-colors transition-duration-500   hover:bg-gray-900 "
@@ -113,7 +113,7 @@ const TransactionControl = ({ data, setData }) => {
                   }}
                 />
                 <div>
-                  <p className="text-2xl border-bottom-1 surface-border p-2">
+                  <p className="text-3xl border-bottom-1 surface-border p-2">
                     Maximum Value without Issuer signing
                   </p>
                   <p className="text-2xl">

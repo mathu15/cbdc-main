@@ -73,7 +73,7 @@ const WBOHome = ({ data, setData }) => {
     <>
       <div className="grid p-fluid p-5">
         <div className="row-12  col-6 md:col-6 p-5">
-          <div className="card card-w-title ">
+          <div className="  card card-w-title border-1 border-100  ">
             <TabMenu
               model={wizardItems}
               activeIndex={activeone}
@@ -84,7 +84,7 @@ const WBOHome = ({ data, setData }) => {
           </div>
         </div>
         <div className="row-12  col-12 md:col-6 p-5">
-          <div className="card card-w-title">
+          <div className=" card card-w-title border-1 border-100 ">
             <TabMenu
               model={dataItems}
               activeIndex={activetwo}
@@ -96,7 +96,7 @@ const WBOHome = ({ data, setData }) => {
         </div>
       </div>
       <div className="row-12  col-12  p-6">
-        <div className="card card-w-title">
+        <div className="card card-w-title border-1 border-100 ">
           <TabMenu
             model={dataStates}
             activeIndex={activethree}

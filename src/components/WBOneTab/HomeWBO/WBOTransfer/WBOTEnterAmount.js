@@ -17,10 +17,14 @@ const WBOTEnterAmount = ({ data, setData }) => {
             onChange={(e) => setData({ ...data, amount: e.value })}
             showButtons
             mode="decimal"
-            style={{ fontSize: "1.4rem" }}
+            min={0}
+            max={10000000}
+            style={{ height: "5rem", fontSize: "2.0rem" }}
             className="p-2"
           ></InputNumber>
-          <label htmlFor="amount">Amount</label>
+          <label style={{ fontSize: "2.0rem" }} htmlFor="amount">
+            Amount
+          </label>
         </div>
       </div>
     </div>

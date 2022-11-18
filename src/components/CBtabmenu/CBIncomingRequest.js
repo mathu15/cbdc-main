@@ -32,7 +32,7 @@ const CBIncomingRequest = () => {
 
   return (
     <div className="card ">
-      <h5 className="text-3xl p-5">Incoming Requests</h5>
+      <h5 className="text-5xl p-5">Incoming Requests</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}

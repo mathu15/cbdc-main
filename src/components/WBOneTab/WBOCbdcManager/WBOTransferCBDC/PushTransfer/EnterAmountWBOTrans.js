@@ -8,22 +8,22 @@ const EnterAmountWBOTrans = ({ data, setData }) => {
     <div className="card">
       <div className="flex-column align-items-center justify-content-center">
         <div className=" align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-          <p className="text-center text-2xl ">Enter amount to transfer.</p>
+          <p className="text-center text-3xl ">Enter amount to transfer.</p>
         </div>
         <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-          <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
+          <p className=" text-center text-3xl font-bold text-blue-500 mr-3">
             Asset decimal:{data.decimal}
           </p>
-          <p className="text-center text-2xl">
+          <p className="text-center text-3xl">
             Total amount in vault:{data.total}
           </p>
-          <p className="text-center text-2xl">
+          <p className="text-center text-3xl">
             Remaininig after transfer:{data.total - data.amount}
           </p>
-          <p className="text-center text-2xl">compliance controls</p>
+          <p className="text-center text-3xl">compliance controls</p>
         </div>
         <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-          <p className=" text-center text-2xl font-bold text-blue-500 mr-3">
+          <p className=" text-center text-3xl font-bold text-blue-500 mr-3">
             Maximum transaction value with this asset {data.maxvalue}
           </p>
           <InputNumber
@@ -32,10 +32,14 @@ const EnterAmountWBOTrans = ({ data, setData }) => {
             onChange={(e) => setData({ ...data, amount: e.value })}
             showButtons
             mode="decimal"
-            style={{ fontSize: "1.4rem" }}
+            min={0}
+            max={10000000}
+            style={{ height: "4rem", fontSize: "2.0rem" }}
             className="p-2"
           ></InputNumber>
-          <label htmlFor="amount">Amount</label>
+          <label style={{ fontSize: "2.0rem" }} htmlFor="amount">
+            Amount
+          </label>
         </div>
       </div>
     </div>

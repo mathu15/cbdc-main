@@ -16,8 +16,8 @@ const SelectAsset = ({ data, setData }) => {
     <div className="grid p-fluid">
       <div className="col-12 text-center">
         <div className="text-center text-xl">
-          <p className="text-center text-2xl">
-            select available asset from the vault to transfer.
+          <p className="text-center text-3xl">
+            Select available asset from the vault to issue.
           </p>
           <Dropdown
             value={data.asset}
@@ -25,8 +25,8 @@ const SelectAsset = ({ data, setData }) => {
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
-            style={{ fontSize: "1.4rem" }}
-            className="p-2"
+            className="p-2 font-bold text-3xl"
+            style={{ height: "4rem", fontSize: "2.0rem" }}
           />
         </div>
       </div>

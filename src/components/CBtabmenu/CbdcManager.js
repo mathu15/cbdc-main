@@ -29,8 +29,8 @@ const CbdcManager = () => {
 
   return (
     <div>
-      <div className="card ">
-        <h5 className="text-3xl p-4">CBDC Manager</h5>
+      <div className="card  ">
+        <h5 className="text-5xl p-4">CBDC Manager</h5>
         <TabMenu
           model={wizardItems}
           activeIndex={activeIndex}
@@ -38,19 +38,22 @@ const CbdcManager = () => {
           readOnly={false}
           style={{ fontSize: "1.2rem" }}
         />
-        <Route
-          exact
-          path={"/central-bank/cbdc-manager"}
-          component={DefCBDCType}
-        />
-        <Route
-          path={"/central-bank/cbdc-manager/defined-cbdc"}
-          component={AvailableCBDC}
-        />
-        <Route
-          path={"/central-bank/cbdc-manager/minted-cbdc"}
-          component={MintedCBDC}
-        />
+
+        <div className="card bg-gray-900">
+          <Route
+            exact
+            path={"/central-bank/cbdc-manager"}
+            component={DefCBDCType}
+          />
+          <Route
+            path={"/central-bank/cbdc-manager/defined-cbdc"}
+            component={AvailableCBDC}
+          />
+          <Route
+            path={"/central-bank/cbdc-manager/minted-cbdc"}
+            component={MintedCBDC}
+          />
+        </div>
       </div>
     </div>
   );

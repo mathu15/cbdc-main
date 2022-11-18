@@ -13,7 +13,7 @@ const SelectParticipantCBTrans = ({ data, setData }) => {
     <div className="grid p-fluid">
       <div className="col-12 ">
         <div className="text-center text-xl">
-          <p className="text-center text-2xl">
+          <p className="text-center text-3xl">
             select available participant to transfer.
           </p>
           <Dropdown
@@ -22,7 +22,7 @@ const SelectParticipantCBTrans = ({ data, setData }) => {
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
-            style={{ fontSize: "1.4rem" }}
+            style={{ height: "4rem", fontSize: "1.4rem" }}
             className="p-2"
           />
         </div>

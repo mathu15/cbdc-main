@@ -9,7 +9,7 @@ import TabMenubar from "../../components/tabmenubar/TabMenubar";
 
 const Home = () => {
   return (
-    <div className="pl-7 pr-7  ">
+    <div className=" pl-7 pr-7  ">
       <AppTopbar />
 
       <TabMenubar />

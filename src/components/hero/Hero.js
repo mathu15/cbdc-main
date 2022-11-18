@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <>
       <div className="flex-column font-medium align-items-center border-bottom-1 surface-border w-full p-5 pt-8 pb-7">
-        <p className=" text-center text-2xl line-height-2  ">
+        <p className=" text-center text-3xl line-height-2  ">
           Links below will take you to the sandbox!
         </p>
         {/* <p className="line-height-2  text-xl text-center">
@@ -17,7 +17,7 @@ const Hero = () => {
         </p> */}
       </div>
       {/* <div className="card"> */}
-      <div className="flex justify-content-center flex-wrap card-container yellow-container pt-8">
+      <div className="flex justify-content-center flex-wrap card-container yellow-container pt-8 ">
         {/* <div className="border-round bg-blue-100 w-12rem h-6rem p-3 m-3">
             <NavLink to="/central-bank">
               <div
@@ -59,12 +59,12 @@ const Hero = () => {
               </div>
             </NavLink>
           </div> */}
-        <div className="col-12 lg:col-6 xl:col-3">
+        <div className="col-12 lg:col-6 xl:col-3 ">
           <NavLink to="/central-bank">
-            <div className="card mb-0 transition-colors transition-duration-500   hover:bg-gray-900 text-white hover:text-gray-900">
+            <div className="card mb-0 border-1 border-300 bg-gray-800 bg-gray-800  transition-colors transition-duration-500   hover:bg-gray-900 text-white hover:text-gray-900 ">
               <div className="flex justify-content-between mb-3">
                 <div>
-                  <span className="block text-900 font-medium text-2xl mb-3">
+                  <span className="block text-900 font-medium text-3xl mb-3">
                     Central Bank
                   </span>
                 </div>
@@ -82,10 +82,10 @@ const Hero = () => {
         </div>
         <div className="col-12 lg:col-6 xl:col-3">
           <NavLink to="/wholesale-bank-one">
-            <div className="card mb-0 transition-colors transition-duration-500  hover:bg-gray-900 text-white hover:text-gray-900">
+            <div className="card mb-0 border-1 border-300 bg-gray-800 bg-gray-800  transition-colors transition-duration-500  hover:bg-gray-900 text-white hover:text-gray-900">
               <div className="flex justify-content-between mb-3">
                 <div>
-                  <span className="block text-900 font-medium text-2xl mb-3">
+                  <span className="block text-900 font-medium text-3xl mb-3">
                     Wholesale Bank One
                   </span>
                 </div>
@@ -103,10 +103,10 @@ const Hero = () => {
         </div>
         <div className="col-12 lg:col-6 xl:col-3">
           <NavLink to="/wholesale-bank-two">
-            <div className="card mb-0 transition-colors transition-duration-500  hover:bg-gray-900 text-white hover:text-gray-900">
+            <div className="card mb-0 border-1 border-300 bg-gray-800 bg-gray-800  transition-colors transition-duration-500  hover:bg-gray-900 text-white hover:text-gray-900">
               <div className="flex justify-content-between mb-3">
                 <div>
-                  <span className="block text-900 font-medium text-2xl mb-3">
+                  <span className="block text-900 font-medium text-3xl mb-3">
                     Wholesale Bank Two
                   </span>
                 </div>
@@ -125,10 +125,10 @@ const Hero = () => {
 
         <div className="col-12 lg:col-6 xl:col-3">
           <NavLink to="/wholesale-bank-three">
-            <div className="card mb-0 transition-colors transition-duration-500  hover:bg-gray-900 text-white hover:text-gray-900">
+            <div className="card mb-0 border-1 border-300 bg-gray-800 bg-gray-800  transition-colors transition-duration-500  hover:bg-gray-900 text-white hover:text-gray-900">
               <div className="flex justify-content-between mb-3">
                 <div>
-                  <span className="block text-900  font-medium text-2xl mb-3">
+                  <span className="block text-900  font-medium text-3xl mb-3">
                     Wholesale Bank Three
                   </span>
                 </div>
@@ -156,7 +156,7 @@ const Hero = () => {
         </p>
       </div>
       <Buttons />
-      <div className="flex-column align-items-center border-top-1 surface-border p-5 pt-8">
+      {/* <div className="flex-column align-items-center border-top-1 surface-border p-5 pt-8">
         <div className="flex  justify-content-center  text-center ">
           <p className="text-2xl text center mr-1 ">Build Status:</p>
           <p className=" text-center text-2xl mr-1 text-blue-500 ">
@@ -173,7 +173,7 @@ const Hero = () => {
             8adf_ef521f_g455s
           </p>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

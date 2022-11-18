@@ -16,7 +16,7 @@ const WBOPullSelAsset = ({ data, setData }) => {
     <div className="grid p-fluid">
       <div className="col-12 ">
         <div className="card">
-          <h5 className="text-center text-2xl">
+          <h5 className="text-center text-3xl">
             select available asset from the vault to transfer.
           </h5>
           <Dropdown
@@ -25,8 +25,8 @@ const WBOPullSelAsset = ({ data, setData }) => {
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"
-            style={{ fontSize: "1.4rem" }}
-            className="p-2"
+            style={{ height: "4rem", fontSize: "2.0rem" }}
+            className="p-2 font-bold text-3xl"
           />
         </div>
       </div>

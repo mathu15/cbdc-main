@@ -4,15 +4,15 @@ import { RadioButton } from "primereact/radiobutton";
 const NotarySel = ({ data, setData }) => {
   return (
     <div className=" flex flex-column align-items-center">
-      <div className=" text-2xl border-bottom-2 surface-border text-center text-left pb-3 ">
+      <div className=" text-3xl border-bottom-2 surface-border text-center text-left pb-3 ">
         Select the permitted notary for the CBDC.
       </div>
 
-      <p className="text-xl text-left pt-3">
+      <p className="text-2xl text-left pt-3">
         The CBDC ASSet will be tied to this notary.
       </p>
 
-      <p className=" text-xl text-left  ">
+      <p className=" text-2xl text-left  ">
         Assets on different notaries will be swapped using the cross chain swap
         feature
       </p>
@@ -33,7 +33,7 @@ const NotarySel = ({ data, setData }) => {
                 })
               }
             />
-            <label className=" text-xl" htmlFor="option1">
+            <label className=" text-2xl" htmlFor="option1">
               O-NotaryONEService, L-London, C-GB
             </label>
           </div>
@@ -51,7 +51,7 @@ const NotarySel = ({ data, setData }) => {
                 })
               }
             />
-            <label className=" text-xl" htmlFor="option2">
+            <label className=" text-2xl" htmlFor="option2">
               O-NotaryTWOService, L-London, C-GB
             </label>
           </div>

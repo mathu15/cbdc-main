@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-// import SelectPaticipant from "./CBIssue/SelectPaticipant";
+import SelectPaticipant from "./CBIssue/SelectPaticipant";
 import SelectAsset from "./CBIssue/SelectAsset";
 import EnterAmount from "./CBIssue/EnterAmount";
 import ConfirmIssuance from "./CBIssue/ConfirmIssuance";
@@ -88,10 +88,9 @@ const CBIssue = () => {
       label: "Confirm Issuance",
     },
   ];
-
   return (
-    <div className="col-12 ">
-      <div className="card card-w-title">
+    <div className="col-12  ">
+      <div className="card border-1 border-300 bg-gray-800 card-w-title">
         {/* implementing steps */}
 
         <Steps
@@ -100,7 +99,7 @@ const CBIssue = () => {
           onSelect={(e) => setActiveIndex(e.index)}
           readOnly={false}
           style={{ fontSize: "1.4rem" }}
-          className="p-5 m-3"
+          className="p-5 m-3 text-3xl"
         />
       </div>
       <div className="card justify-content-center align-items-center pb-6">
