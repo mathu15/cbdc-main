@@ -7,6 +7,7 @@ import { Dropdown } from "primereact/dropdown";
 import { InputNumber } from "primereact/inputnumber";
 
 import { Calendar } from "primereact/calendar";
+import { NavLink } from "react-router-dom";
 
 const MintedCBDC = () => {
   const [data, setData] = useState(null);
@@ -15,7 +16,15 @@ const MintedCBDC = () => {
   const [loading, setLoading] = useState(true);
 
   const statuses = ["coinbase", "issue"];
-
+  const issuerstatus = ["BBI", "CBI", "GBI", "RBI"];
+  const assetidstatus = [
+    "ASSET-BND-0001",
+    "ASSET-BND-0002",
+    "ASSET-BND-0003",
+    "ASSET-BND-0004",
+    "ASSET-BND-0005",
+    "ASSET-BND-0006",
+  ];
   useEffect(() => {
     //fetch the asset data from api
     // const url = "https://thebsv.tech/centralbank/getassets";
@@ -25,7 +34,7 @@ const MintedCBDC = () => {
       .then((response) => response.json())
       .then((json) => {
         console.log("json", json);
-        setData(getCustomers(json.issuertrans.centralissuetrans));
+        setData(json.issuertrans.centralissuetrans);
         // .issuertrans.centralissuetrans
         setLoading(false);
       })
@@ -67,12 +76,10 @@ const MintedCBDC = () => {
       year: "numeric",
     });
   };
+  // console.log(formatDate("11-10-2022"));
 
   const formatCurrency = (value) => {
-    return value.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
+    return value.toFixed(2);
   };
 
   const initFilters = () => {
@@ -121,19 +128,52 @@ const MintedCBDC = () => {
     });
   };
 
+  //   const formatDate = (value) => {
+  //     return value.toLocaleDateString("en-US", {
+  //         day: "2-digit",
+  //         month: "2-digit",
+  //         year: "numeric",
+  //     });
+  // };
+
   const dateBodyTemplate = (rowData) => {
-    return <>{rowData.updatedAt}</>;
+    // return formatDate(rowData.updatedAt);
+    return (
+      <>
+        {new Intl.DateTimeFormat("en-US", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        }).format(rowData.updatedAt)}
+      </>
+    );
   };
   const dateBodyTemplate1 = (rowData) => {
-    return <>{rowData.createdAt}</>;
+    return (
+      <>
+        {new Intl.DateTimeFormat("en-US", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        }).format(rowData.createdAt)}
+      </>
+    );
   };
 
   const dateFilterTemplate = (options) => {
     return (
       <Calendar
         value={options.value}
-        onChange={(e) => options.filterCallback(e.value, options.index)}
+        onChange={(e) => options.filterCallback((e.value, options.index))}
         dateFormat="mm/dd/yy"
+        // DateTimeFormat="mm/dd/yy"
+
         placeholder="mm/dd/yyyy"
         mask="99/99/9999"
       />
@@ -180,6 +220,20 @@ const MintedCBDC = () => {
     );
   };
 
+  const txidBodyTemplate = (rowData) => {
+    return (
+      <span className={`customer-badge status-${rowData.type}`}>
+        <a
+          href="https://taalnet.whatsonchain.com/tx/957afd5a31afda1aa9790e2baad05b762307edc2a8732ce0208bbde4792def40"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {rowData.transactionid}
+        </a>
+      </span>
+    );
+  };
+
   const statusFilterTemplate = (options) => {
     return (
       <Dropdown
@@ -196,6 +250,49 @@ const MintedCBDC = () => {
 
   const statusItemTemplate = (option) => {
     return <span className={`customer-badge status-${option}`}>{option}</span>;
+  };
+
+  const issuerBodyTemplate = (rowData) => {
+    return (
+      // className={`customer-badge status-${rowData.type}`}
+      <span>{rowData.issuer}</span>
+    );
+  };
+  const issuerItemTemplate = (option) => {
+    return <span className={`customer-badge status-${option}`}>{option}</span>;
+  };
+  const issuerFilterTemplate = (options) => {
+    return (
+      <Dropdown
+        value={options.value}
+        options={issuerstatus}
+        onChange={(e) => options.filterCallback(e.value, options.index)}
+        itemTemplate={issuerItemTemplate}
+        placeholder="Select a Status"
+        className="p-column-filter "
+        showClear
+      />
+    );
+  };
+
+  const assetidBodyTemplate = (rowData) => {
+    return <span>{rowData.assetid}</span>;
+  };
+  const assetidItemTemplate = (option) => {
+    return <span className={`customer-badge status-${option}`}>{option}</span>;
+  };
+  const assetidFilterTemplate = (options) => {
+    return (
+      <Dropdown
+        value={options.value}
+        options={assetidstatus}
+        onChange={(e) => options.filterCallback(e.value, options.index)}
+        itemTemplate={assetidItemTemplate}
+        placeholder="Select a Status"
+        className="p-column-filter "
+        showClear
+      />
+    );
   };
 
   return (
@@ -217,6 +314,15 @@ const MintedCBDC = () => {
             // style={{ fontSize: "1.4rem" }}
           >
             <Column
+              header="Transaction Date"
+              filterField="updatedAt"
+              dataType="date"
+              style={{ minWidth: "10rem" }}
+              body={dateBodyTemplate}
+              filter
+              filterElement={dateFilterTemplate}
+            />
+            <Column
               field="issuetype"
               header="Token Name"
               filter
@@ -226,43 +332,29 @@ const MintedCBDC = () => {
             <Column
               field="assetid"
               header="Assetid"
-              filter
-              filterPlaceholder="Search by name"
+              filterMenuStyle={{ width: "14rem" }}
               style={{ minWidth: "12rem" }}
+              body={assetidBodyTemplate}
+              filter
+              filterElement={assetidFilterTemplate}
             />
             <Column
               field="issuer"
               header="Initiator"
-              filter
-              filterPlaceholder="Search by name"
+              filterMenuStyle={{ width: "14rem" }}
               style={{ minWidth: "12rem" }}
+              body={issuerBodyTemplate}
+              filter
+              filterElement={issuerFilterTemplate}
             />
             <Column
-              field="toaccountnumber"
-              header="Counter Party"
+              field={txidBodyTemplate}
+              header="Transaction id"
               filter
               filterPlaceholder="Search by name"
               style={{ minWidth: "12rem" }}
             />
 
-            <Column
-              header="Issue Date"
-              filterField="createdAt"
-              dataType="date"
-              style={{ minWidth: "10rem" }}
-              body={dateBodyTemplate1}
-              filter
-              filterElement={dateFilterTemplate}
-            />
-            <Column
-              header="Transaction Date"
-              filterField="updatedAt"
-              dataType="date"
-              style={{ minWidth: "10rem" }}
-              body={dateBodyTemplate}
-              filter
-              filterElement={dateFilterTemplate}
-            />
             <Column
               header="Amount"
               filterField="amount"
@@ -282,6 +374,15 @@ const MintedCBDC = () => {
               filterElement={statusFilterTemplate}
             />
             <Column
+              header="Issue Date"
+              filterField="createdAt"
+              dataType="date"
+              style={{ minWidth: "10rem" }}
+              body={dateBodyTemplate1}
+              filter
+              filterElement={dateFilterTemplate}
+            />
+            {/* <Column
               header="Usage Count"
               filterField="count"
               dataType="numeric"
@@ -289,7 +390,7 @@ const MintedCBDC = () => {
               body={countBodyTemplate}
               filter
               filterElement={countFilterTemplate}
-            />
+            /> */}
           </DataTable>
         </div>
       </div>

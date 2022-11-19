@@ -22,7 +22,7 @@ const CBDCAssets = () => {
   useEffect(() => {
     //fetch data from api
     const fetchData = async () => {
-      const url = "https://thebsv.tech/centralbank/getassets";
+      const url = "https://thebsv.tech/centralbank/getbalance/CAC-CEN901-0001";
       const dataset1 = [];
       const dataset2 = [];
       await fetch(url)
@@ -32,8 +32,8 @@ const CBDCAssets = () => {
           return res;
         })
         .then((res) => {
-          console.log("ress", res);
-          for (const val of res) {
+          console.log("ress", res.balance);
+          for (const val of res.balance) {
             dataset1.push(val.amount);
             dataset2.push(val.issuetype);
           }
@@ -112,7 +112,7 @@ const CBDCAssets = () => {
             </div>
           </div>
           <div className="col-12 md:col-6 ">
-            <div className="card bg-gray-800  mt-3  card-w-title">
+            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
               <p className="border-bottom-1 pb-2 text-3xl">
                 Total assets in Vaults
               </p>

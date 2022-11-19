@@ -22,7 +22,7 @@ const CBBonds = () => {
   useEffect(() => {
     //fetch data from api
     const fetchData = async () => {
-      const url = "https://thebsv.tech/centralbank/getassets";
+      const url = "https://thebsv.tech/centralbank/getbalance/CAC-ENT901-0001";
       const dataset1 = [];
       const dataset2 = [];
       await fetch(url)
@@ -33,7 +33,7 @@ const CBBonds = () => {
         })
         .then((res) => {
           console.log("ress", res);
-          for (const val of res) {
+          for (const val of res.balance) {
             dataset1.push(val.amount);
             dataset2.push(val.issuetype);
           }
@@ -78,7 +78,7 @@ const CBBonds = () => {
       },
       title: {
         display: true,
-        text: "BONDS",
+        text: "",
         color: "#eee",
       },
     },
@@ -98,28 +98,32 @@ const CBBonds = () => {
       <div className="col-12 ">
         <div className="grid p-fluid">
           <div className="col-12 md:col-6 ">
-            <div className="card border-1 border-300  bg-gray-800  mt-3  card-w-title">
-              <p className=" border-bottom-1 pb-2 text-3xl">Minted CBDC</p>
-              {/* {issuetype.map((cdata, index) => ( */}
-              <p className="text-2xl pb-2">{issuetype.length} </p>
-              {/* <li className="text-2xl pb-2" key={index}>
-                    {cdata}{' '}
-                  </li> */}
-              {/* ))} */}
+            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
+              <p className="border-bottom-1 pb-2 text-3xl">CBDC Types</p>
+              {issuetype.map((cdata, index) => (
+                <div className="list-disc">
+                  <li className="text-2xl pb-2" key={index}>
+                    {cdata}{" "}
+                  </li>
+                </div>
+              ))}
             </div>
           </div>
           <div className="col-12 md:col-6 ">
-            <div className="card border-1 border-300  bg-gray-800  mt-3  card-w-title">
-              <p className=" border-bottom-1 pb-2 text-3xl">
-                Total Value with Central Bank
-              </p>
-              {/* {amount.map((cdata, index) => ( */}
-              <p className="text-2xl pb-2">{value}</p>
-              {/* ))} */}
+            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
+              <p className="border-bottom-1 pb-2 text-3xl">Total assets</p>
+              {amount.map((cdata, index) => (
+                <div className="list-disc">
+                  <li className="text-2xl pb-2" key={index}>
+                    {cdata}{" "}
+                  </li>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
+
       <div className="  flex flex-column align-items-center ">
         <Chart
           type="doughnut"

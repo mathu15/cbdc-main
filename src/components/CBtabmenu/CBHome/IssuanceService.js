@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 class IssuanceService {
   sendcentraltosubscriber(assetname, participant, numberissued) {
     const payload = {
@@ -34,8 +36,11 @@ class IssuanceService {
     return fetch("https://thebsv.tech/centralbank/mintasset", payload)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
         alert("success");
+        console.log(response);
+      })
+      .catch((e) => {
+        console.log("e", e);
       });
   }
 
@@ -59,8 +64,9 @@ class IssuanceService {
     return fetch("https://thebsv.tech/centralbank/createcentralasset", payload)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
         alert("success");
+        // toast.success("success");
+        console.log(response);
       })
       .catch((e) => {
         console.log("e", e);
@@ -78,11 +84,40 @@ class IssuanceService {
         amount: mintamount,
       }),
     };
+
     return fetch("https://thebsv.tech/centralbank/entitymintasset", payload)
       .then((res) => res.json())
       .then((response) => {
+        // alert("success");
+        toast.success("transfered");
         console.log(response);
+      })
+      .catch((e) => {
+        console.log("e", e);
+      });
+  }
+
+  makeassetavailble(assetid, centralaccount, mintamount) {
+    const payload = {
+      asset: {
+        assetid: assetid,
+        issuetype: "Cash_BINR",
+      },
+      amount: mintamount,
+      operationaccount: {
+        accountholder: "central",
+        accountnumber: "CAC-CEN901-0001",
+      },
+    };
+    return fetch(
+      "https://thebsv.tech/centralbank/makeassetavailableincentralbank",
+      payload
+    )
+      .then((res) => res.json())
+      .then((response) => {
         alert("success");
+        // toast.success("success");
+        console.log(response);
       })
       .catch((e) => {
         console.log("e", e);

@@ -1,7 +1,18 @@
 import React from "react";
+import { Button } from "primereact/button";
+import { IssuanceService } from "../../IssuanceService";
 
 // review and confirm (display) the entered user input
 const ConfirmTransferCBTrans = ({ data, setData }) => {
+  const text = data.assetid.label;
+
+  const myArray = text.split(",");
+
+  const issuanceService = new IssuanceService();
+  const entitymintasset = async () => {
+    issuanceService.entitymintasset(myArray[1], myArray[0], data.amount);
+  };
+
   console.log("data", data);
   return (
     <div>
@@ -23,6 +34,16 @@ const ConfirmTransferCBTrans = ({ data, setData }) => {
             Remaining after Transfer: {data.total - data.amount}
           </p>
         </div>
+      </div>
+      <div className=" text-white font-bold flex align-items-center justify-content-around  m-5">
+        <Button
+          label="CREATE ASSET"
+          onClick={() => {
+            entitymintasset();
+            // alertt();
+          }}
+          className="w-12rem "
+        ></Button>
       </div>
     </div>
   );

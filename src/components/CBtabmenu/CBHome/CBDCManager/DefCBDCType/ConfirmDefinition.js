@@ -1,19 +1,63 @@
-import React, { useState } from "react";
+import { React, useRef, useState } from "react";
 import { IssuanceService } from "../../IssuanceService";
 import { Button } from "primereact/button";
+
 // review and confirm (display) the entered user input
 const ConfirmDefinition = ({ data, setData }) => {
   // using fetch from IssuanceSevice.js
-
+  // const toast = useRef();
+  // const message = useRef();
   const text = data.assetid.label;
 
   const myArray = text.split(",");
 
   const issuanceService = new IssuanceService();
-  const entitymintasset = async () => {
-    issuanceService.entitymintasset(myArray[1], myArray[0], data.maxvalue);
+  const centralasset = async () => {
+    issuanceService.centralasset(myArray[1], myArray[0], data.maxvalue);
   };
 
+  //using fetch directly
+  // const alertt = () => {
+  //   const url =
+  //     // datas.id? "https://thebsv.tech/centralbank/getassets/" + datas.id:
+  //     "https://thebsv.tech/centralbank/createcentralasset";
+  //   // "https://thebsv.tech/centralbank/entitymintasset";
+  //   // "https://reqres.in/api/users/2";
+  //   // "https://thebsv.tech/centralbank/makeassetavailableincentralbank";
+  //   fetch(url, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json; charset-UTF-8",
+  //     },
+  //     body: JSON.stringify({
+  //       centralentity: {
+  //         entityid: "ENT-CEN-0901",
+  //       },
+  //       issue: {
+  //         enityname: "Asset authority",
+  //         assetid: myArray[1],
+  //         issuetype: "Cash_BINR",
+  //         issuer: "BBI",
+  //         contract: "I promise to pay the bearer 1 Rs ",
+  //         amount: data.maxvalue,
+  //       },
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       console.log(response);
+  //       // alert("success");
+  //       if (response.status === 200) {
+  //         toast.success("blog Created Successfully");
+  //       } else {
+  //         toast.error("something went wrong");
+  //       }
+  //       // setDatas(response);
+  //     })
+  //     .catch((e) => {
+  //       console.log("e", e);
+  //     });
+  // };
   // --------------------------
 
   return (
@@ -57,14 +101,50 @@ const ConfirmDefinition = ({ data, setData }) => {
           <Button
             label="CREATE ASSET"
             onClick={() => {
-              entitymintasset();
+              centralasset();
             }}
             // className="text-center text-2xl m-8 align-self-center"
           ></Button>
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 
 export default ConfirmDefinition;
+
+//using fetch directly
+// const url =
+//   // datas.id? "https://thebsv.tech/centralbank/getassets/" + datas.id:
+//   "https://thebsv.tech/centralbank/createcentralasset";
+// // "https://thebsv.tech/centralbank/entitymintasset";
+// // "https://reqres.in/api/users/2";
+// // "https://thebsv.tech/centralbank/makeassetavailableincentralbank";
+// fetch(url, {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json; charset-UTF-8",
+//   },
+//   body: JSON.stringify({
+//     centralentity: {
+//       entityid: "ENT-CEN-0901",
+//     },
+//     issue: {
+//       enityname: "Asset authority",
+//       assetid: data.assetid,
+//       issuetype: "Cash_BINR",
+//       issuer: "BBI",
+//       contract: "I promise to pay the bearer 1 Rs ",
+//       amount: data.maxvalue,
+//     },
+//   }),
+// })
+//   .then((response) => response.json())
+//   .then((response) => {
+//     console.log(response);
+//     alert("success");
+//     // setDatas(response);
+//   }).catch((e) => {
+//   console.log("e", e);
+// });

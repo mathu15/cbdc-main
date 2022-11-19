@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import { IssuanceService } from "../IssuanceService";
 
 import SelectPaticipant from "./CBIssue/SelectPaticipant";
 import SelectAsset from "./CBIssue/SelectAsset";
@@ -88,6 +90,7 @@ const CBIssue = () => {
       label: "Confirm Issuance",
     },
   ];
+
   return (
     <div className="col-12  ">
       <div className="card border-1 border-300 bg-gray-800 card-w-title">

@@ -9,7 +9,7 @@ import { InputNumber } from "primereact/inputnumber";
 import { Calendar } from "primereact/calendar";
 import { NavLink } from "react-router-dom";
 
-const CBDCStatus = () => {
+const CBTransAssDet = () => {
   const [data, setData] = useState(null);
 
   const [filters, setFilters] = useState(null);
@@ -290,4 +290,4 @@ const CBDCStatus = () => {
   );
 };
 
-export default CBDCStatus;
+export default CBTransAssDet;

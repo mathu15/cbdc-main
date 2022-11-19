@@ -39,9 +39,9 @@ const AvailableCBDC = () => {
           </div>
           <div className="flex ">
             <p className="w-2 text-xl text-center font-bold text-blue-200 mr-3">
-              CBDC asset decimal:
+              CBDC asset :
             </p>
-            <p className="text-xl w-10">{cdata.count}</p>
+            <p className="text-xl w-10">{cdata.assetid}</p>
           </div>
           <div className="flex ">
             <p className="w-2 text-xl text-center font-bold text-blue-200 mr-3">

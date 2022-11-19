@@ -2,14 +2,14 @@ import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
 // page for select asset step
-const SelectAsset = ({ data, setData }) => {
+const SelectAsset = ({ data, setData, assets }) => {
   const dropdownValues = [
-    { label: "Digital_INR" },
-    { label: "Digital_GBP" },
-    { label: "Digital_USD" },
-    { label: "Digital_YEN" },
-    { label: "Digital_EURO" },
-    { label: "Digital_$_FRANK" },
+    { label: "Cash_BINR,ASSET-BND-0001" },
+    { label: "Digital_BINR,ASSET-BND-0001" },
+    { label: "Digital_USDT,ASSET-BND-0001" },
+    { label: "Cash_DINR,ASSET-BND-0001" },
+    { label: "Cash_GBP,ASSET-BND-0001" },
+    { label: "Cash_INR,ASSET-BND-0001" },
   ];
 
   return (
@@ -20,8 +20,8 @@ const SelectAsset = ({ data, setData }) => {
             Select available asset from the vault to issue.
           </p>
           <Dropdown
-            value={data.asset}
-            onChange={(e) => setData({ ...data, asset: e.target.value })}
+            value={data.assetid}
+            onChange={(e) => setData({ ...data, assetid: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"

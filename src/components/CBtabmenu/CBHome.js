@@ -7,6 +7,7 @@ import CBDCStatus from "./CBHome/CBHomeIsuue/CBDCStatus";
 import CBMemberAS from "./CBHome/CBHomeIsuue/CBMemberAS";
 import CBDCAssets from "./CBHome/CBHomeIsuue/CBDCAssets";
 import CBTransfer from "./CBHome/CBHomeIsuue/CBTransfer";
+import CBTransAssDet from "./CBHome/CBHomeIsuue/CBTransAssDet";
 
 const CBHome = ({ data, setData }) => {
   const [activeone, setActiveone] = useState(0);
@@ -33,12 +34,14 @@ const CBHome = ({ data, setData }) => {
       return <CBDCStatus data={data} setData={setData} />;
     } else if (activethree === 1) {
       return <CBMemberAS data={data} setData={setData} />;
+    } else if (activethree === 2) {
+      return <CBTransAssDet data={data} setData={setData} />;
     }
   };
 
   const wizardItems = [
     {
-      label: "CBDC ISSUE",
+      label: "MINT CBDC",
       icon: "pi text-2xl pi-fw pi-sort-amount-up-alt",
     },
     {
@@ -49,11 +52,11 @@ const CBHome = ({ data, setData }) => {
 
   const dataItems = [
     {
-      label: "MINTED CBDC ASSETS",
+      label: "MINTABLE CBDC ASSETS",
       icon: "pi text-2xl pi-fw pi-sun",
     },
     {
-      label: "ISSUED CBDC ASSETS",
+      label: "BALANCE CBDC ASSETS",
       icon: "pi text-2xl pi-fw pi-dollar",
     },
   ];
@@ -64,7 +67,11 @@ const CBHome = ({ data, setData }) => {
       icon: "pi text-2xl pi-fw pi-user",
     },
     {
-      label: "MEMBER ACCESS STATES",
+      label: "MINTED ASSETS DETAILS",
+      icon: "pi text-2xl pi-fw pi-user",
+    },
+    {
+      label: "TRANSFERED ASSETS DETAILS",
       icon: "pi text-2xl pi-fw pi-user",
     },
   ];
