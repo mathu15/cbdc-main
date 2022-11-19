@@ -8,7 +8,7 @@ const AvailableCBDC = () => {
   useEffect(() => {
     //fetch the asset data from api
     const url = "https://thebsv.tech/centralbank/getassets";
-
+    // const url = "https://thebsv.tech/centralbank/gettokenlist";
     fetch(url)
       .then((response) => response.json())
       .then((json) => {

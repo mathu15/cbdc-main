@@ -87,13 +87,13 @@ const CBIssue = () => {
       label: "Enter Amount",
     },
     {
-      label: "Confirm Issuance",
+      label: "Confirm Mint",
     },
   ];
 
   return (
     <div className="col-12  ">
-      <div className="card border-1 border-300 bg-gray-800 card-w-title">
+      <div className="card border-1 border-100 bg-gray-800 card-w-title">
         {/* implementing steps */}
 
         <Steps
@@ -133,7 +133,7 @@ const CBIssue = () => {
                   setActiveIndex((curPage) => curPage + 1);
                 }
               }}
-              label={activeIndex === wizardItems.length - 1 ? "ISSUE" : "NEXT"}
+              label={activeIndex === wizardItems.length - 1 ? "MINT" : "NEXT"}
               style={{
                 display: activeIndex === wizardItems.length ? "none" : "block",
               }}

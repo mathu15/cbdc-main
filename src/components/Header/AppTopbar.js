@@ -6,9 +6,13 @@ export const AppTopbar = (props) => {
   return (
     <div className="layout-topbar">
       <Link to="/" className="layout-topbar-logo">
-        <img src={"images/userlogodarkk2.png"} alt="logo" />
+        <img
+          className="h-4rem"
+          src={"images/intrasettle_White.svg"}
+          alt="logo"
+        />
 
-        <span>Deployer</span>
+        {/* <span>Deployer</span> */}
       </Link>
 
       <button

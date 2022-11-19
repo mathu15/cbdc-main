@@ -5,11 +5,11 @@ import { Dropdown } from "primereact/dropdown";
 const SelectAssetCBTrans = ({ data, setData }) => {
   const dropdownValues = [
     { label: "Cash_BINR,ASSET-BND-0001" },
-    { label: "Digital_BINR,ASSET-BND-0001" },
-    { label: "Digital_USDT,ASSET-BND-0001" },
-    { label: "Cash_DINR,ASSET-BND-0001" },
-    { label: "Cash_GBP,ASSET-BND-0001" },
-    { label: "Cash_INR,ASSET-BND-0001" },
+    { label: "Digital_BINR,ASSET-BND-0002" },
+    { label: "Digital_USDT,ASSET-BND-0003" },
+    { label: "Cash_DINR,ASSET-BND-0004" },
+    { label: "Cash_GBP,ASSET-BND-0005" },
+    { label: "Cash_INR,ASSET-BND-0006" },
   ];
 
   return (

@@ -65,7 +65,7 @@ const CentralBank = () => {
             <img
               src={"images/intrasettle_White.svg"}
               alt="logo"
-              style={{ width: "12rem" }}
+              style={{ width: "13rem" }}
             />
           </NavLink>
         }
@@ -107,7 +107,7 @@ const CentralBank = () => {
         component={CBTreasuryDashboard}
       />
       <Route
-        path={"/central-bank/moneyswipe-dashboard"}
+        path={"/central-bank/intrasettle-dashboard"}
         component={CBMoneySwipeDash}
       />
       <Route

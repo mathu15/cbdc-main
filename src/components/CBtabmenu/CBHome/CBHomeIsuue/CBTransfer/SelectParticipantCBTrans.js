@@ -4,9 +4,10 @@ import { Dropdown } from "primereact/dropdown";
 // page for select paricipant step
 const SelectParticipantCBTrans = ({ data, setData }) => {
   const dropdownValues = [
-    { label: "WHOLESALEONE" },
-    { label: "WHOLESALETWO" },
-    { label: "WHOLESALETHREE" },
+    { label: "WHOLESALEBANKONE,CAC-SUB901-0001" },
+    { label: "WHOLESALEBANKTWO,CAC-SUB901-0002" },
+    { label: "WHOLESALEBANKTHREE,CAC-SUB901-0003" },
+    { label: "WHOLESALEBANKFOUR,CAC-SUB901-0004" },
   ];
 
   return (

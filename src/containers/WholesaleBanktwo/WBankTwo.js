@@ -17,6 +17,7 @@ import WB2AccessControl from "../../components/WBToo2Tab/WB2AccessControl";
 import WB2Requests from "../../components/WBToo2Tab/WB2Requests";
 import WB2Treasury from "../../components/WBToo2Tab/WB2Treasury";
 import WB2MoneySwipeTrans from "../../components/WBToo2Tab/WB2MoneySwipeTrans";
+import WB2Home from "../../components/WBToo2Tab/WB2Home";
 
 const WBankTwo = () => {
   const history = useHistory();
@@ -85,7 +86,7 @@ const WBankTwo = () => {
               // style={{ fontSize: "1.2em" }}
             ></i>
             <span className="text-2xl">
-              Wholesale Bank One powered by Intrasettle
+              Wholesale Bank Two powered by Intrasettle
             </span>
           </>
         }
@@ -100,7 +101,7 @@ const WBankTwo = () => {
           style={{ fontSize: "1.3rem" }}
         />
       </div>
-      <Route exact path={"/wholesale-bank-two"} component={WBOHome} />
+      <Route exact path={"/wholesale-bank-two"} component={WB2Home} />
       <Route
         path={"/wholesale-bank-two/cbdc-manager"}
         component={WB2CbdcManager}

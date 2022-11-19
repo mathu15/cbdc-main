@@ -92,7 +92,7 @@ const CBBonds = () => {
 
   // console.log(dataset3);
   const value = amount.reduce((a, b) => a + b, 0);
-  console.log(value);
+  // console.log(value);
   return (
     <>
       <div className="col-12 ">
@@ -102,11 +102,15 @@ const CBBonds = () => {
               <p className="border-bottom-1 pb-2 text-3xl">CBDC Types</p>
               {issuetype.map((cdata, index) => (
                 <div className="list-disc">
-                  <li className="text-2xl pb-2" key={index}>
+                  <li className="text-3xl  pb-2" key={index}>
                     {cdata}{" "}
                   </li>
                 </div>
               ))}
+              <p className=" text-3xl text-blue-200">
+                Number of Types:{" "}
+                <span className="text-3xl pb-2">{issuetype.length}</span>
+              </p>
             </div>
           </div>
           <div className="col-12 md:col-6 ">
@@ -119,6 +123,9 @@ const CBBonds = () => {
                   </li>
                 </div>
               ))}
+              <p className=" text-3xl text-blue-200">
+                Total: <span className="text-2xl pb-2">{value}</span>
+              </p>
             </div>
           </div>
         </div>

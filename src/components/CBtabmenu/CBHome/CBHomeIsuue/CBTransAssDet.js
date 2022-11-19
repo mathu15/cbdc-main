@@ -28,12 +28,13 @@ const CBTransAssDet = () => {
   useEffect(() => {
     //fetch the asset data from api
     // const url = "https://thebsv.tech/centralbank/getassets";
-    const urll = "https://thebsv.tech/centralbank/getentityassets/ENT-CEN-0901";
+    const urll =
+      "https://thebsv.tech/centralbank/gettransactions/CAC-CEN901-0001";
     fetch(urll)
       .then((response) => response.json())
       .then((json) => {
         console.log("json", json);
-        setData(json);
+        setData(json.centraltrans.centralcentraltrans);
         // .issuertrans.centralissuetrans
         setLoading(false);
       })

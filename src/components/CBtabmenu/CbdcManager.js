@@ -39,7 +39,7 @@ const CbdcManager = () => {
           style={{ fontSize: "1.2rem" }}
         />
 
-        <div className="card bg-gray-900">
+        <div className="card ">
           <Route
             exact
             path={"/central-bank/cbdc-manager"}

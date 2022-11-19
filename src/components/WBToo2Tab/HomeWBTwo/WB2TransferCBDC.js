@@ -5,10 +5,10 @@ import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 
 import InformationSubmitted from "../../CBtabmenu/CBHome/CBDCManager/DefCBDCType/InformationSubmitted";
-import WBOTSelectAsset from "./WBOTransfer/WBOTSelecAsset";
-import WBOTSelectParticipant from "./WBOTransfer/WBOTSelectParticipant";
-import WBOTEnterAmount from "./WBOTransfer/WBOTEnterAmount";
-import WBOTConfirmTransfer from "./WBOTransfer/WBOTConfirmTransfer";
+import WB2TSelectAsset from "./WB2Transfer/WB2TSelecAsset";
+import WB2TSelectParticipant from "./WB2Transfer/WB2TSelectParticipant";
+import WB2TEnterAmount from "./WB2Transfer/WB2TEnterAmount";
+import WB2TConfirmTransfer from "./WB2Transfer/WB2TConfirmTransfer";
 
 const WB2TransferCBDC = () => {
   //curent page for  steps is set to default index 0
@@ -36,13 +36,13 @@ const WB2TransferCBDC = () => {
   //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
-      return <WBOTSelectAsset data={data} setData={setData} />;
+      return <WB2TSelectAsset data={data} setData={setData} />;
     } else if (activeIndex === 1) {
-      return <WBOTSelectParticipant data={data} setData={setData} />;
+      return <WB2TSelectParticipant data={data} setData={setData} />;
     } else if (activeIndex === 2) {
-      return <WBOTEnterAmount data={data} setData={setData} />;
+      return <WB2TEnterAmount data={data} setData={setData} />;
     } else if (activeIndex === 3) {
-      return <WBOTConfirmTransfer data={data} setData={setData} />;
+      return <WB2TConfirmTransfer data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
       return (
         <InformationSubmitted
@@ -76,8 +76,8 @@ const WB2TransferCBDC = () => {
     },
   ];
   return (
-    <div className="col-12 ">
-      <div className="card card-w-title">
+    <div className="col-12  ">
+      <div className="card border-1 border-100 bg-gray-800 card-w-title">
         {/* implementing steps */}
 
         <Steps

@@ -60,12 +60,12 @@ const WB2Home = ({ data, setData }) => {
 
   const dataStates = [
     {
-      label: "CBDC STATES",
-      icon: "pi pi-fw pi-user",
+      label: "MINTED CBDC ASSETS",
+      icon: "pi pi-fw pi-dollar",
     },
     {
-      label: "MEMBER ACCESS STATES",
-      icon: "pi pi-fw pi-user",
+      label: "BALANCE CBDC ASSETS",
+      icon: "pi pi-fw pi-sun",
     },
   ];
 
@@ -73,7 +73,7 @@ const WB2Home = ({ data, setData }) => {
     <>
       <div className="grid p-fluid p-5">
         <div className="row-12  col-6 md:col-6 p-5">
-          <div className="card card-w-title ">
+          <div className="card card-w-title border-1 border-100 h-full">
             <TabMenu
               model={wizardItems}
               activeIndex={activeone}
@@ -84,7 +84,7 @@ const WB2Home = ({ data, setData }) => {
           </div>
         </div>
         <div className="row-12  col-12 md:col-6 p-5">
-          <div className="card card-w-title">
+          <div className="card card-w-title border-1 border-100 ">
             <TabMenu
               model={dataItems}
               activeIndex={activetwo}
@@ -96,13 +96,15 @@ const WB2Home = ({ data, setData }) => {
         </div>
       </div>
       <div className="row-12  col-12  p-6">
-        <div className="card card-w-title">
+        <div className="card card-w-title border-1 border-100 ">
           <TabMenu
             model={dataStates}
+            id={dataStates.id}
             activeIndex={activethree}
             onTabChange={(e) => setActivethree(e.index)}
             style={{ fontSize: "1.2rem" }}
           />
+
           {DisplayThree()}
         </div>
       </div>

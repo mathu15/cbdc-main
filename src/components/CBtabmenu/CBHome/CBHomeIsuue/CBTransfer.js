@@ -90,7 +90,7 @@ const CBTransfer = () => {
   ];
   return (
     <div className="col-12 ">
-      <div className="card border-1 border-300 bg-gray-800 card-w-title">
+      <div className="card border-1 border-300 bg-gray-800  card-w-title">
         {/* implementing steps */}
 
         <Steps

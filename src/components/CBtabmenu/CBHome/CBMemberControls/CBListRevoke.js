@@ -42,7 +42,7 @@ const CBListRevoke = () => {
                     key={cdata.id}
                     className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5 pb-3"
                   >
-                    <p className="  text-3xl font-bold text-blue-300 mr-3">
+                    <p className="  text-2xl font-bold text-blue-300 mr-3">
                       CBDC Name: {cdata.issuetype}
                     </p>
                     <p className=" text-2xl">Asset Id: {cdata.assetid}</p>

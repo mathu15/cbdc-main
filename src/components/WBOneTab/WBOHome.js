@@ -49,18 +49,18 @@ const WBOHome = ({ data, setData }) => {
 
   const dataItems = [
     {
-      label: "CBDC ASSETS",
+      label: "MINTED CBDC ASSETS",
       icon: "pi pi-fw pi-dollar",
     },
     {
-      label: "BONDS",
+      label: "BALANCE CBDC ASSETS",
       icon: "pi pi-fw pi-sun",
     },
   ];
 
   const dataStates = [
     {
-      label: "CBDC STATES",
+      label: "TRANSACTIONS",
       icon: "pi pi-fw pi-user",
     },
     {
@@ -73,7 +73,7 @@ const WBOHome = ({ data, setData }) => {
     <>
       <div className="grid p-fluid p-5">
         <div className="row-12  col-6 md:col-6 p-5">
-          <div className="  card card-w-title border-1 border-100  ">
+          <div className="card card-w-title border-1 border-100 h-full">
             <TabMenu
               model={wizardItems}
               activeIndex={activeone}
@@ -84,7 +84,7 @@ const WBOHome = ({ data, setData }) => {
           </div>
         </div>
         <div className="row-12  col-12 md:col-6 p-5">
-          <div className=" card card-w-title border-1 border-100 ">
+          <div className="card card-w-title border-1 border-100 ">
             <TabMenu
               model={dataItems}
               activeIndex={activetwo}
@@ -99,10 +99,12 @@ const WBOHome = ({ data, setData }) => {
         <div className="card card-w-title border-1 border-100 ">
           <TabMenu
             model={dataStates}
+            id={dataStates.id}
             activeIndex={activethree}
             onTabChange={(e) => setActivethree(e.index)}
             style={{ fontSize: "1.2rem" }}
           />
+
           {DisplayThree()}
         </div>
       </div>

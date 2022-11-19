@@ -55,53 +55,59 @@ const CBMCIssue = () => {
   };
 
   return (
-    <div className="col-12 ">
-      <div className="card card-w-title">
-        {/* steps to issue the requested asset from he wholesale bank */}
+    <div className="card col-12 flex flex-column align-items-center justify-content-center  ">
+      <div className="card border-1 border-100 col-6 ">
+        <div className="card  border-1 border-100 bg-gray-800 card-w-title">
+          {/* steps to issue the requested asset from he wholesale bank */}
 
-        <Steps
-          model={wizardItems}
-          activeIndex={activeIndex}
-          onSelect={(e) => setActiveIndex(e.index)}
-          readOnly={false}
-          style={{ fontSize: "1.4rem" }}
-        />
-      </div>
-      <div className="card">
-        {
-          //display the steps pages CBName,NotaySelect, MAC, TranscationControl,AssetControl,ConfirmDefinition
-          pageDisplay()
-        }
-      </div>
-      <div className="p-5">
-        <div className="flex align-items-center justify-content-between">
-          <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
-            <Button
-              disabled={activeIndex === 0}
-              onClick={() => {
-                setActiveIndex((curPage) => curPage - 1);
-              }}
-              label="BACK"
-              style={{
-                display: activeIndex === wizardItems.length ? "none" : "block",
-              }}
-            />
-          </div>
-          <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
-            <Toast ref={toast} />
-            <Button
-              onClick={() => {
-                if (activeIndex === wizardItems.length) {
-                  accept();
-                } else {
-                  setActiveIndex((curPage) => curPage + 1);
+          <Steps
+            model={wizardItems}
+            activeIndex={activeIndex}
+            onSelect={(e) => setActiveIndex(e.index)}
+            readOnly={false}
+            style={{ fontSize: "1.6rem" }}
+          />
+        </div>
+        <div className="card border-1 border-100 ">
+          {
+            //display the steps pages CBName,NotaySelect, MAC, TranscationControl,AssetControl,ConfirmDefinition
+            pageDisplay()
+          }
+        </div>
+        <div className="p-5">
+          <div className="flex align-items-center justify-content-between">
+            <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
+              <Button
+                disabled={activeIndex === 0}
+                onClick={() => {
+                  setActiveIndex((curPage) => curPage - 1);
+                }}
+                label="BACK"
+                style={{
+                  display:
+                    activeIndex === wizardItems.length ? "none" : "block",
+                }}
+              />
+            </div>
+            <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
+              <Toast ref={toast} />
+              <Button
+                onClick={() => {
+                  if (activeIndex === wizardItems.length) {
+                    accept();
+                  } else {
+                    setActiveIndex((curPage) => curPage + 1);
+                  }
+                }}
+                label={
+                  activeIndex === wizardItems.length - 1 ? "ISSUE" : "NEXT"
                 }
-              }}
-              label={activeIndex === wizardItems.length - 1 ? "ISSUE" : "NEXT"}
-              style={{
-                display: activeIndex === wizardItems.length ? "none" : "block",
-              }}
-            />
+                style={{
+                  display:
+                    activeIndex === wizardItems.length ? "none" : "block",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
