@@ -34,7 +34,22 @@ const DefCBDCType = () => {
     assetid: "",
     skip: "(skip this step if no controls are required)",
   });
-
+  const [data1, setData1] = useState({
+    // issuetype: "",
+    count: {},
+    option: "",
+    access: true,
+    select: "",
+    accesconrol: "",
+    confirm: "",
+    transvalue: "",
+    maxvalue: "",
+    minvalue: "",
+    amount: "",
+    issuer: "",
+    assetid: "",
+    skip: "(skip this step if no controls are required)",
+  });
   console.log(data);
 
   const wizardItems = [
@@ -84,6 +99,7 @@ const DefCBDCType = () => {
     showSuccess();
     setActiveIndex(wizardItems.length);
     centralasset();
+    setData(data1);
   };
 
   //setting active index tab for steps pages

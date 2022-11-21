@@ -33,6 +33,23 @@ const CBIssue = () => {
     minvalue: "",
     displayvalue: "",
   });
+  const [data1, setData1] = useState({
+    assetid: "",
+    decimal: 2,
+    notary: "",
+    amount: 0,
+    total: 25000000,
+    remaining: 25000000,
+    option: "",
+    access: true,
+    select: "",
+    accesconrol: "",
+    confirm: "",
+    transvalue: "",
+    maxvalue: 10000000,
+    minvalue: "",
+    displayvalue: "",
+  });
 
   //setting active index tab for steps pages
   const pageDisplay = () => {
@@ -93,6 +110,7 @@ const CBIssue = () => {
     showSuccess();
     setActiveIndex(wizardItems.length);
     entitymintasset();
+    setData(data1);
   };
 
   // console.log("last data", myArray[1]);

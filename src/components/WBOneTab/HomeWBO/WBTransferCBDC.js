@@ -10,13 +10,30 @@ import WBOTSelectAsset from "./WBOTransfer/WBOTSelecAsset";
 import WBOTSelectParticipant from "./WBOTransfer/WBOTSelectParticipant";
 import WBOTEnterAmount from "./WBOTransfer/WBOTEnterAmount";
 import WBOTConfirmTransfer from "./WBOTransfer/WBOTConfirmTransfer";
-import { IssuanceService } from "../../CBtabmenu/CBHome/IssuanceService";
+import { IssuanceServiceWB } from "./issuanceServiceWB";
 const WBOTransferCBDC = () => {
   //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
 
   //initial state fo user input
   const [data, setData] = useState({
+    assetid: "",
+    decimal: 2,
+    notary: "",
+    amount: 0,
+    total: 25000000,
+    remaining: 25000000,
+    option: "",
+    access: true,
+    select: "",
+    accesconrol: "",
+    confirm: "",
+    transvalue: "",
+    maxvalue: 10000000,
+    minvalue: "",
+    displayvalue: "",
+  });
+  const [data1, setData1] = useState({
     assetid: "",
     decimal: 2,
     notary: "",
@@ -60,9 +77,9 @@ const WBOTransferCBDC = () => {
   const wholesale =
     subscriber || subscriber !== undefined ? subscriber.split(",") : "";
   // const account = 'CAC-SUB901-0001';
-  const issuanceService = new IssuanceService();
+  const issuanceServiceWB = new IssuanceServiceWB();
   const sendsubscribertosubscriber = async () => {
-    issuanceService.sendsubscribertosubscriber(
+    issuanceServiceWB.sendsubscribertosubscriber(
       myArray[1],
       myArray[0],
       wholesale[1],
@@ -89,6 +106,7 @@ const WBOTransferCBDC = () => {
     showSuccess();
     setActiveIndex(wizardItems.length);
     sendsubscribertosubscriber();
+    setData(data1);
   };
 
   const wizardItems = [

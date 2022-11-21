@@ -33,7 +33,23 @@ const CBTransfer = () => {
     minvalue: "",
     displayvalue: "",
   });
-
+  const [data1, setData1] = useState({
+    assetid: "",
+    decimal: 2,
+    notary: "",
+    amount: 0,
+    total: 25000000,
+    remaining: 25000000,
+    option: "",
+    access: true,
+    select: "",
+    accesconrol: "",
+    confirm: "",
+    transvalue: "",
+    maxvalue: 10000000,
+    minvalue: "",
+    displayvalue: "",
+  });
   //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
@@ -101,6 +117,7 @@ const CBTransfer = () => {
     showSuccess();
     setActiveIndex(wizardItems.length);
     sendcentraltosubscriber();
+    setData(data1);
   };
 
   // console.log("last data", myArray[1]);
