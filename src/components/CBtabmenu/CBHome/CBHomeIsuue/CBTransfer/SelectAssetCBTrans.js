@@ -1,6 +1,6 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
-
+import "../../../../../components/dropdown.css";
 // page for select asset step
 const SelectAssetCBTrans = ({ data, setData }) => {
   const dropdownValues = [
@@ -11,7 +11,7 @@ const SelectAssetCBTrans = ({ data, setData }) => {
     { label: "Cash_GBP,ASSET-BND-0005" },
     { label: "Cash_INR,ASSET-BND-0006" },
   ];
-
+  const dropplaceholder = <h3>select</h3>;
   return (
     <div className="grid p-fluid">
       <div className="col-12 text-center">
@@ -24,9 +24,9 @@ const SelectAssetCBTrans = ({ data, setData }) => {
             onChange={(e) => setData({ ...data, assetid: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
-            placeholder="Select"
+            placeholder={dropplaceholder}
             style={{ height: "4rem", fontSize: "2.0rem" }}
-            className="p-2"
+            className="p-2 p-dropdown-item"
           />
         </div>
       </div>

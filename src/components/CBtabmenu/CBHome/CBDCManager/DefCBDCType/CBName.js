@@ -2,6 +2,7 @@ import React from "react";
 import { Dropdown } from "primereact/dropdown";
 import { InputNumber } from "primereact/inputnumber";
 import { RadioButton } from "primereact/radiobutton";
+import "../../../../../components/dropdown.css";
 
 export const CBName = ({ data, setData }) => {
   const dropdownValues = [
@@ -12,6 +13,7 @@ export const CBName = ({ data, setData }) => {
     { label: "Cash_GBP,ASSET-BND-0005" },
     { label: "Cash_INR,ASSET-BND-0006" },
   ];
+  const dropplaceholder = <h3>select</h3>;
   return (
     <div className="grid p-fluid">
       <div className="col-12 md:col-12">
@@ -25,8 +27,8 @@ export const CBName = ({ data, setData }) => {
             onChange={(e) => setData({ ...data, assetid: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
-            placeholder="Select"
-            className="p-2 font-bold text-3xl"
+            placeholder={dropplaceholder}
+            className="p-dropdown-items p-dropdown-item p-dropdown-label"
             style={{ height: "4rem", fontSize: "2.0rem" }}
           />
           <label className="text-2xl pl-3" htmlFor="username">
@@ -127,7 +129,7 @@ export const CBName = ({ data, setData }) => {
             showButtons
             mode="decimal"
             style={{ fontSize: "2.4rem", height: "8rem" }}
-            className="p-5 m-3  text-3xl"
+            className="p-5 m-3 text-3xl p-dropdown-item"
           ></InputNumber>
           <label className="text-3xl pl-8 pb-3" htmlFor="amount">
             Maximum value

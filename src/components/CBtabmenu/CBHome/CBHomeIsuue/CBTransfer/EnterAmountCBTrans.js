@@ -20,6 +20,7 @@ const EnterAmountCBTrans = ({ data, setData }) => {
             min={0}
             max={10000000}
             style={{ height: "4rem", fontSize: "2.0rem" }}
+            className="p-inputnumber"
           ></InputNumber>
           <label style={{ fontSize: "2.0rem" }} htmlFor="amount">
             Amount

@@ -1,6 +1,6 @@
 import React from "react";
 import { InputNumber } from "primereact/inputnumber";
-
+import "../../../../components/dropdown.css";
 //enter the maximum transaction value to be transfered
 const WBOTEnterAmount = ({ data, setData }) => {
   console.log("data", data);
@@ -20,6 +20,7 @@ const WBOTEnterAmount = ({ data, setData }) => {
             min={0}
             max={10000000}
             style={{ height: "4rem", fontSize: "2.0rem" }}
+            className="p-inputnumber"
           ></InputNumber>
           <label style={{ fontSize: "2.0rem" }} htmlFor="amount">
             Amount

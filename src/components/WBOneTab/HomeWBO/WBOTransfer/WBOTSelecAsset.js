@@ -1,6 +1,6 @@
 import React from "react";
 import { Dropdown } from "primereact/dropdown";
-
+import "../../../../components/dropdown.css";
 // select asset to transfer to another wholesale bank
 const WBOTSelectAsset = ({ data, setData }) => {
   const dropdownValues = [
@@ -11,7 +11,7 @@ const WBOTSelectAsset = ({ data, setData }) => {
     { label: "Cash_GBP,ASSET-BND-0005" },
     { label: "Cash_INR,ASSET-BND-0006" },
   ];
-
+  const dropplaceholder = <h3>select</h3>;
   return (
     <div className="grid p-fluid">
       <div className="col-12 text-center">
@@ -24,8 +24,8 @@ const WBOTSelectAsset = ({ data, setData }) => {
             onChange={(e) => setData({ ...data, assetid: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
-            placeholder="Select"
-            className="p-2 font-bold text-3xl"
+            placeholder={dropplaceholder}
+            className="p-2 font-bold text-3xl p-dropdown-item"
             style={{ height: "4rem", fontSize: "2.0rem" }}
           />
         </div>
