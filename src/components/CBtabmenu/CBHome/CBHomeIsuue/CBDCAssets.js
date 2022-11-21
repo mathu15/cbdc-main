@@ -78,7 +78,7 @@ const CBDCAssets = () => {
       },
       title: {
         display: true,
-        text: "BONDS",
+        text: "BALANCE",
         color: "#eee",
       },
     },
@@ -103,10 +103,8 @@ const CBDCAssets = () => {
                 CBDC Types in Vault
               </p>
               {issuetype.map((cdata, index) => (
-                <div className="list-disc">
-                  <li className="text-2xl pb-2" key={index}>
-                    {cdata}{" "}
-                  </li>
+                <div className="list-disc" key={index}>
+                  <li className="text-2xl pb-2">{cdata} </li>
                 </div>
               ))}
             </div>
@@ -117,10 +115,8 @@ const CBDCAssets = () => {
                 Total assets in Vaults
               </p>
               {amount.map((cdata, index) => (
-                <div className="list-disc">
-                  <li className="text-2xl pb-2" key={index}>
-                    {cdata}{" "}
-                  </li>
+                <div className="list-disc" key={index}>
+                  <li className="text-2xl pb-2">{cdata} </li>
                 </div>
               ))}
             </div>
@@ -134,7 +130,7 @@ const CBDCAssets = () => {
           options={lightOptions}
           style={{
             position: "relative",
-            width: "60%",
+            width: "40%",
             justifyContent: "center",
           }}
         />

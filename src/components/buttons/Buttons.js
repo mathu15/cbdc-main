@@ -3,8 +3,8 @@ import { Button } from "primereact/button";
 
 const Buttons = () => {
   return (
-    <div className="card">
-      <div className="flex flex-column card-container align-items-center green-container">
+    <div>
+      <div className="flex flex-column card-container align-items-center green-container pt-5">
         {/* <div className="flex align-items-center justify-content-center h-4rem w-15rem font-bold text-white border-round m-2">
           <Button
             label="EDIT DNS NAMES"

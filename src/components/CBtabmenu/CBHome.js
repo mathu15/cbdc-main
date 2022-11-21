@@ -42,37 +42,37 @@ const CBHome = ({ data, setData }) => {
   const wizardItems = [
     {
       label: "MINT CBDC",
-      icon: "pi text-2xl pi-fw pi-sort-amount-up-alt",
+      icon: "pi text-2xl pi-fw pi-money-bill",
     },
     {
       label: "CBDC TRANSFER",
-      icon: "pi text-2xl pi-fw pi-sort-amount-up-alt",
+      icon: "pi text-2xl pi-fw pi-bolt",
     },
   ];
 
   const dataItems = [
     {
-      label: "MINTABLE CBDC ASSETS",
-      icon: "pi text-2xl pi-fw pi-sun",
+      label: "MINTED CBDC ASSETS",
+      icon: "pi text-2xl pi-fw pi-box",
     },
     {
       label: "BALANCE CBDC ASSETS",
-      icon: "pi text-2xl pi-fw pi-dollar",
+      icon: "pi text-2xl pi-fw pi-wallet",
     },
   ];
 
   const dataStates = [
     {
       label: "CENTRAL BANK TRANSACTIONS",
-      icon: "pi text-2xl pi-fw pi-user",
+      icon: "pi text-2xl pi-fw pi-sort-alt",
     },
     {
       label: "MINTED ASSETS DETAILS",
-      icon: "pi text-2xl pi-fw pi-user",
+      icon: "pi text-2xl pi-fw pi-money-bill",
     },
     {
       label: "TRANSFERED ASSETS DETAILS",
-      icon: "pi text-2xl pi-fw pi-user",
+      icon: "pi text-2xl pi-fw pi-list",
     },
   ];
 

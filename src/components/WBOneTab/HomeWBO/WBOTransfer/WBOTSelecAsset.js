@@ -4,12 +4,12 @@ import { Dropdown } from "primereact/dropdown";
 // select asset to transfer to another wholesale bank
 const WBOTSelectAsset = ({ data, setData }) => {
   const dropdownValues = [
-    { label: "Digital_Dollar" },
-    { label: "Digital_Peso" },
-    { label: "Digital_Yen" },
-    { label: "Digital_Pound" },
-    { label: "Digital_Euro" },
-    { label: "Digital_$_Frank" },
+    { label: "Cash_BINR,ASSET-BND-0001" },
+    { label: "Digital_BINR,ASSET-BND-0002" },
+    { label: "Digital_USDT,ASSET-BND-0003" },
+    { label: "Cash_DINR,ASSET-BND-0004" },
+    { label: "Cash_GBP,ASSET-BND-0005" },
+    { label: "Cash_INR,ASSET-BND-0006" },
   ];
 
   return (
@@ -20,8 +20,8 @@ const WBOTSelectAsset = ({ data, setData }) => {
             select available asset from the vault to transfer.
           </p>
           <Dropdown
-            value={data.asset}
-            onChange={(e) => setData({ ...data, asset: e.target.value })}
+            value={data.assetid}
+            onChange={(e) => setData({ ...data, assetid: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
             placeholder="Select"

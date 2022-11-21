@@ -4,9 +4,9 @@ import { Dropdown } from "primereact/dropdown";
 // select the wholesale bank to transfer asset
 const WBOTSelectParticipant = ({ data, setData }) => {
   const dropdownValues = [
-    { label: "O=WHOLESALEONE, L=LONDON, CGB" },
-    { label: "O=WHOLESALETWO, L=LONDON, CGB" },
-    { label: "O=WHOLESALETHREE, L=LONDON, CGB" },
+    { label: "WHOLESALEBANKTWO,CAC-SUB901-0002" },
+    { label: "WHOLESALEBANKTHREE,CAC-SUB901-0003" },
+    { label: "WHOLESALEBANKFOUR,CAC-SUB901-0004" },
   ];
 
   return (

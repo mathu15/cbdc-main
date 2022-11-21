@@ -6,8 +6,8 @@ const AssetAmtWB2Cross = ({ data, setData }) => {
   console.log("data", data);
   return (
     <div className="grid p-fluid">
-      <div className="col-12">
-        <div className="card">
+      <div className="col-12 card border-1 border-100">
+        <div className="card border-1 border-100">
           <p className=" text-center text-2xl  text-blue-200 mr-3">
             Enter the amount of {data.asset.label} to request.
           </p>
@@ -22,7 +22,7 @@ const AssetAmtWB2Cross = ({ data, setData }) => {
             mode="decimal"
           ></InputNumber>
         </div>
-        <div className="card">
+        <div className="card border-1 border-100">
           <p className=" text-center text-2xl text-blue-200 mr-3">
             Enter the amount of {data.asset2.label} to offer.
           </p>
@@ -37,7 +37,7 @@ const AssetAmtWB2Cross = ({ data, setData }) => {
             mode="decimal"
           ></InputNumber>
         </div>
-        <div className="flex-column  align-items-center border-1 surface-border ">
+        <div className="flex-column  align-items-center card border-1 surface-border ">
           <p className=" text-2xl text-center border-botom-1 pt-3">
             Total amount in vault:{data.total}
           </p>

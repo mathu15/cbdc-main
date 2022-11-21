@@ -43,29 +43,29 @@ const WBOHome = ({ data, setData }) => {
     },
     {
       label: "REQUEST DVP",
-      icon: "pi pi-fw pi-arrows-alt",
+      icon: "pi pi-fw pi-upload",
     },
   ];
 
   const dataItems = [
     {
       label: "MINTED CBDC ASSETS",
-      icon: "pi pi-fw pi-dollar",
+      icon: "pi pi-fw pi-box",
     },
     {
       label: "BALANCE CBDC ASSETS",
-      icon: "pi pi-fw pi-sun",
+      icon: "pi pi-fw pi-wallet",
     },
   ];
 
   const dataStates = [
     {
-      label: "TRANSACTIONS",
-      icon: "pi pi-fw pi-user",
+      label: "WHOLESALE BANK TRANSACTIONS",
+      icon: "pi text-2xl pi-fw pi-sort-alt",
     },
     {
       label: "MEMBER ACCESS STATES",
-      icon: "pi pi-fw pi-user",
+      icon: "pi text-2xl pi-fw pi-user",
     },
   ];
 
@@ -73,7 +73,7 @@ const WBOHome = ({ data, setData }) => {
     <>
       <div className="grid p-fluid p-5">
         <div className="row-12  col-6 md:col-6 p-5">
-          <div className="card card-w-title border-1 border-100 h-full">
+          <div className="  card card-w-title border-1 border-100 h-full  ">
             <TabMenu
               model={wizardItems}
               activeIndex={activeone}
@@ -84,7 +84,7 @@ const WBOHome = ({ data, setData }) => {
           </div>
         </div>
         <div className="row-12  col-12 md:col-6 p-5">
-          <div className="card card-w-title border-1 border-100 ">
+          <div className=" card card-w-title border-1 border-100 ">
             <TabMenu
               model={dataItems}
               activeIndex={activetwo}

@@ -25,7 +25,7 @@ const WBOTreasury = () => {
     },
     {
       label: "BONDS",
-      icon: "pi text-xl pi-fw pi-dollar",
+      icon: "pi text-xl pi-fw pi-file-o",
       command: () =>
         history.push("/wholesale-bank-one/treasury-dashboard/bonds"),
     },
@@ -33,7 +33,7 @@ const WBOTreasury = () => {
 
   return (
     <div className="card ">
-      <h5 className="text-3xl p-4">Treasury Board</h5>
+      <h5 className="text-5xl p-4">Treasury Board</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}

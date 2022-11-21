@@ -74,7 +74,7 @@ const WBankTwo = () => {
             <img
               src={"images/intrasettle_White.svg"}
               alt="logo"
-              style={{ width: "12rem" }}
+              style={{ width: "13rem" }}
             />
           </NavLink>
         }

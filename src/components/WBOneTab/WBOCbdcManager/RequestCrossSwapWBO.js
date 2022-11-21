@@ -81,7 +81,7 @@ const RequestCrossSwapWBO = () => {
   ];
   return (
     <div className="justify-content-around p-8 ml-8 ">
-      <div className="card card-w-title">
+      <div className="card border-1 border-100 bg-gray-800 card-w-title">
         {/* implementing steps */}
 
         <Steps
@@ -93,15 +93,15 @@ const RequestCrossSwapWBO = () => {
           className="p-5 m-3"
         />
       </div>
-      <div className="card">
+      <div className="col-12 card flex  justify-content-center align-items-center pb-6 ">
         {
           //display the steps pages Select Asset, Select Participant, Enter Amount, Confirm Transfer
           pageDisplay()
         }
       </div>
-      <div className="p-5">
+      <div className="p-2 flex align-items-center justify-content-center col-12 ">
         <div className="flex align-items-center justify-content-between">
-          <div className="w-6rem h-5rem text-white font-bold flex align-items-center justify-content-center   mr-3">
+          <div className="w-6rem h-5rem  text-white font-bold flex align-items-center justify-content-center   mr-8">
             <Button
               disabled={activeIndex === 0}
               onClick={() => {

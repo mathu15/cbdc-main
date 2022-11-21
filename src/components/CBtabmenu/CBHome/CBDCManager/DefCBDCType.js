@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-
-import { IssuanceService } from "../IssuanceService";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
+
+import { IssuanceService } from "../IssuanceService";
 import CBName from "./DefCBDCType/CBName";
 import NotarySel from "./DefCBDCType/NotarySel";
 import MAC from "./DefCBDCType/MAC";
@@ -57,6 +58,34 @@ const DefCBDCType = () => {
     },
   ];
 
+  const text = data.assetid.label;
+  const myArray = text || text !== undefined ? text.split(",") : "";
+
+  const issuanceService = new IssuanceService();
+  const centralasset = async () => {
+    issuanceService.centralasset(myArray[1], myArray[0], data.amount);
+  };
+
+  const showSuccess = () => {
+    toast.success("created successfully", {
+      // position: "top-right",
+      // autoClose: 5000,
+      // hideProgressBar: false,
+      // closeOnClick: true,
+      // pauseOnHover: true,
+      // draggable: true,
+      // progress: undefined,
+      // theme: "colored",
+      // theme: "dark",
+    });
+  };
+
+  const clickHandler = () => {
+    showSuccess();
+    setActiveIndex(wizardItems.length);
+    centralasset();
+  };
+
   //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
@@ -80,14 +109,6 @@ const DefCBDCType = () => {
       );
     }
   };
-
-  const [centralaccount, setCentralaccount] = useState("cash_INR");
-  const issuanceService = new IssuanceService();
-
-  const centralasset = async () => {
-    issuanceService.centralasset(data.assetid, centralaccount, data.maxvalue);
-  };
-  // centralasset();
 
   return (
     <div className="col-12 p-5">
@@ -126,6 +147,18 @@ const DefCBDCType = () => {
             />
           </div>
           <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
+            <ToastContainer
+            // position="top-right"
+            // autoClose={5000}
+            // hideProgressBar={false}
+            // newestOnTop={false}
+            // closeOnClick
+            // rtl={false}
+            // pauseOnFocusLoss
+            // draggable
+            // pauseOnHover
+            // theme="colored"
+            />
             <Button
               onClick={() => {
                 if (activeIndex === wizardItems.length) {
@@ -133,6 +166,8 @@ const DefCBDCType = () => {
                     activeIndex={activeIndex}
                     setActiveIndex={setActiveIndex}
                   />;
+                } else if (activeIndex === wizardItems.length - 1) {
+                  clickHandler();
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }

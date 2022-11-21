@@ -34,7 +34,12 @@ const CBTransAssDet = () => {
       .then((response) => response.json())
       .then((json) => {
         console.log("json", json);
-        setData(json.centraltrans.centralcentraltrans);
+        const sorted = json.centraltrans.centralcentraltrans;
+        const last = sorted.sort((a, b) => {
+          return a > b ? 1 : -1;
+        });
+        setData(last);
+        // setData(json.centraltrans.centralcentraltrans);
         // .issuertrans.centralissuetrans
         setLoading(false);
       })

@@ -34,7 +34,12 @@ const WBCbdcStates = () => {
       .then((response) => response.json())
       .then((json) => {
         console.log("json", json);
-        setData(json.subscribertrans.centralsubcribertrans);
+        const sorted = json.subscribertrans.centralsubcribertrans;
+        const last = sorted.sort((a, b) => {
+          return a > b ? 1 : -1;
+        });
+        setData(last);
+        // setData(json.subscribertrans.centralsubcribertrans);
         // .issuertrans.centralissuetrans
         setLoading(false);
       })

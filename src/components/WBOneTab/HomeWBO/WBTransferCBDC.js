@@ -2,21 +2,22 @@ import React, { useRef, useState } from "react";
 
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
-import { Toast } from "primereact/toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import InformationSubmitted from "../../CBtabmenu/CBHome/CBDCManager/DefCBDCType/InformationSubmitted";
 import WBOTSelectAsset from "./WBOTransfer/WBOTSelecAsset";
 import WBOTSelectParticipant from "./WBOTransfer/WBOTSelectParticipant";
 import WBOTEnterAmount from "./WBOTransfer/WBOTEnterAmount";
 import WBOTConfirmTransfer from "./WBOTransfer/WBOTConfirmTransfer";
-
+import { IssuanceService } from "../../CBtabmenu/CBHome/IssuanceService";
 const WBOTransferCBDC = () => {
   //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
-  const toast = useRef(null);
+
   //initial state fo user input
   const [data, setData] = useState({
-    asset: "",
+    assetid: "",
     decimal: 2,
     notary: "",
     amount: 0,
@@ -53,14 +54,41 @@ const WBOTransferCBDC = () => {
     }
   };
 
-  const accept = () => {
-    toast.current.show({
-      severity: "info",
-      summary: "Confirmed",
-      detail: "You have accepted",
-      life: 3000,
+  const text = data.assetid.label;
+  const subscriber = data.notary.label;
+  const myArray = text || text !== undefined ? text.split(",") : "";
+  const wholesale =
+    subscriber || subscriber !== undefined ? subscriber.split(",") : "";
+  // const account = 'CAC-SUB901-0001';
+  const issuanceService = new IssuanceService();
+  const sendsubscribertosubscriber = async () => {
+    issuanceService.sendsubscribertosubscriber(
+      myArray[1],
+      myArray[0],
+      wholesale[1],
+      data.amount
+      // account
+    );
+  };
+
+  const showSuccess = () => {
+    toast.success("created successfully", {
+      // position: "top-right",
+      // autoClose: 5000,
+      // hideProgressBar: false,
+      // closeOnClick: true,
+      // pauseOnHover: true,
+      // draggable: true,
+      // progress: undefined,
+      // theme: "colored",
+      // theme: "dark",
     });
-    // InformationSubmitted();
+  };
+
+  const clickHandler = () => {
+    showSuccess();
+    setActiveIndex(wizardItems.length);
+    sendsubscribertosubscriber();
   };
 
   const wizardItems = [
@@ -76,7 +104,7 @@ const WBOTransferCBDC = () => {
     },
   ];
   return (
-    <div className="col-12  ">
+    <div className="col-12 ">
       <div className="card border-1 border-100 bg-gray-800 card-w-title">
         {/* implementing steps */}
 
@@ -86,7 +114,7 @@ const WBOTransferCBDC = () => {
           onSelect={(e) => setActiveIndex(e.index)}
           readOnly={false}
           style={{ fontSize: "1.4rem" }}
-          className="p-5 m-3 text-3xl"
+          className="p-5 m-3 text-2xl"
         />
       </div>
       <div className="card justify-content-center align-items-center pb-6">
@@ -110,11 +138,27 @@ const WBOTransferCBDC = () => {
             />
           </div>
           <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
-            <Toast ref={toast} />
+            <ToastContainer
+            // position="top-right"
+            // autoClose={5000}
+            // hideProgressBar={false}
+            // newestOnTop={false}
+            // closeOnClick
+            // rtl={false}
+            // pauseOnFocusLoss
+            // draggable
+            // pauseOnHover
+            // theme="colored"
+            />
             <Button
               onClick={() => {
                 if (activeIndex === wizardItems.length) {
-                  accept();
+                  <InformationSubmitted
+                    activeIndex={activeIndex}
+                    setActiveIndex={setActiveIndex}
+                  />;
+                } else if (activeIndex === wizardItems.length - 1) {
+                  clickHandler();
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }

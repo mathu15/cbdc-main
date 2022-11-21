@@ -33,7 +33,11 @@ const CBDCStatus = () => {
       .then((response) => response.json())
       .then((json) => {
         console.log("json", json);
-        setData(json);
+        const sorted = json;
+        const last = sorted.sort((a, b) => {
+          return a > b ? 1 : -1;
+        });
+        setData(last);
         // .issuertrans.centralissuetrans
         setLoading(false);
       })

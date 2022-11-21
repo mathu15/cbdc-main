@@ -19,6 +19,7 @@ import ConfirmWB2Trans from "./WB2TransferCBDC/PushTransferWB2/ConfirmWB2Trans";
 const TransferCBDCWB2 = () => {
   //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
+  // const [activeIndex2,setActiveIndex2]=useState(0)
   const [activeOne, setActiveOne] = useState(0);
   const toast = useRef(null);
 
@@ -146,8 +147,8 @@ const TransferCBDCWB2 = () => {
         />
       </div>
       <div className="grid p-fluid p-5">
-        <div className="col-12 lg:col-6 card p-8 bg-gray-900">
-          <div className="card mb-5">
+        <div className="col-12 lg:col-6 card p-8 border-1 border-100 ">
+          <div className="card border-1 border-100 bg-gray-800 mb-5">
             {/* implementing steps to push transfer*/}
             <Steps
               model={wizardItems}
@@ -202,12 +203,12 @@ const TransferCBDCWB2 = () => {
             </div>
           </div>
         </div>
-        <div className="col-12 ml-0 lg:col-6 card p-8 bg-gray-900 ">
-          <div className="card mb-5">
+        <div className="col-12 ml-0 lg:col-6 card p-8 border-1 border-100 ">
+          <div className="card border-1 border-100 bg-gray-800 mb-5">
             {/* implementing steps pull transfer*/}
             <Steps
               model={items}
-              activeIndex={activeIndex}
+              activeIndex={activeOne}
               onSelect={(e) => setActiveOne(e.index)}
               readOnly={false}
               style={{ fontSize: "1.4rem" }}

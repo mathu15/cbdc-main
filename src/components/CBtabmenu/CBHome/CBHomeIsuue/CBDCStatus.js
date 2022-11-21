@@ -28,13 +28,18 @@ const CBDCStatus = () => {
   useEffect(() => {
     //fetch the asset data from api
     // const url = "https://thebsv.tech/centralbank/getassets";
-    const urll =
+    const url =
       "https://thebsv.tech/centralbank/gettransactions/CAC-ENT901-0001";
-    fetch(urll)
+    fetch(url)
       .then((response) => response.json())
       .then((json) => {
         console.log("json", json);
-        setData(json.issuertrans.centralissuetrans);
+        const sorted = json.issuertrans.centralissuetrans;
+        const last = sorted.sort((a, b) => {
+          return a > b ? 1 : -1;
+        });
+        setData(getCustomers(last));
+        // setData(json.issuertrans.centralissuetrans);
         // .issuertrans.centralissuetrans
         setLoading(false);
       })

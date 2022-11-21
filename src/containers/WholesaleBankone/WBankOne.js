@@ -24,7 +24,7 @@ const WBankOne = () => {
     },
     {
       label: "CBDC MANAGER",
-      icon: "pi pi-fw pi-dollar",
+      icon: "pi pi-fw pi-desktop",
       command: () => history.push("/wholesale-bank-one/cbdc-manager"),
     },
     {
@@ -34,7 +34,7 @@ const WBankOne = () => {
     },
     {
       label: "REQUESTS",
-      icon: "pi pi-fw pi-sort-alt",
+      icon: "pi pi-fw pi-download",
       command: () => history.push("/wholesale-bank-one/requests"),
     },
     {
@@ -44,7 +44,7 @@ const WBankOne = () => {
     },
     {
       label: "DECENTRALIZED LIQUIDITY EXCHANGE",
-      icon: "pi pi-fw pi-share-alt",
+      icon: "pi pi-fw pi-sort-alt",
       command: () => history.push("/wholesale-bank-one/treasury-dashboard"),
     },
     {
@@ -68,7 +68,7 @@ const WBankOne = () => {
             <img
               src={"images/intrasettle_White.svg"}
               alt="logo"
-              style={{ width: "12rem" }}
+              style={{ width: "13rem" }}
             />
           </NavLink>
         }

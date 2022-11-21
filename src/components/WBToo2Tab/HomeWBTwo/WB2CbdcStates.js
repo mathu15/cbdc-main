@@ -33,8 +33,13 @@ const WB2CbdcStates = () => {
     fetch(urll)
       .then((response) => response.json())
       .then((json) => {
-        console.log("json", json.subscribertrans.centralsubcribertrans);
-        setData(json.subscribertrans.centralsubcribertrans);
+        console.log("json", json);
+        const sorted = json.subscribertrans.centralsubcribertrans;
+        const last = sorted.sort((a, b) => {
+          return a > b ? 1 : -1;
+        });
+        setData(last);
+        // setData(json.subscribertrans.centralsubcribertrans);
         // .issuertrans.centralissuetrans
         setLoading(false);
       })

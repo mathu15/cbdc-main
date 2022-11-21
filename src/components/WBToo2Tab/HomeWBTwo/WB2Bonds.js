@@ -42,13 +42,14 @@ const WB2Bonds = () => {
             datasets: [
               {
                 data: dataset1,
-                backgroundColor: ["#1569BB", "#00C6AE", "#36A2EB", "#6B7280"],
-                hoverBackgroundColor: [
-                  "#1a85ed",
-                  "#00f7d9",
-                  "#4bb3fa",
-                  "#7f8694",
+                backgroundColor: [
+                  "#FFD700",
+                  "#A38A00",
+                  "#FFDE2E",
+                  "#D1B000",
+                  "#A38A00",
                 ],
+                hoverBackgroundColor: ["#FFE55C"],
               },
             ],
           });
@@ -98,25 +99,21 @@ const WB2Bonds = () => {
       <div className="col-12 ">
         <div className="grid p-fluid">
           <div className="col-12 md:col-6 ">
-            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
+            <div className="card border-1 border-100 bg-gray-800  mt-3 card-w-title">
               <p className="border-bottom-1 pb-2 text-3xl">CBDC Types</p>
               {issuetype.map((cdata, index) => (
-                <div className="list-disc">
-                  <li className="text-2xl pb-2" key={index}>
-                    {cdata}{" "}
-                  </li>
+                <div className="list-disc" key={index}>
+                  <li className="text-2xl pb-2">{cdata} </li>
                 </div>
               ))}
             </div>
           </div>
           <div className="col-12 md:col-6 ">
-            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
+            <div className="card border-1 border-100 bg-gray-800  mt-3 card-w-title">
               <p className="border-bottom-1 pb-2 text-3xl">Total assets</p>
               {amount.map((cdata, index) => (
-                <div className="list-disc">
-                  <li className="text-2xl pb-2" key={index}>
-                    {cdata}{" "}
-                  </li>
+                <div className="list-disc" key={index}>
+                  <li className="text-2xl pb-2">{cdata} </li>
                 </div>
               ))}
             </div>
@@ -131,7 +128,7 @@ const WB2Bonds = () => {
           options={lightOptions}
           style={{
             position: "relative",
-            width: "60%",
+            width: "45%",
             justifyContent: "center",
           }}
         />

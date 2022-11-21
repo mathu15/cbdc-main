@@ -206,7 +206,7 @@ const TransferCBDCWBO = () => {
             {/* implementing steps pull transfer*/}
             <Steps
               model={items}
-              activeIndex={activeIndex}
+              activeIndex={activeOne}
               onSelect={(e) => setActiveOne(e.index)}
               readOnly={false}
               style={{ fontSize: "1.4rem" }}

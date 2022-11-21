@@ -4,7 +4,7 @@ import React from "react";
 const RevReqWB2Cross = ({ data, setData }) => {
   console.log("data", data);
   return (
-    <div className="card">
+    <div className="card border-1 border-100">
       <div className="flex-column align-items-center justify-content-center">
         <div className=" align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
           <p className="text-center text-2xl pb-2">

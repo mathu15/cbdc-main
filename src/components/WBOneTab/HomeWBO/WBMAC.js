@@ -33,8 +33,13 @@ const WBMAC = () => {
     fetch(urll)
       .then((response) => response.json())
       .then((json) => {
-        console.log("json", json.centraltrans.centralcentraltrans);
-        setData(json.centraltrans.centralcentraltrans);
+        console.log("json", json);
+        const sorted = json.centraltrans.centralcentraltrans;
+        const last = sorted.sort((a, b) => {
+          return a > b ? 1 : -1;
+        });
+        setData(last);
+        // setData(json.centraltrans.centralcentraltrans);
         // .issuertrans.centralissuetrans
         setLoading(false);
       })

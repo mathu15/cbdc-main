@@ -8,8 +8,8 @@ const WBOTEnterAmount = ({ data, setData }) => {
     <div className="text-center text-2xl">
       <div className="flex-column align-items-center justify-content-center">
         <div className="flex-column align-items-center border-bottom-1 surface-border surface-overlay w-full mt-5">
-          <p className=" text-center text-2xl font-bold text-blue-300 mr-3">
-            Maximum transaction value with this asset {data.maxvalue}
+          <p className=" text-center text-3xl font-bold text-blue-300 mr-3">
+            Maximum transaction value with this asset: {data.maxvalue}
           </p>
           <InputNumber
             id="amount"
@@ -19,8 +19,7 @@ const WBOTEnterAmount = ({ data, setData }) => {
             mode="decimal"
             min={0}
             max={10000000}
-            style={{ height: "5rem", fontSize: "2.0rem" }}
-            className="p-2"
+            style={{ height: "4rem", fontSize: "2.0rem" }}
           ></InputNumber>
           <label style={{ fontSize: "2.0rem" }} htmlFor="amount">
             Amount

@@ -45,7 +45,7 @@ const WBORequests = () => {
 
   return (
     <div className="card ">
-      <h5 className="text-3xl p-4">Requests</h5>
+      <h5 className="text-5xl p-4">Requests</h5>
       <TabMenu
         model={wizardItems}
         activeIndex={activeIndex}

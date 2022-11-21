@@ -22,7 +22,7 @@ const CbdcManager = () => {
     },
     {
       label: "MINTED CBDC",
-      icon: "pi pi-fw text-2xl pi-dollar",
+      icon: "pi pi-fw text-2xl pi-money-bill",
       command: () => history.push("/central-bank/cbdc-manager/minted-cbdc"),
     },
   ];

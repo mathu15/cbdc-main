@@ -22,8 +22,8 @@ const SelectAssWBOCross = ({ data, setData }) => {
 
   return (
     <div className="grid p-fluid">
-      <div className="col-12 ">
-        <div className="card">
+      <div className="col-12 text-center text-3xl p-5 ">
+        <div className="card border-1 border-100">
           <h5 className="text-center pb-2 text-2xl">
             Select CBDC Asset to Request.
           </h5>

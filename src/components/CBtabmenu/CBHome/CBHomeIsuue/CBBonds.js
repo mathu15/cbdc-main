@@ -98,13 +98,11 @@ const CBBonds = () => {
       <div className="col-12 ">
         <div className="grid p-fluid">
           <div className="col-12 md:col-6 ">
-            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
+            <div className="card border-1 border-100 bg-gray-800  mt-3 card-w-title">
               <p className="border-bottom-1 pb-2 text-3xl">CBDC Types</p>
               {issuetype.map((cdata, index) => (
-                <div className="list-disc">
-                  <li className="text-3xl  pb-2" key={index}>
-                    {cdata}{" "}
-                  </li>
+                <div className="list-disc" key={index}>
+                  <li className="text-3xl  pb-2">{cdata} </li>
                 </div>
               ))}
               <p className=" text-3xl text-blue-200">
@@ -114,13 +112,11 @@ const CBBonds = () => {
             </div>
           </div>
           <div className="col-12 md:col-6 ">
-            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
+            <div className="card border-1 border-100 bg-gray-800  mt-3  card-w-title">
               <p className="border-bottom-1 pb-2 text-3xl">Total assets</p>
               {amount.map((cdata, index) => (
-                <div className="list-disc">
-                  <li className="text-2xl pb-2" key={index}>
-                    {cdata}{" "}
-                  </li>
+                <div className="list-disc" key={index}>
+                  <li className="text-2xl pb-2">{cdata} </li>
                 </div>
               ))}
               <p className=" text-3xl text-blue-200">

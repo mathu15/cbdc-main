@@ -23,7 +23,11 @@ const IssueRequestCB = () => {
       <p className="text-xl">Requesting Party:{data.party}</p>
     </div>
   );
-  console.log("data", data);
+  const onetimedata = () => {
+    setDisplayBasic(true);
+    console.log("data", data);
+  };
+
   return (
     <>
       <h5 className="text-3xl text-center">CBDC Issuance Requests</h5>
@@ -167,7 +171,7 @@ const IssueRequestCB = () => {
               </div>
               <i
                 className="pi text-2xl pi-thumbs-up-fill text-blue-500 cursor-pointer"
-                onClick={() => setDisplayBasic(true)}
+                onClick={() => onetimedata()}
               ></i>
             </AccordionTab>
           </Accordion>

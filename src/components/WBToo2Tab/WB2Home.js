@@ -43,29 +43,29 @@ const WB2Home = ({ data, setData }) => {
     },
     {
       label: "REQUEST DVP",
-      icon: "pi pi-fw pi-arrows-alt",
+      icon: "pi pi-fw pi-upload",
     },
   ];
 
   const dataItems = [
     {
       label: "CBDC ASSETS",
-      icon: "pi pi-fw pi-dollar",
+      icon: "pi pi-fw pi-box",
     },
     {
       label: "BONDS",
-      icon: "pi pi-fw pi-sun",
+      icon: "pi pi-fw pi-wallet",
     },
   ];
 
   const dataStates = [
     {
       label: "MINTED CBDC ASSETS",
-      icon: "pi pi-fw pi-dollar",
+      icon: "pi pi-fw pi-sort-alt",
     },
     {
       label: "BALANCE CBDC ASSETS",
-      icon: "pi pi-fw pi-sun",
+      icon: "pi pi-fw pi-user",
     },
   ];
 

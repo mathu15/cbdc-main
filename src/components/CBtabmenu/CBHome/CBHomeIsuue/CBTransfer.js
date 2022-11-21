@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Steps } from "primereact/steps";
 import { Button } from "primereact/button";
 
@@ -8,6 +9,7 @@ import SelectAssetCBTrans from "./CBTransfer/SelectAssetCBTrans";
 import SelectParticipantCBTrans from "./CBTransfer/SelectParticipantCBTrans";
 import EnterAmountCBTrans from "./CBTransfer/EnterAmountCBTrans";
 import ConfirmTransferCBTrans from "./CBTransfer/ConfirmTransferCBTrans";
+import { IssuanceService } from "../IssuanceService";
 
 const CBTransfer = () => {
   //curent page for  steps is set to default index 0
@@ -15,7 +17,7 @@ const CBTransfer = () => {
 
   //initial state fo user input
   const [data, setData] = useState({
-    asset: "",
+    assetid: "",
     decimal: 2,
     notary: "",
     amount: 0,
@@ -31,30 +33,6 @@ const CBTransfer = () => {
     minvalue: "",
     displayvalue: "",
   });
-
-  // const url =
-  // datas.id? "https://thebsv.tech/centralbank/getassets/" + datas.id:
-  // "https://thebsv.tech/centralbank/createcentralasset";
-  //     "https://thebsv.tech/centralbank/makeassetavailableincentralbank";
-  //   fetch(url, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json; charset-UTF-8",
-  //     },
-  //     body: JSON.stringify(datas),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       console.log(response);
-  //       alert("success");
-  //       setDatas(response);
-  //     })
-
-  //     .catch((e) => {
-  //       console.log("e", e);
-  //     });
-  // };
-  // console.log(datas);
 
   //setting active index tab for steps pages
   const pageDisplay = () => {
@@ -88,9 +66,47 @@ const CBTransfer = () => {
       label: "Confirm Transfer",
     },
   ];
+
+  const text = data.assetid.label;
+
+  const subscriber = data.notary.label;
+  const myArray = text || text !== undefined ? text.split(",") : "";
+  const wholesale =
+    subscriber || subscriber !== undefined ? subscriber.split(",") : "";
+  const issuanceService = new IssuanceService();
+  const sendcentraltosubscriber = async () => {
+    issuanceService.sendcentraltosubscriber(
+      myArray[1],
+      myArray[0],
+      wholesale[1],
+      data.amount
+    );
+  };
+
+  const showSuccess = () => {
+    toast.success("Transfered successfully", {
+      // position: "top-right",
+      // autoClose: 5000,
+      // hideProgressBar: false,
+      // closeOnClick: true,
+      // pauseOnHover: true,
+      // draggable: true,
+      // progress: undefined,
+      // theme: "colored",
+      // theme: "dark",
+    });
+  };
+
+  const clickHandler = () => {
+    showSuccess();
+    setActiveIndex(wizardItems.length);
+    sendcentraltosubscriber();
+  };
+
+  // console.log("last data", myArray[1]);
   return (
-    <div className="col-12 ">
-      <div className="card border-1 border-300 bg-gray-800  card-w-title">
+    <div className="col-12  ">
+      <div className="card border-1 border-100 bg-gray-800 card-w-title">
         {/* implementing steps */}
 
         <Steps
@@ -123,14 +139,34 @@ const CBTransfer = () => {
             />
           </div>
           <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
+            <ToastContainer
+            // position="top-right"
+            // autoClose={5000}
+            // hideProgressBar={false}
+            // newestOnTop={false}
+            // closeOnClick
+            // rtl={false}
+            // pauseOnFocusLoss
+            // draggable
+            // pauseOnHover
+            // theme="colored"
+            />
             <Button
               onClick={() => {
                 if (activeIndex === wizardItems.length) {
+                  <InformationSubmitted
+                    activeIndex={activeIndex}
+                    setActiveIndex={setActiveIndex}
+                  />;
+                } else if (activeIndex === wizardItems.length - 1) {
+                  clickHandler();
                 } else {
                   setActiveIndex((curPage) => curPage + 1);
                 }
               }}
-              label={activeIndex === wizardItems.length - 1 ? "ISSUE" : "NEXT"}
+              label={
+                activeIndex === wizardItems.length - 1 ? "TRANSFER" : "NEXT"
+              }
               style={{
                 display: activeIndex === wizardItems.length ? "none" : "block",
               }}

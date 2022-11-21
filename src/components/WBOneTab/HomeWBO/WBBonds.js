@@ -41,14 +41,15 @@ const WBBonds = () => {
             labels: dataset2,
             datasets: [
               {
-                data: dataset1,
-                backgroundColor: ["#1569BB", "#00C6AE", "#36A2EB", "#6B7280"],
-                hoverBackgroundColor: [
-                  "#1a85ed",
-                  "#00f7d9",
-                  "#4bb3fa",
-                  "#7f8694",
+                data: [10000.0, 16000.0],
+                backgroundColor: [
+                  "#FFD700",
+                  "#A38A00",
+                  "#FFDE2E",
+                  "#D1B000",
+                  "#A38A00",
                 ],
+                hoverBackgroundColor: ["#FFE55C"],
               },
             ],
           });
@@ -71,7 +72,7 @@ const WBBonds = () => {
     },
     plugins: {
       legend: {
-        position: "right",
+        position: "bottom",
         labels: {
           color: "#eee",
         },
@@ -100,25 +101,30 @@ const WBBonds = () => {
           <div className="col-12 md:col-6 ">
             <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
               <p className="border-bottom-1 pb-2 text-3xl">CBDC Types</p>
-              {issuetype.map((cdata, index) => (
-                <div className="list-disc">
+              <div className="list-disc">
+                {issuetype.map((cdata, index) => (
                   <li className="text-2xl pb-2" key={index}>
                     {cdata}{" "}
                   </li>
-                </div>
-              ))}
+                ))}
+              </div>
+              <p className=" text-2xl font-bold text-yellow-500">
+                Number of Types:{" "}
+                <span className="text-3xl pb-2">{issuetype.length}</span>
+              </p>
             </div>
           </div>
           <div className="col-12 md:col-6 ">
             <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
               <p className="border-bottom-1 pb-2 text-3xl">Total assets</p>
               {amount.map((cdata, index) => (
-                <div className="list-disc">
-                  <li className="text-2xl pb-2" key={index}>
-                    {cdata}{" "}
-                  </li>
+                <div className="list-disc" key={index}>
+                  <li className="text-2xl pb-2">{cdata} </li>
                 </div>
               ))}
+              <p className=" text-2xl font-bold text-yellow-500">
+                Total: <span className="text-2xl pb-2">{value}</span>
+              </p>
             </div>
           </div>
         </div>
@@ -131,7 +137,7 @@ const WBBonds = () => {
           options={lightOptions}
           style={{
             position: "relative",
-            width: "60%",
+            width: "45%",
             justifyContent: "center",
           }}
         />
