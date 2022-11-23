@@ -9,7 +9,7 @@ import { InputNumber } from "primereact/inputnumber";
 import { Calendar } from "primereact/calendar";
 import { NavLink } from "react-router-dom";
 
-const RedemptionRequest = () => {
+const FXWBOCbdcStates = () => {
   const [data, setData] = useState(null);
 
   const [filters, setFilters] = useState(null);
@@ -28,12 +28,13 @@ const RedemptionRequest = () => {
   useEffect(() => {
     //fetch the asset data from api
     // const url = "https://thebsv.tech/centralbank/getassets";
-    const urll = "https://thebsv.tech/centralbank/gettokenlist";
+    const urll =
+      "https://thebsv.tech/centralbank/gettransactions/CAC-SUB901-0001";
     fetch(urll)
       .then((response) => response.json())
       .then((json) => {
         console.log("json", json);
-        const sorted = json;
+        const sorted = json.subscribertrans.centralsubcribertrans;
         const last = sorted.sort((a, b) => {
           return a > b ? 1 : -1;
         });
@@ -326,7 +327,7 @@ const RedemptionRequest = () => {
               filter
               filterElement={dateFilterTemplate}
             />
-            {/* <Column
+            <Column
               field="issuetype"
               header="Token Name"
               filter
@@ -376,7 +377,7 @@ const RedemptionRequest = () => {
               body={statusBodyTemplate}
               filter
               filterElement={statusFilterTemplate}
-            /> */}
+            />
             <Column
               header="Issue Date"
               filterField="createdAt"
@@ -402,4 +403,4 @@ const RedemptionRequest = () => {
   );
 };
 
-export default RedemptionRequest;
+export default FXWBOCbdcStates;

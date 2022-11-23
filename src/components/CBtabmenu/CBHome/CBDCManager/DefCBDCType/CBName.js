@@ -28,7 +28,7 @@ export const CBName = ({ data, setData }) => {
             options={dropdownValues}
             optionLabel="label"
             placeholder={dropplaceholder}
-            className="p-dropdown-items p-dropdown-item p-dropdown-label"
+            className="p-dropdown-items p-dropdown-item "
             style={{ height: "4rem", fontSize: "2.0rem" }}
           />
           <label className="text-2xl pl-3" htmlFor="username">

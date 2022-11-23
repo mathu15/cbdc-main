@@ -1,10 +1,11 @@
 .p-dropdown-items {
   font-size: 1.4rem;
-  /* padding: 2rem; */
 }
-/* .p-dropdown-item {
+
+.p-dropdown-item {
   font-size: 2rem;
-} */
+}
+
 .p-dropdown-label {
   width: 100%;
 }

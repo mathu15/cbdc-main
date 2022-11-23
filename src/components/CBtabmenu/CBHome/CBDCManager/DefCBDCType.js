@@ -164,16 +164,18 @@ const DefCBDCType = () => {
           </div>
           <div className="w-6rem  text-white font-bold flex align-items-center justify-content-center   mr-3">
             <ToastContainer
-            // position="top-right"
-            // autoClose={5000}
-            // hideProgressBar={false}
-            // newestOnTop={false}
-            // closeOnClick
-            // rtl={false}
-            // pauseOnFocusLoss
-            // draggable
-            // pauseOnHover
-            // theme="colored"
+              // position="top-right"
+              // autoClose={5000}
+              // hideProgressBar={false}
+              // newestOnTop={false}
+              // closeOnClick
+              // rtl={false}
+              // pauseOnFocusLoss
+              // draggable
+              // pauseOnHover
+              // theme="colored"
+              className=" text-2xl "
+              style={{ width: "60rem" }}
             />
             <Button
               onClick={() => {

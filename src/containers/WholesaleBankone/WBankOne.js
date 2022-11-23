@@ -12,6 +12,7 @@ import WBORequests from "../../components/WBOneTab/WBORequests";
 import WBOTreasury from "../../components/WBOneTab/WBOTreasury";
 
 import WBOMoneySwipeTrans from "../../components/WBOneTab/WBOMoneySwipetrans";
+import WBOFXTradeTrans from "../../components/WBOneTab/WBOFXTradeTrans";
 
 const WBankOne = () => {
   const history = useHistory();
@@ -22,10 +23,16 @@ const WBankOne = () => {
       icon: "pi pi-fw pi-th-large",
       command: () => history.push("/wholesale-bank-one"),
     },
+
     {
       label: "CBDC MANAGER",
       icon: "pi pi-fw pi-desktop",
       command: () => history.push("/wholesale-bank-one/cbdc-manager"),
+    },
+    {
+      label: "FX TRADE",
+      icon: "pi pi-fw pi-th-large",
+      command: () => history.push("/wholesale-bank-one/fx-trade"),
     },
     {
       label: "ACCESS CONTROLS",
@@ -97,9 +104,15 @@ const WBankOne = () => {
         />
       </div>
       <Route exact path={"/wholesale-bank-one"} component={WBOHome} />
+
       <Route
         path={"/wholesale-bank-one/cbdc-manager"}
         component={WBOCbdcManager}
+      />
+      <Route
+        exact
+        path={"/wholesale-bank-one/fx-trade"}
+        component={WBOFXTradeTrans}
       />
       <Route
         path={"/wholesale-bank-one/access-controls"}
