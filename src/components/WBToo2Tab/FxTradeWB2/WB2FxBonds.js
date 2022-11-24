@@ -22,7 +22,9 @@ const WB2FxBonds = () => {
   useEffect(() => {
     //fetch data from api
     const fetchData = async () => {
-      const url = "https://thebsv.tech/centralbank/getbalance/CAC-SUB901-0001";
+      // const url = "https://thebsv.tech/centralbank/getbalance/CAC-SUB901-0001";
+      const url =
+        "https://thebsv.tech/exchange/gettraderaccountbalance/CAC-SUB901-0001";
       const dataset1 = [];
       const dataset2 = [];
       await fetch(url)

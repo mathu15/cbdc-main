@@ -1,30 +1,71 @@
-import React from "react";
-import { Dropdown } from "primereact/dropdown";
+import React, { useState, useEffect } from "react";
+
 import "../../../../components/dropdown.css";
+import { Button } from "primereact/button";
 // select the wholesale bank to transfer asset
 const WBOFxReqSelectExRate = ({ data, setData }) => {
-  const dropdownValues = [
-    { label: "WHOLESALEBANKTWO,CAC-SUB901-0002" },
-    { label: "WHOLESALEBANKTHREE,CAC-SUB901-0003" },
-    { label: "WHOLESALEBANKFOUR,CAC-SUB901-0004" },
-  ];
-  const dropplaceholder = <h3>select</h3>;
+  const [rate, setRate] = useState([]);
+  const [exrate, setExrate] = useState();
+  const text = data.assetid.label;
+  const myArray = text.split(",");
+  const text1 = data.assetid1.label;
+  const myArray1 = text1.split(",");
+
+  // useEffect(() => {
+  //   //fetch data from api
+  //   const fetchData = async () => {
+  //     const url = "https://api.exchangerate.host/latest?base=USD&symbols=AUD";
+
+  //     await fetch(url)
+  //       .then((data) => {
+  //         console.log("api data", data);
+  //         const res = data.json();
+  //         return res;
+  //       })
+  //       .then((res) => {
+  //         console.log("ress", res.rates);
+  //         setExrate(res.rates.AUD);
+  //       })
+  //       .catch((e) => {
+  //         console.log("error", e);
+  //       });
+  //   };
+  //   fetchData();
+  // }, []);
+
+  const getRate = async (first, second) => {
+    const url = `https://api.exchangerate.host/latest?base=${first}&symbols=${second}`;
+
+    await fetch(url)
+      .then((data) => {
+        console.log("api data", data);
+        const res = data.json();
+        return res;
+      })
+      .then((res) => {
+        console.log("ress", res.rates);
+        setRate(res.rates);
+      })
+      .catch((e) => {
+        console.log("error", e);
+      });
+  };
+
   return (
     <div className="grid p-fluid">
       <div className="col-12 text-center">
         <div className="text-center text-xl">
-          <p className="text-center text-2xl">
-            select available participant to transfer.
-          </p>
-          <Dropdown
-            value={data.notary}
-            onChange={(e) => setData({ ...data, notary: e.target.value })}
-            options={dropdownValues}
-            optionLabel="label"
-            placeholder={dropplaceholder}
-            style={{ fontSize: "1.4rem" }}
-            className="p-2 p-dropdown-item"
+          <Button
+            onClick={() => {
+              getRate(myArray[2], myArray1[2]);
+            }}
+            label="GET RATE"
+            className="w-6rem"
           />
+          <p className="text-center text-2xl">
+            Exchange Rate between {myArray[2]} and {myArray1[2]} ={" "}
+            {rate[`${myArray1[2]}`]}
+          </p>
         </div>
       </div>
     </div>

@@ -4,14 +4,22 @@ import "../../../../components/dropdown.css";
 // select asset to transfer to another wholesale bank
 const WBOFxReqSelecAsset = ({ data, setData }) => {
   const dropdownValues = [
-    { label: "Cash_BINR,ASSET-BND-0001" },
-    { label: "Digital_BINR,ASSET-BND-0002" },
-    { label: "Digital_USDT,ASSET-BND-0003" },
-    { label: "Cash_DINR,ASSET-BND-0004" },
-    { label: "Cash_GBP,ASSET-BND-0005" },
-    { label: "Cash_INR,ASSET-BND-0006" },
+    { label: "Cash_BINR,ASSET-BND-0001,INR" },
+    { label: "Digital_BINR,ASSET-BND-0002,INR" },
+    { label: "Digital_USDT,ASSET-BND-0003,USD" },
+    { label: "Cash_DINR,ASSET-BND-0004,INR" },
+    { label: "Cash_GBP,ASSET-BND-0005,GBP" },
+    { label: "Cash_INR,ASSET-BND-0006,INR" },
   ];
-  const dropplaceholder = <h3>select</h3>;
+  const dropdownValues1 = [
+    { label: "Cash_BINR,ASSET-BND-0001,INR" },
+    { label: "Digital_BINR,ASSET-BND-0002,INR" },
+    { label: "Digital_USDT,ASSET-BND-0003,USD" },
+    { label: "Cash_DINR,ASSET-BND-0004,INR" },
+    { label: "Cash_GBP,ASSET-BND-0005,GBP" },
+    { label: "Cash_INR,ASSET-BND-0006,INR" },
+  ];
+
   return (
     <div className="grid p-fluid">
       <div className="col-12 text-center">
@@ -24,7 +32,21 @@ const WBOFxReqSelecAsset = ({ data, setData }) => {
             onChange={(e) => setData({ ...data, assetid: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
-            placeholder={dropplaceholder}
+            placeholder="select"
+            className="p-2 font-bold text-3xl p-dropdown-item"
+            style={{ height: "4rem", fontSize: "2.0rem" }}
+          />
+        </div>
+        <div className="text-center text-xl p-5">
+          <p className="text-center text-2xl">
+            select available asset from the vault to transfer.
+          </p>
+          <Dropdown
+            value={data.assetid1}
+            onChange={(e) => setData({ ...data, assetid1: e.target.value })}
+            options={dropdownValues1}
+            optionLabel="label"
+            placeholder="select"
             className="p-2 font-bold text-3xl p-dropdown-item"
             style={{ height: "4rem", fontSize: "2.0rem" }}
           />

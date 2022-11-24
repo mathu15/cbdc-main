@@ -19,6 +19,7 @@ const WBOFxTransferCBDC = () => {
   //initial state fo user input
   const [data, setData] = useState({
     assetid: "",
+    assetid1: "",
     decimal: 2,
     notary: "",
     amount: 0,
@@ -36,6 +37,7 @@ const WBOFxTransferCBDC = () => {
   });
   const [data1, setData1] = useState({
     assetid: "",
+    assetid1: "",
     decimal: 2,
     notary: "",
     amount: 0,
@@ -111,12 +113,11 @@ const WBOFxTransferCBDC = () => {
   };
 
   const wizardItems = [
+    { label: "From Account" },
+    { label: "To Account" },
     { label: "Select Asset" },
     {
       label: "Enter Amount",
-    },
-    {
-      label: "Enter ExRate",
     },
     {
       label: "Confirm Transfer",

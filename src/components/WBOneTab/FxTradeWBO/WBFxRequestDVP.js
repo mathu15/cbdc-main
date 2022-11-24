@@ -13,6 +13,7 @@ import WBOFxReqSelecAsset from "./WBOFxRequest/WBOFxReqSelecAsset";
 import WBOFxReqEnterAmount from "./WBOFxRequest/WBOFxReqEnterAmount";
 import WBOFxReqSelectExRate from "./WBOFxRequest/WBOFxReqSelectExRate";
 import WBOFxReqConfirmTransfer from "./WBOFxRequest/WBOFxReqConfirmTransfer";
+import WBOFxSelectParticipant from "./WBOFxRequest/WBOFxReqSelectParticipant";
 const WBFxRequestDVP = () => {
   //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
@@ -20,6 +21,7 @@ const WBFxRequestDVP = () => {
   //initial state fo user input
   const [data, setData] = useState({
     assetid: "",
+    assetid1: "",
     decimal: 2,
     notary: "",
     amount: 0,
@@ -37,6 +39,7 @@ const WBFxRequestDVP = () => {
   });
   const [data1, setData1] = useState({
     assetid: "",
+    assetid1: "",
     decimal: 2,
     notary: "",
     amount: 0,
@@ -58,10 +61,12 @@ const WBFxRequestDVP = () => {
     if (activeIndex === 0) {
       return <WBOFxReqSelecAsset data={data} setData={setData} />;
     } else if (activeIndex === 1) {
-      return <WBOFxReqEnterAmount data={data} setData={setData} />;
+      return <WBOFxSelectParticipant data={data} setData={setData} />;
     } else if (activeIndex === 2) {
-      return <WBOFxReqSelectExRate data={data} setData={setData} />;
+      return <WBOFxReqEnterAmount data={data} setData={setData} />;
     } else if (activeIndex === 3) {
+      return <WBOFxReqSelectExRate data={data} setData={setData} />;
+    } else if (activeIndex === 4) {
       return <WBOFxReqConfirmTransfer data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
       return (
@@ -113,6 +118,7 @@ const WBFxRequestDVP = () => {
 
   const wizardItems = [
     { label: "Select Asset" },
+    { label: "Select participant" },
     {
       label: "Enter Amount",
     },
