@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Chart } from "primereact/chart";
 
 // page for displaying chaertdata
-const FXWBOBonds = () => {
+const WB2FxCBDCAssets = () => {
   // initail value for chart data
 
   const [data, setData] = useState();
@@ -32,7 +32,7 @@ const FXWBOBonds = () => {
           return res;
         })
         .then((res) => {
-          console.log("ress", res);
+          console.log("ress", res.balance);
           for (const val of res.balance) {
             dataset1.push(val.amount);
             dataset2.push(val.issuetype);
@@ -79,7 +79,7 @@ const FXWBOBonds = () => {
       },
       title: {
         display: true,
-        text: "",
+        text: "BONDS",
         color: "#eee",
       },
     },
@@ -93,43 +93,48 @@ const FXWBOBonds = () => {
 
   // console.log(dataset3);
   const value = amount.reduce((a, b) => a + b, 0);
-  console.log(value);
+  // console.log(value);
   return (
     <>
       <div className="col-12 ">
         <div className="grid p-fluid">
           <div className="col-12 md:col-6 ">
-            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
-              <p className="border-bottom-1 pb-2 text-3xl">CBDC Types</p>
+            <div className="card border-1 border-100 bg-gray-800  mt-3 card-w-title">
+              <p className="border-bottom-1 pb-2 text-3xl">
+                CBDC Types in Vault
+              </p>
               <div className="list-disc">
                 {issuetype.map((cdata, index) => (
                   <li className="text-2xl pb-2" key={index}>
                     {cdata}{" "}
                   </li>
                 ))}
+                <p className=" text-2xl font-bold text-yellow-500">
+                  Number of Types:{" "}
+                  <span className="text-3xl pb-2">{issuetype.length}</span>
+                </p>
               </div>
-              <p className=" text-2xl font-bold text-yellow-500">
-                Number of Types:{" "}
-                <span className="text-3xl pb-2">{issuetype.length}</span>
-              </p>
             </div>
           </div>
           <div className="col-12 md:col-6 ">
-            <div className="card border-1 border-300 bg-gray-800  mt-3 card-w-title">
-              <p className="border-bottom-1 pb-2 text-3xl">Total assets</p>
-              {amount.map((cdata, index) => (
-                <div className="list-disc" key={index}>
-                  <li className="text-2xl pb-2">{cdata} </li>
-                </div>
-              ))}
-              <p className=" text-2xl font-bold text-yellow-500">
-                Total: <span className="text-2xl pb-2">{value}</span>
+            <div className="card border-1 border-100 bg-gray-800  mt-3 card-w-title">
+              <p className="border-bottom-1 pb-2 text-3xl">
+                Total assets in Vaults
               </p>
+              <div className="list-disc">
+                {amount.map((cdata, index) => (
+                  <li className="text-2xl pb-2" key={index}>
+                    {cdata}{" "}
+                  </li>
+                ))}
+                <p className=" text-2xl font-bold text-yellow-500">
+                  Total: <span className="text-2xl pb-2">{value}</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
       <div className="  flex flex-column align-items-center ">
         <Chart
           type="doughnut"
@@ -146,4 +151,4 @@ const FXWBOBonds = () => {
   );
 };
 
-export default FXWBOBonds;
+export default WB2FxCBDCAssets;

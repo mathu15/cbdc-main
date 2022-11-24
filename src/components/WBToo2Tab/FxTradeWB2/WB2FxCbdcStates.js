@@ -9,7 +9,7 @@ import { InputNumber } from "primereact/inputnumber";
 import { Calendar } from "primereact/calendar";
 import { NavLink } from "react-router-dom";
 
-const FXWBOCbdcStates = () => {
+const WB2FxCbdcStates = () => {
   const [data, setData] = useState(null);
 
   const [filters, setFilters] = useState(null);
@@ -403,4 +403,4 @@ const FXWBOCbdcStates = () => {
   );
 };
 
-export default FXWBOCbdcStates;
+export default WB2FxCbdcStates;

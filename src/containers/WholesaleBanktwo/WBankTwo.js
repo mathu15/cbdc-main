@@ -18,6 +18,7 @@ import WB2Requests from "../../components/WBToo2Tab/WB2Requests";
 import WB2Treasury from "../../components/WBToo2Tab/WB2Treasury";
 import WB2MoneySwipeTrans from "../../components/WBToo2Tab/WB2MoneySwipeTrans";
 import WB2Home from "../../components/WBToo2Tab/WB2Home";
+import WB2FxTrade from "../../components/WBToo2Tab/WB2FxTrade";
 
 const WBankTwo = () => {
   const history = useHistory();
@@ -32,6 +33,11 @@ const WBankTwo = () => {
       label: "CBDC MANAGER",
       icon: "pi pi-fw pi-dollar",
       command: () => history.push("/wholesale-bank-two/cbdc-manager"),
+    },
+    {
+      label: "FX TRADE",
+      icon: "pi pi-fw pi-desktop",
+      command: () => history.push("/wholesale-bank-one/fx-trade"),
     },
     {
       label: "ACCESS CONTROLS",
@@ -106,6 +112,7 @@ const WBankTwo = () => {
         path={"/wholesale-bank-two/cbdc-manager"}
         component={WB2CbdcManager}
       />
+      <Route path={"/wholesale-bank-one/fx-trade"} component={WB2FxTrade} />
       <Route
         path={"/wholesale-bank-two/access-controls"}
         component={WB2AccessControl}

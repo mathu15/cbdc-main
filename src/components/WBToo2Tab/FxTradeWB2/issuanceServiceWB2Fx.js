@@ -1,4 +1,4 @@
-class IssuanceServiceWB {
+class IssuanceServiceWB2Fx {
   sendcentraltosubscriber(assetid, assetname, participant, amount) {
     const payload = {
       method: "POST",
@@ -223,4 +223,4 @@ class IssuanceServiceWB {
   }
 }
 
-export { IssuanceServiceWB };
+export { IssuanceServiceWB2Fx };

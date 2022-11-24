@@ -1,7 +1,7 @@
 import React from "react";
 
-const WBOMoneySwipeTrans = () => {
-  return <div>WBOMoneySwipeTrans WBOMoneySwipeTrans</div>;
+const WBOIntrasettleTrans = () => {
+  return <div>WBOIntrasettleTrans WBOIntrasettleTrans</div>;
 };
 
-export default WBOMoneySwipeTrans;
+export default WBOIntrasettleTrans;
