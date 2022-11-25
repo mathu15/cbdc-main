@@ -111,12 +111,11 @@ const WB2FxTransferCBDC = () => {
   };
 
   const wizardItems = [
+    { label: "From Account" },
+    { label: "To Account" },
     { label: "Select Asset" },
     {
       label: "Enter Amount",
-    },
-    {
-      label: "Enter ExRate",
     },
     {
       label: "Confirm Transfer",

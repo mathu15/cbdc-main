@@ -36,6 +36,7 @@ const WBFxRequestDVP = () => {
     maxvalue: 10000000,
     minvalue: "",
     displayvalue: "",
+    rate: 1,
   });
   const [data1, setData1] = useState({
     assetid: "",
@@ -54,6 +55,7 @@ const WBFxRequestDVP = () => {
     maxvalue: 10000000,
     minvalue: "",
     displayvalue: "",
+    rate: 1,
   });
 
   //setting active index tab for steps pages
@@ -123,7 +125,7 @@ const WBFxRequestDVP = () => {
       label: "Enter Amount",
     },
     {
-      label: "Enter ExRate",
+      label: "ExRate",
     },
     {
       label: "Confirm Request",

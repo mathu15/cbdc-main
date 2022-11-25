@@ -37,7 +37,7 @@ const WBankTwo = () => {
     {
       label: "FX TRADE",
       icon: "pi pi-fw pi-desktop",
-      command: () => history.push("/wholesale-bank-one/fx-trade"),
+      command: () => history.push("/wholesale-bank-two/fx-trade"),
     },
     {
       label: "ACCESS CONTROLS",
@@ -112,7 +112,7 @@ const WBankTwo = () => {
         path={"/wholesale-bank-two/cbdc-manager"}
         component={WB2CbdcManager}
       />
-      <Route path={"/wholesale-bank-one/fx-trade"} component={WB2FxTrade} />
+      <Route path={"/wholesale-bank-two/fx-trade"} component={WB2FxTrade} />
       <Route
         path={"/wholesale-bank-two/access-controls"}
         component={WB2AccessControl}

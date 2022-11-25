@@ -11,8 +11,10 @@ import { IssuanceServiceWB2Fx } from "./issuanceServiceWB2Fx";
 
 import WB2FxReqSelectExRate from "./WB2FxRequest/WB2FxReqSelectExRate";
 import WB2FxReqConfirmTransfer from "./WB2FxRequest/WB2FxReqConfirmTransfer";
-import WB2FxReqSelecAsset from "./WB2FxTransfer/WB2FxSelecAsset";
 import WB2FxReqEnterAmount from "./WB2FxRequest/WB2FxReqEnterAmount";
+import WB2FxSelectParticipant from "./WB2FxRequest/WB2FxReqSelectParticipant";
+import WB2FxReqSelecAsset from "./WB2FxRequest/WB2FxReqSelecAsset";
+
 const WB2FxRequestDVP = () => {
   //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
@@ -20,6 +22,7 @@ const WB2FxRequestDVP = () => {
   //initial state fo user input
   const [data, setData] = useState({
     assetid: "",
+    assetid1: "",
     decimal: 2,
     notary: "",
     amount: 0,
@@ -34,9 +37,11 @@ const WB2FxRequestDVP = () => {
     maxvalue: 10000000,
     minvalue: "",
     displayvalue: "",
+    rate: 1,
   });
   const [data1, setData1] = useState({
     assetid: "",
+    assetid1: "",
     decimal: 2,
     notary: "",
     amount: 0,
@@ -51,6 +56,7 @@ const WB2FxRequestDVP = () => {
     maxvalue: 10000000,
     minvalue: "",
     displayvalue: "",
+    rate: 1,
   });
 
   //setting active index tab for steps pages
@@ -58,10 +64,12 @@ const WB2FxRequestDVP = () => {
     if (activeIndex === 0) {
       return <WB2FxReqSelecAsset data={data} setData={setData} />;
     } else if (activeIndex === 1) {
-      return <WB2FxReqEnterAmount data={data} setData={setData} />;
+      return <WB2FxSelectParticipant data={data} setData={setData} />;
     } else if (activeIndex === 2) {
-      return <WB2FxReqSelectExRate data={data} setData={setData} />;
+      return <WB2FxReqEnterAmount data={data} setData={setData} />;
     } else if (activeIndex === 3) {
+      return <WB2FxReqSelectExRate data={data} setData={setData} />;
+    } else if (activeIndex === 4) {
       return <WB2FxReqConfirmTransfer data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
       return (
@@ -113,11 +121,12 @@ const WB2FxRequestDVP = () => {
 
   const wizardItems = [
     { label: "Select Asset" },
+    { label: "Select participant" },
     {
       label: "Enter Amount",
     },
     {
-      label: "Enter ExRate",
+      label: "ExRate",
     },
     {
       label: "Confirm Request",

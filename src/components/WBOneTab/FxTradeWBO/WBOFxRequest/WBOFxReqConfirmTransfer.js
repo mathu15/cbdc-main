@@ -6,6 +6,8 @@ const WBOFxReqConfirmTransfer = ({ data, setData }) => {
   const subscriber = data.notary.label;
   const myArray = text.split(",");
   const wholesale = subscriber.split(",");
+  const text1 = data.assetid1.label;
+  const myArray1 = text1.split(",");
 
   console.log("data", data);
   return (
@@ -23,9 +25,12 @@ const WBOFxReqConfirmTransfer = ({ data, setData }) => {
           <p className="text-center text-3xl">
             Receiving Party: {wholesale[0]}
           </p>
-          <p className="text-center text-3xl">Amount: {data.amount}</p>
           <p className="text-center text-3xl">
-            Remaining after Transfer: {data.total - data.amount}
+            Amount: {data.amount * data.rate[`${myArray1[2]}`]}
+          </p>
+          <p className="text-center text-3xl">
+            Remaining after Transfer:{" "}
+            {data.total - data.amount * data.rate[`${myArray1[2]}`]}
           </p>
         </div>
       </div>

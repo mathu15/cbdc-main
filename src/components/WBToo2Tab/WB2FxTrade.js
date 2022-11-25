@@ -43,7 +43,7 @@ const WB2FxTrade = ({ data, setData }) => {
       icon: "pi pi-fw pi-arrow-right-arrow-left",
     },
     {
-      label: "REQUEST DVP",
+      label: "FX TRADE",
       icon: "pi pi-fw pi-upload",
     },
   ];
