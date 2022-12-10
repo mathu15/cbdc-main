@@ -85,6 +85,8 @@ const WBFxRequestDVP = () => {
   const myArray = text || text !== undefined ? text.split(",") : "";
   const wholesale =
     subscriber || subscriber !== undefined ? subscriber.split(",") : "";
+  const text1 = data.assetid1.label;
+  const myArray1 = text1 || text1 !== undefined ? text1.split(",") : "";
   // const account = 'CAC-SUB901-0001';
   const issuanceServiceWBFx = new IssuanceServiceWBFx();
   const sendsubscribertosubscriber = async () => {
@@ -92,7 +94,7 @@ const WBFxRequestDVP = () => {
       myArray[1],
       myArray[0],
       wholesale[1],
-      data.amount
+      data.amount * data.rate[`${myArray1[2]}`]
       // account
     );
   };

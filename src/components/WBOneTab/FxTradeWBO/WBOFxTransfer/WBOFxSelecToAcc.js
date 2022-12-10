@@ -2,14 +2,10 @@ import React from "react";
 import { Dropdown } from "primereact/dropdown";
 import "../../../../components/dropdown.css";
 // select asset to transfer to another wholesale bank
-const WBOFxSelecAsset = ({ data, setData }) => {
+const WBOFxSelecToAcc = ({ data, setData }) => {
   const dropdownValues = [
-    { label: "Cash_BINR,ASSET-BND-0001" },
-    { label: "Digital_BINR,ASSET-BND-0002" },
-    { label: "Digital_USDT,ASSET-BND-0003" },
-    { label: "Cash_DINR,ASSET-BND-0004" },
-    { label: "Cash_GBP,ASSET-BND-0005" },
-    { label: "Cash_INR,ASSET-BND-0006" },
+    { label: "Operation Account" },
+    { label: "Trader Account" },
   ];
   const dropplaceholder = <h3>select</h3>;
   return (
@@ -20,8 +16,8 @@ const WBOFxSelecAsset = ({ data, setData }) => {
             select available asset from the vault to transfer.
           </p>
           <Dropdown
-            value={data.assetid}
-            onChange={(e) => setData({ ...data, assetid: e.target.value })}
+            value={data.toaccount}
+            onChange={(e) => setData({ ...data, toaccount: e.target.value })}
             options={dropdownValues}
             optionLabel="label"
             placeholder={dropplaceholder}
@@ -34,4 +30,4 @@ const WBOFxSelecAsset = ({ data, setData }) => {
   );
 };
 
-export default WBOFxSelecAsset;
+export default WBOFxSelecToAcc;

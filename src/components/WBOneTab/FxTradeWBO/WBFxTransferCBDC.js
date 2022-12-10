@@ -12,6 +12,8 @@ import WBOFxSelecAsset from "./WBOFxTransfer/WBOFxSelecAsset";
 import WBOFxEnterAmount from "./WBOFxTransfer/WBOFxEnterAmount";
 import WBOFxSelectExRate from "./WBOFxTransfer/WBOFxSelectExRate";
 import WBOFxConfirmTransfer from "./WBOFxTransfer/WBOFxConfirmTransfer";
+import WBOFxSelecFromAcc from "./WBOFxTransfer/WBOFxSelecFromAcc";
+import WBOFxSelecToAcc from "./WBOFxTransfer/WBOFxSelecToAcc";
 const WBOFxTransferCBDC = () => {
   //curent page for  steps is set to default index 0
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,6 +36,8 @@ const WBOFxTransferCBDC = () => {
     maxvalue: 10000000,
     minvalue: "",
     displayvalue: "",
+    fromaccount: "",
+    toaccount: "",
   });
   const [data1, setData1] = useState({
     assetid: "",
@@ -52,17 +56,21 @@ const WBOFxTransferCBDC = () => {
     maxvalue: 10000000,
     minvalue: "",
     displayvalue: "",
+    fromaccount: "",
+    toaccount: "",
   });
 
   //setting active index tab for steps pages
   const pageDisplay = () => {
     if (activeIndex === 0) {
-      return <WBOFxSelecAsset data={data} setData={setData} />;
+      return <WBOFxSelecFromAcc data={data} setData={setData} />;
     } else if (activeIndex === 1) {
-      return <WBOFxEnterAmount data={data} setData={setData} />;
+      return <WBOFxSelecToAcc data={data} setData={setData} />;
     } else if (activeIndex === 2) {
-      return <WBOFxSelectExRate data={data} setData={setData} />;
+      return <WBOFxSelecAsset data={data} setData={setData} />;
     } else if (activeIndex === 3) {
+      return <WBOFxEnterAmount data={data} setData={setData} />;
+    } else if (activeIndex === 4) {
       return <WBOFxConfirmTransfer data={data} setData={setData} />;
     } else if (activeIndex === wizardItems.length) {
       return (
@@ -75,40 +83,59 @@ const WBOFxTransferCBDC = () => {
   };
 
   const text = data.assetid.label;
-  const subscriber = data.notary.label;
+  // const subscriber = data.notary.label;
   const myArray = text || text !== undefined ? text.split(",") : "";
-  const wholesale =
-    subscriber || subscriber !== undefined ? subscriber.split(",") : "";
+  // const wholesale =
+  //   subscriber || subscriber !== undefined ? subscriber.split(",") : "";
   // const account = 'CAC-SUB901-0001';
   const issuanceServiceWBFx = new IssuanceServiceWBFx();
-  const sendsubscribertosubscriber = async () => {
-    issuanceServiceWBFx.sendsubscribertosubscriber(
-      myArray[1],
-      myArray[0],
-      wholesale[1],
-      data.amount
-      // account
-    );
+  const transferassets = async () => {
+    if (data.fromaccount.label === "Operation Account") {
+      issuanceServiceWBFx.sendoperationtotrader(
+        // data.fromaccount,
+        // data.toaccount,
+        data.amount,
+        myArray[1],
+        myArray[0]
+
+        // wholesale[1],
+        // account
+      );
+    } else {
+      issuanceServiceWBFx.sendtradertooperation(
+        // data.fromaccount,
+        // data.toaccount,
+        data.amount,
+        myArray[1],
+        myArray[0]
+
+        // wholesale[1],
+        // account
+      );
+    }
   };
 
   const showSuccess = () => {
-    toast.success("created successfully", {
-      // position: "top-right",
-      // autoClose: 5000,
-      // hideProgressBar: false,
-      // closeOnClick: true,
-      // pauseOnHover: true,
-      // draggable: true,
-      // progress: undefined,
-      // theme: "colored",
-      // theme: "dark",
-    });
+    toast.success(
+      `Successfully transfered ${data.amount} ${myArray[0]} form ${data.fromaccount.label} to ${data.toaccount.label}`,
+      {
+        // position: "top-right",
+        // autoClose: 5000,
+        // hideProgressBar: false,
+        // closeOnClick: true,
+        // pauseOnHover: true,
+        // draggable: true,
+        // progress: undefined,
+        // theme: "colored",
+        // theme: "dark",
+      }
+    );
   };
 
   const clickHandler = () => {
     showSuccess();
     setActiveIndex(wizardItems.length);
-    sendsubscribertosubscriber();
+    transferassets();
     setData(data1);
   };
 
